@@ -1,6 +1,6 @@
 #include "bits-to-ints.h"
 #include "errors.h"
-
+#include <string.h>
 #include <assert.h>
 #include <ctype.h>
 #include <limits.h>
@@ -44,15 +44,14 @@
  *  function should return with *isEof set to true.
  */
 
-unsigned long long int toByte(char bits[]){
+unsigned long long int toByte(char *bits){
   unsigned int sum = 0;
-  for(int i = 0; i < 8; i++)
-    {
-      sum += bits[i] - '0';
-      sum<<=1;
-    }
+  for (int i = 0; i < 8; i++){
+    sum <<=1;
+    sum += bits[i] - '0';
+  }
   return sum;
-
+  
 }
 BitsValue
 bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
@@ -72,15 +71,15 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
 	c = fgetc(inFile);
       }
       else{
-	sprintf(str," %d", c);
+	sprintf(str," %c", c);
 	c = fgetc(inFile);
       }   
     }
-    /* printf("%c", c);*/
+    printf("%s", str);
+    /*
     int total = toByte(str);
-    printf("%d", total);
+    printf("%d", total);*/
   }
-  
   fclose(inFile);
   *isEof = true;
   return value;
