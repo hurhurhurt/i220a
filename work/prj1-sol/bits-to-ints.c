@@ -6,6 +6,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 //@TODO: auxiliary definitions
 
@@ -42,6 +43,17 @@
  *  in inFile, then a suitable error message should be printed and the
  *  function should return with *isEof set to true.
  */
+
+unsigned long long int toByte(char bits[]){
+  unsigned int sum = 0;
+  for(int i = 0; i < 8; i++)
+    {
+      sum += bits[i] - '0';
+      sum<<=1;
+    }
+  return sum;
+
+}
 BitsValue
 bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
 {
@@ -52,11 +64,21 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
     if (inFile == NULL){
       printf("Invalid File");
       return 0;
-  }
-  
-  int c = fgetc(inFile);
-  c = bitToByte(c);
-  printf("%c", c);
+    }
+    char str[8];
+    int c = fgetc(inFile);
+    if  (c != 10){
+      if (c == 32){
+	c = fgetc(inFile);
+      }
+      else{
+	sprintf(str," %d", c);
+	c = fgetc(inFile);
+      }   
+    }
+    /* printf("%c", c);*/
+    int total = toByte(str);
+    printf("%d", total);
   }
   
   fclose(inFile);
@@ -64,9 +86,3 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   return value;
 }
 
-unsigned int bitToByte(unsigned int bit){
-  bit << = 1;
-  return bit;
-}
-
-  
