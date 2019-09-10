@@ -1,5 +1,3 @@
-
-
 #include "bits-to-ints.h"
 #include "errors.h"
 #include <string.h>
@@ -46,6 +44,20 @@
  *  function should return with *isEof set to true.
  */
 
+char *strrev(char *str){
+  if (!str || ! *str) return str;
+  char ch;
+  int i = strlen(str) - 1, j = 0;
+  while (i > j){
+    ch = str[i];
+    str[i]=str[j];
+    str[j]=ch;
+    i--;
+    j++;
+  }
+  return str;
+}
+
 int allocate_space(FILE *inFile){
   int counter = 0;
   while (!feof(inFile)){
@@ -75,9 +87,10 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   BitsValue value = 0;
   
   long int space = allocate_space(inFile);
-  printf("%ld\n", space);
-  
   char returnString[space];
+  printf("Value inside space variable: %ld\n", space);
+  printf("Size of return string: %ld\n", sizeof(returnString));
+  returnString[sizeof(returnString) - 1] = '\0';
   rewind(inFile);
   
   int c = fgetc(inFile);
@@ -86,15 +99,27 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
     if (c == 10 || c == 32){
       c = fgetc(inFile);
     }
-    //sprintf(returnString, "%c", c);
     else{
       returnString[i] = c;
       i++;
       c = fgetc(inFile);
     }
   }
-  printf("%s\n", returnString);
-  
+  printf("\nBefore reversing: %s\n", returnString);  
+  printf("After reversing: %s\n", strrev(returnString));
+
+
+  for (int i = 0, i <= space, i+=nBits){
+    
+  char *a = strrev(returnString);
+  int num = 0;
+  do{
+    int b = *a == '1'?1:0;
+    num = (num<<1)|b;
+    a++;
+      }while (*a);
+  printf("%X\n", num);
+    //printf(strtol(strrev(returnString), NULL, 2));
   fclose(inFile);
   *isEof = true;
   return value;
