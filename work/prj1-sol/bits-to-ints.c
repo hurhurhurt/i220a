@@ -51,6 +51,27 @@ void append(char* s, char c){
   s[len+1] = '\0';
 }
 
+int allocate_space(FILE *inFile){
+  int counter = 0;
+  while (!feof(inFile)){
+    if (inFile == NULL){
+      printf("Invalid File");
+      return 1;
+    }
+    int c = fgetc(inFile);
+    if (c != 10){
+      if (c == 32){
+	c = fgetc(inFile);
+      }
+      else{
+	counter +=1;
+	c = fgetc(inFile);
+      }
+    }  
+  }
+  fclose(inFile);
+  return counter -  1; // accounts for the extra EOF character
+}
 
 BitsValue
 bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
@@ -58,30 +79,23 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   //nBits value should make sense
   assert(0 < nBits && nBits <= CHAR_BIT*sizeof(BitsValue));
   BitsValue value = 0;
-
+  printf("%d", allocate_space(inFile));
+  *isEof = true;
+  return value;
+  /*
   // allocate enough space for array
-  long temp = 0;
-  if (inFile){
-    fseek(inFile, 0, SEEK_END);
-    long fileSize = ftell(inFile);
-    fseek(inFile, 0, SEEK_SET);
-    temp = fileSize;
-  }
-  //printf("%ld", temp /2 + 1);
-  char str[(temp / 2) + 1];
-  str[(temp / 2) + 1] = '\0';
-  //convert to byte array
+  
   while (!feof(inFile)){
     if (inFile == NULL){
       printf("Invalid File");
       return 0;
     }
     int c = fgetc(inFile);
-    /*
+    
     if (c == EOF){
       printf("End of file.");
       break;
-      }*/
+      }
     if (c != 10){
       if (c == 32){
 	c = fgetc(inFile);
@@ -94,9 +108,10 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   }
   fclose(inFile);
   *isEof = true;
-  //printf("\n Contents of file: %s", str);
-  //printf("\n Length of string: %ld\n", sizeof(str));
 
+  printf("\n Contents of file: %s", str);
+  printf("\n Length of string: %ld\n", sizeof(str));
+  
   char newArray[8][8];
   int count = 0;
   for (int z = 0;
@@ -105,9 +120,6 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
         if (count < 8){
 	newArray[j][i] = 
       
-      
-
-
   
   int counter = 0;
   for (int i = 0; i < strlen(str); i++){
@@ -120,6 +132,5 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
       counter = 0;
 	}
   }
-  
-  return value;
+  */
 }
