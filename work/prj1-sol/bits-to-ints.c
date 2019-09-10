@@ -44,6 +44,31 @@
  *  function should return with *isEof set to true.
  */
 
+void binaryToHex(const char *inStr, char *outStr) {
+  // outStr must be at least strlen(inStr)/4 + 1 bytes.
+  static char hex[] = "0123456789ABCDEF";
+  int len = strlen(inStr) / 4;
+  int i = strlen(inStr) % 4;
+  char current = 0;
+  if(i) { // handle not multiple of 4
+    while(i--) {
+      current = (current << 1) + (*inStr - '0');
+      inStr++;
+    }
+    *outStr = hex[current];
+    ++outStr;
+  }
+  while(len--) {
+    current = 0;
+    for(i = 0; i < 4; ++i) {
+      current = (current << 1) + (*inStr - '0');
+      inStr++;
+    }
+    *outStr = hex[current];
+    ++outStr;
+  }
+  *outStr = 0; // null byte
+}
 char *strrev(char *str){
   if (!str || ! *str) return str;
   char ch;
@@ -76,7 +101,7 @@ int allocate_space(FILE *inFile){
       }
     }  
   }
-  return counter; // accounts for the extra EOF character
+  return counter;
 }
 
 BitsValue
@@ -107,19 +132,10 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   }
   printf("\nBefore reversing: %s\n", returnString);  
   printf("After reversing: %s\n", strrev(returnString));
-
-
-  for (int i = 0, i <= space, i+=nBits){
-    
-  char *a = strrev(returnString);
-  int num = 0;
-  do{
-    int b = *a == '1'?1:0;
-    num = (num<<1)|b;
-    a++;
-      }while (*a);
-  printf("%X\n", num);
-    //printf(strtol(strrev(returnString), NULL, 2));
+ 
+  char hexString[space * 5];
+  binaryToHex(returnString, hexString);
+  printf("Hex: %s", hexString);     
   fclose(inFile);
   *isEof = true;
   return value;
