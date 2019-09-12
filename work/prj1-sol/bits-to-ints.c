@@ -104,12 +104,12 @@ int allocate_space(FILE *inFile){
   return counter;
 }
 
-BitsValue
-bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
+BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
 { 
   //nBits value should make sense
   assert(0 < nBits && nBits <= CHAR_BIT*sizeof(BitsValue));
   BitsValue value = 0;
+  *isEof = false;
   
   long int space = allocate_space(inFile);
   char returnString[space];
@@ -117,12 +117,20 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   printf("Size of return string: %ld\n", sizeof(returnString));
   returnString[sizeof(returnString) - 1] = '\0';
   rewind(inFile);
-  
-  int c = fgetc(inFile);
+
   int i = 0;
-  while (c != EOF){
+  while (!*isEof){
+    int c = fgetc(inFile);
     if (c == 10 || c == 32){
       c = fgetc(inFile);
+    }/*
+    else if (c != 48 || c != 49 || c != 10 || c!= 32 || c!= EOF){
+      printf("Unexpected character %d in file", c);
+      *isEof = true;
+      }*/
+    else if (c == EOF){
+      printf("EOF reached");
+      *isEof = true;
     }
     else{
       returnString[i] = c;
@@ -131,11 +139,29 @@ bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
     }
   }
   printf("\nBefore reversing: %s\n", returnString);  
-  printf("After reversing: %s\n", strrev(returnString));
- 
+  //printf("After reversing: %s\n", strrev(returnString));
+
+  char reverseString[space];
+  strncpy(reverseString, returnString, space);
+
   char hexString[space * 5];
-  binaryToHex(returnString, hexString);
-  printf("Hex: %s", hexString);     
+  char tempString[nBits];
+  memcpy(tempString, returnString, nBits * sizeof(int));
+  printf("String: %s", tempString);
+  binaryToHex(strrev(tempString), hexString);
+  printf("Hex: %s\n", hexString);
+
+  int current = nBits;
+  for (int i = 0; i < space - 1; i +=nBits){
+    char hex[space * 5];
+    char temp[nBits];
+    memcpy(temp,&returnString[current], nBits * sizeof(int));
+    binaryToHex(temp, hex);
+    printf("Hex: %s\n", strrev(hex));
+    current += nBits;
+    //printf("Hex: %s\n", strrev(hex));
+  }
+  
   fclose(inFile);
   *isEof = true;
   return value;
