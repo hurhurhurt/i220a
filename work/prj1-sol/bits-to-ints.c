@@ -113,8 +113,6 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   
   long int space = allocate_space(inFile);
   char returnString[space];
-  printf("Value inside space variable: %ld\n", space);
-  printf("Size of return string: %ld\n", sizeof(returnString));
   returnString[sizeof(returnString) - 1] = '\0';
   rewind(inFile);
 
@@ -129,7 +127,7 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
       *isEof = true;
       }*/
     else if (c == EOF){
-      printf("EOF reached");
+      printf("EOF reached\n");
       *isEof = true;
     }
     else{
@@ -138,28 +136,27 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
       c = fgetc(inFile);
     }
   }
-  printf("\nBefore reversing: %s\n", returnString);  
-  //printf("After reversing: %s\n", strrev(returnString));
 
-  char reverseString[space];
-  strncpy(reverseString, returnString, space);
-
+  
   char hexString[space * 5];
   char tempString[nBits];
-  memcpy(tempString, returnString, nBits * sizeof(int));
-  printf("String: %s", tempString);
-  binaryToHex(strrev(tempString), hexString);
+  //tempString[sizeof(tempString) - 1] = '0';
+  memcpy(tempString, returnString, nBits);
+  strrev(tempString);
+  binaryToHex(tempString, hexString);
   printf("Hex: %s\n", hexString);
 
   int current = nBits;
-  for (int i = 0; i < space - 1; i +=nBits){
+  int iterations = space / nBits;
+  for (int i = 0; i < iterations - 1; i += 1){
     char hex[space * 5];
     char temp[nBits];
-    memcpy(temp,&returnString[current], nBits * sizeof(int));
+    memcpy(temp,&returnString[current], nBits);
+    strrev(temp);
+    printf("String: %s", temp);
     binaryToHex(temp, hex);
-    printf("Hex: %s\n", strrev(hex));
+    printf("Hex: %s\n", hex);
     current += nBits;
-    //printf("Hex: %s\n", strrev(hex));
   }
   
   fclose(inFile);
