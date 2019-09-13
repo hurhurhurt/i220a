@@ -44,9 +44,9 @@
  *  function should return with *isEof set to true.
  */
 
+// binary to hex function where the inStr is converted and returned in outStr
 void binaryToHex(const char *inStr, char *outStr) {
-  // outStr must be at least strlen(inStr)/4 + 1 bytes.
-  static char hex[] = "0123456789ABCDEF";
+  static unsigned char hex[] = "0123456789ABCDEF";
   int len = strlen(inStr) / 4;
   int i = strlen(inStr) % 4;
   char current = 0;
@@ -67,8 +67,10 @@ void binaryToHex(const char *inStr, char *outStr) {
     *outStr = hex[current];
     ++outStr;
   }
-  *outStr = 0; // null byte
+  *outStr = 0; // null value to handle invalid characters
 }
+
+// a simple string reverse function for endian related strings
 char *strrev(char *str){
   if (!str || ! *str) return str;
   char ch;
@@ -83,6 +85,7 @@ char *strrev(char *str){
   return str;
 }
 
+// reads file and returns the number of characters in the file except for whitespace
 int allocate_space(FILE *inFile){
   int counter = 0;
   while (!feof(inFile)){
@@ -111,41 +114,49 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
   BitsValue value = 0;
   *isEof = false;
   
+  // create the string where inFile will be stored
   long int space = allocate_space(inFile);
   char returnString[space];
+  //set last value equal to 0
   returnString[sizeof(returnString) - 1] = '\0';
+  //set the pointer back to the top of the file
   rewind(inFile);
 
+  // while loop that checks for invalid characters and EOF
   int i = 0;
   while (!*isEof){
-    int c = fgetc(inFile);
+     int c = fgetc(inFile);
+    // if c is whitespace or new line, keep looping
     if (c == 10 || c == 32){
       c = fgetc(inFile);
-    }/*
-    else if (c != 48 || c != 49 || c != 10 || c!= 32 || c!= EOF){
+    }
+    //if c is an unexpected character, note that
+    else if (c != 48 && c != 49 && c != 10 && c!= 32 && c!= EOF){
       printf("Unexpected character %d in file", c);
       *isEof = true;
-      }*/
+      }
+    // if c is EOF, note that
     else if (c == EOF){
       printf("EOF reached\n");
       *isEof = true;
     }
+    // otherwise everything is fine, so just keep looping and putting the input file in the string
     else{
       returnString[i] = c;
       i++;
       c = fgetc(inFile);
     }
   }
-
   
-  char hexString[space * 5];
-  char tempString[nBits];
-  //tempString[sizeof(tempString) - 1] = '0';
-  memcpy(tempString, returnString, nBits);
-  strrev(tempString);
+  printf("\n"); // helps get rid of junk in memory
+  char hexString[space * 5]; // allocates just enough space for hexstring
+  char tempString[nBits];  // temp string to convert to hex
+  memcpy(tempString, returnString, nBits); // copy first nBits
+  strrev(tempString); 
   binaryToHex(tempString, hexString);
   printf("Hex: %s\n", hexString);
 
+  // this is the same code as above, but in a loop because memcpy now requires & 
   int current = nBits;
   int iterations = space / nBits;
   for (int i = 0; i < iterations - 1; i += 1){
@@ -153,12 +164,10 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
     char temp[nBits];
     memcpy(temp,&returnString[current], nBits);
     strrev(temp);
-    printf("String: %s", temp);
     binaryToHex(temp, hex);
     printf("Hex: %s\n", hex);
     current += nBits;
   }
-  
   fclose(inFile);
   *isEof = true;
   return value;
