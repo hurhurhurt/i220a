@@ -147,14 +147,21 @@ BitsValue bits_to_ints(FILE *inFile, const char *inName, int nBits, bool *isEof)
       c = fgetc(inFile);
     }
   }
-  
+
   printf("\n"); // helps get rid of junk in memory
   char hexString[space * 5]; // allocates just enough space for hexstring
   char tempString[nBits];  // temp string to convert to hex
+  char one[8];
+  char two[8];
   memcpy(tempString, returnString, nBits); // copy first nBits
-  strrev(tempString); 
-  binaryToHex(tempString, hexString);
-  printf("Hex: %s\n", hexString);
+  memcpy(one, tempString, 8);
+  memcpy(two, &tempString[9], 8);
+  //strrev(one);
+  //strrev(two);
+  printf("%s", one);
+  printf("%s", two);
+  binaryToHex(one, hexString);
+  //printf("Hex: %s\n", hexString);
 
   // this is the same code as above, but in a loop because memcpy now requires & 
   int current = nBits;
