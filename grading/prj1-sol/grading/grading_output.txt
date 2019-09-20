@@ -1,0 +1,309 @@
+2019 Fall CS 220 - Project 1 Grading Report
+Student Name: Hur	Thomas
+Grader Name: Li Yongheng
+
+----------(40%) 0. compile program-----------
+$ make
+cc -g -Wall -std=c11   -c -o main.o main.c
+cc -g -Wall -std=c11   -c -o bits-to-ints.o bits-to-ints.c
+bits-to-ints.c: In function â€˜binaryToHexâ€™:
+bits-to-ints.c:58:18: warning: array subscript has type â€˜charâ€™ [-Wchar-subscripts]
+     *outStr = hex[current];
+                  ^
+bits-to-ints.c:67:18: warning: array subscript has type â€˜charâ€™ [-Wchar-subscripts]
+     *outStr = hex[current];
+                  ^
+cc -g -Wall -std=c11   -c -o errors.o errors.c
+cc main.o bits-to-ints.o errors.o  -o bits-to-ints
+>>> output: compilation succeeded.
++++ result: -0.5
++++ comment: compiler warning
+----------(2%) 1. good_input_1 8 bits-----------
+$ ./bits-to-ints 8 grading/input_good_1.txt
+>>> expect: 
+81
+ab
+55
+e6
+90
+e9
+00
+ff
+>>> output: 
+EOF reached
+
+10000001q”cUHex: AB
+Hex: 55
+Hex: E6
+Hex: 90
+Hex: E9
+Hex: 00
+Hex: FF
++++ result: -2
++++ comment: test failed
+----------(2%) 2. good_input_1 16 bits-----------
+$ ./bits-to-ints 16 grading/input_good_1.txt
+>>> expect: 
+81ab
+55e6
+90e9
+00ff
+>>> output: 
+EOF reached
+
+10000001!w_¯U1010101Hex: E655
+Hex: 
+Hex: FF00
++++ result: -2
++++ comment: 
+----------(2%) 3. good_input_1 32 bits-----------
+$ ./bits-to-ints 32 grading/input_good_1.txt
+>>> expect: 
+81ab55e6
+90e900ff
+>>> output: 
+EOF reached
+
+100000011ù…U10101011100000011ù…UHex: FF00E990
++++ result: -2
++++ comment: 
+----------(2%) 4. good_input_1 64 bits-----------
+$ ./bits-to-ints 64 grading/input_good_1.txt
+>>> expect: 
+81ab55e690e900ff
+>>> output: 
+EOF reached
+
+10000001Ñb/V1010101110000001Ñb/V
++++ result: -2
++++ comment: 
+----------(2%) 5. good_input_2 8 bits-----------
+$ ./bits-to-ints 8 grading/input_good_2.txt
+>>> expect: 
+00
+00
+00
+00
+ff
+ff
+ff
+ff
+>>> output: 
+EOF reached
+
+00000000Ñ×ÇÁUHex: 00
+Hex: FF
+Hex: FF
+Hex: FF
+Hex: FF
++++ result: -2
++++ comment: 
+----------(2%) 6. good_input_2 16 bits-----------
+$ ./bits-to-ints 16 grading/input_good_2.txt
+>>> expect: 
+0000
+0000
+ffff
+ffff
+>>> output: 
+EOF reached
+
+00000000$|V0000000Hex: FFFF
+Hex: 
++++ result: -2
++++ comment: 
+----------(2%) 7. good_input_2 32 bits-----------
+$ ./bits-to-ints 32 grading/input_good_2.txt
+>>> expect: 
+00000000
+ffffffff
+>>> output: 
+EOF reached
+
+00000000¡êV0000000100000000¡êV
++++ result: -2
++++ comment: 
+----------(2%) 8. good_input_2 64 bits-----------
+$ ./bits-to-ints 64 grading/input_good_2.txt
+>>> expect: 
+00000000ffffffff
+>>> output: 
+EOF reached
+
+00000000¡è¼ U0000000100000000¡è¼ U+++ 
+result: -2
++++ comment: 
+----------(2%) 9. good_input_3 8 bits-----------
+$ ./bits-to-ints 8 grading/input_good_3.txt
+>>> expect: 
+01
+23
+45
+67
+89
+ab
+cd
+ef
+>>> output: 
+EOF reached
+
+10000000AòUHex: 23
+Hex: 45
+Hex: 67
+Hex: 89
+Hex: AB
+Hex: CD
+Hex: EF
++++ result: -2
++++ comment: 
+----------(2%) 10. good_input_3 16 bits-----------
+$ ./bits-to-ints 16 grading/input_good_3.txt
+>>> expect: 
+0123
+4567
+89ab
+cdef
+>>> output: 
+EOF reached
+
+10000000qJƒV1000100Hex: 6745
+Hex: 
+Hex: EFCD
++++ result: -2
++++ comment: 
+----------(2%) 11. good_input_3 32 bits-----------
+$ ./bits-to-ints 32 grading/input_good_3.txt
+>>> expect: 
+01234567
+89abcdef
+>>> output: 
+EOF reached
+
+10000000hXËU1000100110000000hXËUHex: EFCDAB89
++++ result: -2
++++ comment: 
+----------(2%) 12. good_input_3 64 bits-----------
+$ ./bits-to-ints 64 grading/input_good_3.txt
+>>> expect: 
+0123456789abcdef
+>>> output: 
+EOF reached
+
+10000000±>ë¦U1000100110000000±>ë¦U
++++ result: -2
++++ comment: 
+----------(2%) 13. good_input_4 8 bits-----------
+$ ./bits-to-ints 8 grading/input_good_4.txt
+>>> expect: 
+00
+00
+00
+00
+00
+00
+00
+00
+>>> output: 
+EOF reached
+
+000000001 è
+VHex: 00
+Hex: 00
+Hex: 00
++++ result: -2
++++ comment: 
+----------(2%) 14. good_input_4 16 bits-----------
+$ ./bits-to-ints 16 grading/input_good_4.txt
+>>> expect: 
+0000
+0000
+0000
+0000
+>>> output: 
+EOF reached
+
+00000000MHæU0000000Hex: 
++++ result: -2
++++ comment: 
+----------(2%) 15. good_input_4 32 bits-----------
+$ ./bits-to-ints 32 grading/input_good_4.txt
+>>> expect: 
+00000000
+00000000
+>>> output: 
+EOF reached
+
+00000000aå–U0000000000000000aå–U
++++ result: -2
++++ comment: 
+----------(2%) 16. good_input_4 64 bits-----------
+$ ./bits-to-ints 64 grading/input_good_4.txt
+>>> expect: 
+0000000000000000
+>>> output: 
+EOF reached
+
+000000001ÿÑ)V00000000000000001ÿÑ)V
++++ result: -2
++++ comment: 
+----------(1%) 17. bad_input_1 16 bits-----------
+$ ./bits-to-ints 16 grading/input_bad_1.txt
+>>> expect: 
+unexpected character 'a' in file grading/input_bad_1.txt
+>>> output: 
+EOF reached
+
+11001000!]eRV†1dRV
++++ result: -1
++++ comment: 
+----------(1%) 18. bad_input_2 16 bits-----------
+$ ./bits-to-ints 16 grading/input_bad_2.txt
+>>> expect: 
+unexpected EOF within byte in file grading/input_bad_2.txt
+>>> output: 
+EOF reached
+
+110010¾lV
++++ result: -1
++++ comment: 
+----------(1%) 19. bad_input_3 8 bits-----------
+$ ./bits-to-ints 8 grading/input_bad_3.txt
+>>> expect: 
+00
+unexpected EOF within byte in file grading/input_bad_3.txt
+>>> output: 
+EOF reached
+
+00000!úþ
++++ result: -1
++++ comment: 
+----------(1%) 20. bad_input_4 8 bits-----------
+$ ./bits-to-ints 8 grading/input_bad_4.txt
+>>> expect: 
+7f
+unexpected character 'a' in file grading/input_bad_4.txt
+>>> output: 
+EOF reached
+
+1111111â•™H
++++ result: -1
++++ comment: 
+
+--------------------Summary--------------------
+Grading Time: Thu 19 Sep 2019 04:30:11 PM EDT
+Project Due Date: Wed Sep 12 23:59:59 2019 -0400
+GitHub Submission Info: 
+commit 7bd90ba1aa49f10813aacc9021d3aefd0d71b695
+Author: Thomas <thur1@binghamton.edu>
+Date:   Sat Sep 14 23:02:52 2019 -0400
+
+    submitted lab4
+
+Late Date Used: 2
+Late Date Left: 5
+Late Submission Penalty: -0
+
+Coding Style: -0
+
+Total Points: 63.5
+Comment: please come to my office hour.
