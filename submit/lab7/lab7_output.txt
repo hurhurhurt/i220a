@@ -1,0 +1,17 @@
+3) The change in y will affect x because you are producing undefined behavior. There are multiple declarations, one in the function, one as a global variable, so the compiler is unsure of what to do, which is why the changes in y are affecting x.
+
+
+6) 
+testvec-static.nm 
+0000000000401bf6 T main
+0000000000401f1f T addvec
+0000000000401f8e T multvec
+
+testvec-dynamic.nm
+0x5555555551ee main                   
+0x555555555060 addvec                      
+0x555555555050 multvec
+
+
+
+

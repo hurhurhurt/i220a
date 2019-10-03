@@ -1,0 +1,600 @@
+Script started on 2019-09-22 16:31:41-04:00 [TERM="xterm" TTY="/dev/pts/8" COLUMNS="100" LINES="35"]
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ emacs [K[K[K[K[K[Kc [Kd files
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ ls
+ex1  ex2  ex3  ex4  ex5  ex6
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ex1
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex1$ make
+cc -g -Wall -std=c11 -m32    pointers.c   -o pointers
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex1$ ./pointers
+char pointer cp = 0xffb030bb, pointing at char a
+char pointer cp = 0xffb030bc, pointing at char b
+char pointer cp = 0xffb030bd, pointing at char c
+char pointer cp = 0xffb030be, pointing at char d
+char pointer cp = 0xffb030bf, pointing at char e
+int pointer ip = 0xffb030a4, pointing at int 1
+int pointer ip = 0xffb030a8, pointing at int 2
+int pointer ip = 0xffb030ac, pointing at int 3
+int pointer ip = 0xffb030b0, pointing at int 4
+int pointer ip = 0xffb030b4, pointing at int 5
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex1$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ex2
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex2$ ls
+in-pointers.c  Makefile
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex2$ make
+cc -g -Wall -std=c11 -m32    in-pointers.c   -o in-pointers
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex2$ ./in-pointers
+is[] is at 0xffe3a10c
+enter pointer to is[1]: ^[OA^[OB        4 0xffe3a0 10 0 4  def10      1 a100  10
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[3]: 0xffe3a1a 18
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[2]: 0xffe3a10  009   10  114
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[4]: 0xffe3a12c
+not ok
+is[] is at 0xffe3a10c
+enter pointer to is[4]: 0xff    0xffe3a11c
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[0]: 0 0xffe3a110
+not ok
+is[] is at 0xffe3a10c
+enter pointer to is[0]: 0xffe1 3a110 0  0c
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[3]: 0xffe3a118
+ok
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex2$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ ls
+files  lab5  lab5.html	lab5.log  lab5_output.txt  lab5.pdf  lab5.umt  Makefile
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ emacs lab5_output.txt
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1mlab5_output.txt[0m[39;49m[27m[7m   All L1     (Text) ---------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[K[2d[?25l1[34;6H[7m**[0m[39;49m[27m[2;2H[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[2;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[2;4H[?25lg[?12l[?25h[?12;25h[?25li[?12l[?25h[?12;25h[?25lv[?12l[?25h[?12;25h[?25le[?12l[?25h[?12;25h[?25ln[?12l[?25h[?12;25h[34;37H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l2[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[3;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[3;4H[34;37H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[?25lis[] is at 0xffe3a10c
+enter pointer to is[1]: 0xffe3a110
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[3]: 0xffe3a118
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[2]: 0xffe3a114
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[4]: 0xffe3a12c
+not ok
+is[] is at 0xffe3a10c
+enter pointer to is[4]: 0xffe3a11c
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[0]: 0xffe3a110
+not ok
+is[] is at 0xffe3a10c
+enter pointer to is[0]: 0xffe3a10c
+ok
+is[] is at 0xffe3a10c
+enter pointer to is[3]: 0xffe3a118
+ok[34;37H[7m26[0m[39;49m[27m[27;3H[?12l[?25h[?12;25h[35;1H[?25lAuto-saving...[27;3H[?12l[?25h[?12;25h[35;15H[?25ldone[27;3H[?12l[?25h[?12;25h[35;1H[K[34;38H[?25l[7m7[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[?25l3[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[29;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[29;4H[35;1H[?25lSaving file /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt...[29;4H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt[K[29;4H[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[29;4H[?12l[?25h[?12;25h[35;1H[K[34;6H[?25l[7m**[0m[39;49m[27m[29;3H[?12l[?25h[?12;25h[K[K[?25l6[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[29;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[34;38H[?25l[7m7[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[27;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[26;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[25;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[24;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[23;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[22;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[21;3H[?12l[?25h[?12;25h[34;37H[?25l[7m19[0m[39;49m[27m[20;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[19;3H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[18;3H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[17;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[16;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[15;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[14;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[13;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[12;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[11;3H[?12l[?25h[?12;25h[34;37H[?25l[7m9 [0m[39;49m[27m[10;3H[?12l[?25h[?12;25h[34;37H[?25l[7m8[0m[39;49m[27m[9;3H[?12l[?25h[?12;25h[34;37H[?25l[7m7[0m[39;49m[27m[8;3H[?12l[?25h[?12;25h[34;37H[?25l[7m6[0m[39;49m[27m[7;3H[?12l[?25h[?12;25h[34;37H[?25l[7m5[0m[39;49m[27m[6;3H[?12l[?25h[?12;25h[34;37H[?25l[7m4[0m[39;49m[27m[5;3H[?12l[?25h[?12;25h[34;37H[?25l[7m3[0m[39;49m[27m[4;3H[?12l[?25h[?12;25h[34;37H[?25l[7m2[0m[39;49m[27m[3;3H[?12l[?25h[?12;25h[34;37H[?25l[7m1[0m[39;49m[27m[2;3H[?12l[?25h[?12;25h[C[C[C[C		[K[K[K[K[K[C[K[K[35d[?25lBeginning of buffer[H
+[?12l[?25h[?12;25h[35d[K[34;37H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[1;29r[2;1H[1M[1;35r[29;1H[K[34;37H[?25l[7m1[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[34;37H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[35d[?25lSaving file /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt...[H
+
+[?12l[?25h[?12;25h[35d[?25lWrote /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt[K[H
+
+[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[35d[K[3d[35d[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote03:~/git-repos/i220a/work/lab5/lab5$ ls
+files  lab5  lab5.html	lab5.log  lab5_output.txt  lab5_output.txt~  lab5.pdf  lab5.umt  Makefile
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ cd ex[K[Kfiled[Ks
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ex3
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex3$ make
+cc -g -Wall -std=c11 -m32    bad-types.c   -o bad-types
+[01m[Kbad-types.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kbad-types.c:6:14:[m[K [01;35m[Kwarning: [m[Kinitialization of ‘[01m[Kchar *[m[K’ from incompatible pointer type ‘[01m[Kint *[m[K’ [[01;35m[K-Wincompatible-pointer-types[m[K]
+   char *cp = [01;35m[Kis[m[K;
+              [01;35m[K^~[m[K
+[01m[Kbad-types.c:7:13:[m[K [01;35m[Kwarning: [m[Kinitialization of ‘[01m[Kint *[m[K’ from incompatible pointer type ‘[01m[Kchar *[m[K’ [[01;35m[K-Wincompatible-pointer-types[m[K]
+   int *ip = [01;35m[Kcs[m[K;
+             [01;35m[K^~[m[K
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex3$ ./bad-tpes[K[K[Kypes
+char pointer cp = 0xff9302b4, pointing at char '' (0x1)
+char pointer cp = 0xff9302b5, pointing at char ' ' (0x0)
+char pointer cp = 0xff9302b6, pointing at char ' ' (0x0)
+char pointer cp = 0xff9302b7, pointing at char ' ' (0x0)
+char pointer cp = 0xff9302b8, pointing at char '' (0x2)
+int pointer ip = 0xff9302cb, pointing at int 1684234849 (0x64636261)
+int pointer ip = 0xff9302cf, pointing at int 357 (0x165)
+int pointer ip = 0xff9302d3, pointing at int 1280 (0x500)
+int pointer ip = 0xff9302d7, pointing at int -1828530432 (0x9302d700)
+int pointer ip = 0xff9302db, pointing at int -1828537857 (0x9302b9ff)
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex3$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ex4
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex4$ ls
+cast-types.c  Makefile
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex4$ make
+cc -g -Wall -std=c11 -m32    cast-types.c   -o cast-types
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex4$ ./m[Kcast-types
+char pointer cp = 0xfff48b04, pointing at int 1 (0x1)
+char pointer cp = 0xfff48b08, pointing at int 2 (0x2)
+char pointer cp = 0xfff48b0c, pointing at int 3 (0x3)
+char pointer cp = 0xfff48b10, pointing at int 4 (0x4)
+char pointer cp = 0xfff48b14, pointing at int 5 (0x5)
+int pointer ip = 0xfff48b1b, pointing at char 'a' (0x64636261)
+int pointer ip = 0xfff48b1c, pointing at char 'b' (0x65646362)
+int pointer ip = 0xfff48b1d, pointing at char 'c' (0x2656463)
+int pointer ip = 0xfff48b1e, pointing at char 'd' (0x36564)
+int pointer ip = 0xfff48b1f, pointing at char 'e' (0x465)
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex4$ cd ex[K[K..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ext[K5
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex5$ make
+cc -g -Wall -std=c11 -m32    void-pointers.c   -o void-pointers
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex5$ ./void-pointers
+void pointer p = 0xffe1ea9f, pointing at char a
+void pointer p = 0xffe1eaa0, pointing at char b
+void pointer p = 0xffe1eaa1, pointing at char c
+void pointer p = 0xffe1eaa2, pointing at char d
+void pointer p = 0xffe1eaa3, pointing at char e
+void pointer p = 0xffe1ea88, pointing at int 1
+void pointer p = 0xffe1ea8c, pointing at int 2
+void pointer p = 0xffe1ea90, pointing at int 3
+void pointer p = 0xffe1ea94, pointing at int 4
+void pointer p = 0xffe1ea98, pointing at int 5
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex5$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ex6
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex6$ a[Kmake
+cc -g -Wall -std=c11 -m32    in-voids.c   -o in-voids
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex6$ ./-[Kv[Kinv[K[K-v[K[Kn-voids
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[2]: 48  0xffe81b1b + 8              0xffe81b04  1b
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[2]: 0xffe8ab1 0 12  AB
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[2]: 0xffe9 8abAC
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[2]: 0xffe81b0c
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[3]: 0xffe8a 1b1         0xffe81b07
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[3]: ^[[A    0xffe81b04 8
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[3]: 0xffe81b1e
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[4]: 0xffe81b04^[[D      A4  14
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[1]: 0xffe81b05
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[1]: 0x  0xf   0xffe81b1c
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[4]: 0xffe81       0xffe81b04          0xffe81b1b f
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b        0xffe81b04 5
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b04 7
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: ^[[A    0xffe81b05 8
+ok
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files/ex6$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ c[Kls
+ex1  ex2  ex3  ex4  ex5  ex6
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5/files$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ cd [K[K[Kls
+files  lab5  lab5.html	lab5.log  lab5_output.txt  lab5_output.txt~  lab5.pdf  lab5.umt  Makefile
+thur1@remote03:~/git-repos/i220a/work/lab5/lab5$ cd lab-[K[K[K[K[K[K[Kemacs lab5_output_[K.txt
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
+[A
+2)[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[1]: 0xffe3a110[K
+ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[3]: 0xffe3a118[K
+ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[2]: 0xffe3a114[K
+ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[4]: 0xffe3a12c[K
+not ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[4]: 0xffe3a11c[K
+ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[0]: 0xffe3a110[K
+not ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[0]: 0xffe3a10c[K
+ok[K
+is[] is at 0xffe3a10c[K
+enter pointer to is[3]: 0xffe3a118[K
+ok[K
+[K
+6)[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mlab5_output.txt[0m[39;49m[27m[7m   All L2     (Text) ---------------------------------------------------[0m[39;49m[27m
+[A[3d[?12l[?25h[?12;25h[34;37H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;37H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;37H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;37H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;37H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;37H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;37H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;37H[?25l[7m10[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[34;38H[?25l[7m9[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[34;37H[?25l[7m20[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[27;1H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[35d[?25lEnd of buffer[29;1H[?12l[?25h[?12;25h[35d[K[34;38H[?25l[7m7[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[C[C[34;6H[?25l[7m**--F1  [0m[39;49m[27m[7m[1mlab5_output.txt[0m[39;49m[27m[7m   All L28[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[34;38H[?25l[7m9[0m[39;49m[27m[30;1H[?12l[?25h[?12;25h[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches cs[] is at 0xffe81b1b; is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[35d[?25lMatches enter pointer to is[[30;1H[?12l[?25h[?12;25h[35d[K[30d[2d[?25lenter pointer to cs[1]: 0xffe81b05
+not ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[1]: 0xffe81b1c
+ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[4]: 0xffe81b1f
+ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b05
+not ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b07
+not ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b08
+ok[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+
+[K[34;32H[7mBot L70[0m[39;49m[27m[18;3H[?12l[?25h[?12;25h[35;1H[?25lAuto-saving...[18;3H[?12l[?25h[?12;25h[35;15H[?25ldone[18;3H[?12l[?25h[?12;25h[35;1H[K[34;37H[?25l[7m69[0m[39;49m[27m[17;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[16;3H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[15;3H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[14;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[13;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[12;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[11;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[10;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[9;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[8;3H[?12l[?25h[?12;25h[34;37H[?25l[7m59[0m[39;49m[27m[7;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[6;3H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[5;3H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[4;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[3;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[2;3H[?12l[?25h[?12;25h[1;16r[2;1H[1M[1;35r[4;18H[?25lis[2]: 0xffe81b0[7;21H3]: 0xffe81b07
+not ok[10;18Hcs[3]: 0xffe81b08[13;18Hcs[3]: 0xffe81b1e
+ok[K
+
+enter pointer to is[4]: 0xffe81b14[K
+ok[K
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[1]: 0xffe81b05
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[1]: 0xffe81b1c
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to cs[4]: 0xffe81b1f
+ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b05
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04
+enter pointer to is[1]: 0xffe81b07
+not ok
+cs[] is at 0xffe81b1b; is[] is at 0xffe81b04[34;32H[7m45% L53[0m[39;49m[27m[18;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[17;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[16;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[15;3H[?12l[?25h[?12;25h[34;37H[?25l[7m49[0m[39;49m[27m[14;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[13;3H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[12;3H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[11;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[10;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[9;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[8;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[7;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[6;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[5;3H[?12l[?25h[?12;25h[34;37H[?25l[7m39[0m[39;49m[27m[4;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[3;3H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[2;3H[?12l[?25h[?12;25h[1;33r[11;1H[1M[1;35r[2;1H[?25lis[] is at 0xffe3a10c
+enter pointer to is[0]: 0xffe3a10c[K
+ok[K
+is[] is at 0xffe3a10c
+enter pointer to is[3]: 0xffe3a118[K
+ok[K
+[K
+6)[K
+[K[12;18His[2]: 0xffe81b1b
+not ok[15;21H2]: 0xffe8abAB
+not ok[18;18His[2]: 0xffe8abAC[21;18His[2]: 0xffe81b0[24;21H3]: 0xffe81b07
+not ok[27;18Hcs[3]: 0xffe81b08[30;18Hcs[3]: 0xffe81b1e
+ok[K
+
+enter pointer to is[4]: 0xffe81b14[K
+[7m22% L36[0m[39;49m[27m[18;3H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[17;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[16;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[15;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[14;3H[?12l[?25h[?12;25h[34;38H[?25l[7m1[0m[39;49m[27m[13;3H[?12l[?25h[?12;25h[34;38H[?25l[7m0[0m[39;49m[27m[12;3H[?12l[?25h[?12;25h[34;37H[?25l[7m29[0m[39;49m[27m[11;3H[?12l[?25h[?12;25h[34;38H[?25l[7m8[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;38H[?25l[7m7[0m[39;49m[27m[9;3H[?12l[?25h[?12;25h[34;38H[?25l[7m6[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[7;3H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[6;3H[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[5;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[4;3H[?12l[?25h[?12;25h[35;1H[?25lSaving file /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt...[4;3H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab5/lab5/lab5_output.txt[K[4;3H[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[4;3H[?12l[?25h[?12;25h[35;1H[K[4;3H[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote03:~/git-repos/i220a/work/lab5/lab5$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab5$ cd ..
+thur1@remote03:~/git-repos/i220a/work$ git push[K[K[K[K[K[K[K[Kc d.[K[K[K[Kd [K[K cd [K[K[K[Kcd ..
+thur1@remote03:~/git-repos/i220a$ git push
+Username for 'https://github.com': hu  a
+Password for 'https://a@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/hurhurhurt/i220a/'
+thur1@remote03:~/git-repos/i220a$ git commit -a -m "lab5 commit"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+	[31msubmit/lab4/[m
+	[31msubmit/prj1-sol/#bits-to-ints.c#[m
+	[31mwork/[m
+
+nothing added to commit but untracked files present
+thur1@remote03:~/git-repos/i220a$ git[K[K[Kg[Kgit add *
+thur1@remote03:~/git-repos/i220a$ git commit -m "lab5 o[Kcommit"
+[master 30bf099] lab5 commit
+ 70 files changed, 2056 insertions(+)
+ create mode 100755 submit/lab4/Makefile
+ create mode 100644 submit/lab4/files/ex1/.gitignore
+ create mode 100644 submit/lab4/files/ex1/Makefile
+ create mode 100644 submit/lab4/files/ex1/uints.c
+ create mode 100644 submit/lab4/files/ex2/.gitignore
+ create mode 100644 submit/lab4/files/ex2/Makefile
+ create mode 100644 submit/lab4/files/ex2/ints.c
+ create mode 100644 submit/lab4/files/ex3/.gitignore
+ create mode 100644 submit/lab4/files/ex3/Makefile
+ create mode 100644 submit/lab4/files/ex3/identify.c
+ create mode 100644 submit/lab4/files/ex3/mystery.h
+ create mode 100644 submit/lab4/files/ex4/.gitignore
+ create mode 100644 submit/lab4/files/ex4/Makefile
+ create mode 100644 submit/lab4/files/ex4/negeq.c
+ create mode 100644 submit/lab4/files/ex5/ex5.py
+ create mode 100644 submit/lab4/files/ex6/.gitignore
+ create mode 100644 submit/lab4/files/ex6/0.1.c
+ create mode 100644 submit/lab4/files/ex6/Makefile
+ create mode 100644 submit/lab4/files/ex7/.gitignore
+ create mode 100644 submit/lab4/files/ex7/Makefile
+ create mode 100644 submit/lab4/files/ex7/nan.c
+ create mode 100644 submit/lab4/files/ex8/.gitignore
+ create mode 100644 submit/lab4/files/ex8/Makefile
+ create mode 100644 submit/lab4/files/ex8/ulp-lg.gp
+ create mode 100644 submit/lab4/files/ex8/ulp.c
+ create mode 100644 submit/lab4/files/ex8/ulp.gp
+ create mode 100644 submit/lab4/files/ex9/.gitignore
+ create mode 100644 submit/lab4/files/ex9/Makefile
+ create mode 100644 submit/lab4/files/ex9/loop.c
+ create mode 100644 submit/lab4/files/lab4_output.txt
+ create mode 100644 submit/lab4/lab4.html
+ create mode 100644 submit/lab4/lab4.pdf
+ create mode 100644 submit/lab4/lab4.umt
+ create mode 100644 submit/prj1-sol/#bits-to-ints.c#
+ create mode 100644 work/lab3/Makefile
+ create mode 100644 work/lab3/ex1/.gitignore
+ create mode 100644 work/lab3/ex1/Makefile
+ create mode 100644 work/lab3/ex1/README
+ create mode 100644 work/lab3/ex1/hello.c
+ create mode 100644 work/lab3/ex2/Makefile
+ create mode 100644 work/lab3/ex2/README
+ create mode 100755 work/lab3/ex2/hello
+ create mode 100644 work/lab3/ex2/hello.c
+ create mode 100755 work/lab5/lab5/Makefile
+ create mode 100644 work/lab5/lab5/files/ex1/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex1/Makefile
+ create mode 100644 work/lab5/lab5/files/ex1/pointers.c
+ create mode 100644 work/lab5/lab5/files/ex2/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex2/Makefile
+ create mode 100644 work/lab5/lab5/files/ex2/in-pointers.c
+ create mode 100644 work/lab5/lab5/files/ex3/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex3/Makefile
+ create mode 100644 work/lab5/lab5/files/ex3/bad-types.c
+ create mode 100644 work/lab5/lab5/files/ex4/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex4/Makefile
+ create mode 100644 work/lab5/lab5/files/ex4/cast-types.c
+ create mode 100644 work/lab5/lab5/files/ex5/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex5/Makefile
+ create mode 100644 work/lab5/lab5/files/ex5/void-pointers.c
+ create mode 100644 work/lab5/lab5/files/ex6/.gitignore
+ create mode 100644 work/lab5/lab5/files/ex6/Makefile
+ create mode 100644 work/lab5/lab5/files/ex6/in-voids.c
+ create mode 100644 work/lab5/lab5/lab5.html
+ create mode 100644 work/lab5/lab5/lab5.log
+ create mode 100644 work/lab5/lab5/lab5.pdf
+ create mode 100644 work/lab5/lab5/lab5.umt
+ create mode 100644 work/lab5/lab5/lab5/hl-fine_blue.css
+ create mode 100644 work/lab5/lab5/lab5/hl-fine_blue.sty
+ create mode 100644 work/lab5/lab5/lab5_output.txt
+ create mode 100644 work/lab5/lab5/lab5_output.txt~
+thur1@remote03:~/git-repos/i220a$ git push
+Username for 'https://github.com': hurhurhurt
+Password for 'https://hurhurhurt@github.com': 
+To https://github.com/hurhurhurt/i220a
+ [31m! [rejected]       [m master -> master (fetch first)
+[31merror: failed to push some refs to 'https://github.com/hurhurhurt/i220a'
+[m[33mhint: Updates were rejected because the remote contains work that you do[m
+[33mhint: not have locally. This is usually caused by another repository pushing[m
+[33mhint: to the same ref. You may want to first integrate the remote changes[m
+[33mhint: (e.g., 'git pull ...') before pushing again.[m
+[33mhint: See the 'Note about fast-forwards' in 'git push --help' for details.[m
+thur1@remote03:~/git-repos/i220a$ git pull
+remote: Enumerating objects: 15, done.[K
+remote: Counting objects:   6% (1/15)[Kremote: Counting objects:  13% (2/15)[Kremote: Counting objects:  20% (3/15)[Kremote: Counting objects:  26% (4/15)[Kremote: Counting objects:  33% (5/15)[Kremote: Counting objects:  40% (6/15)[Kremote: Counting objects:  46% (7/15)[Kremote: Counting objects:  53% (8/15)[Kremote: Counting objects:  60% (9/15)[Kremote: Counting objects:  66% (10/15)[Kremote: Counting objects:  73% (11/15)[Kremote: Counting objects:  80% (12/15)[Kremote: Counting objects:  86% (13/15)[Kremote: Counting objects:  93% (14/15)[Kremote: Counting objects: 100% (15/15)[Kremote: Counting objects: 100% (15/15), done.[K
+remote: Compressing objects:  10% (1/10)[Kremote: Compressing objects:  20% (2/10)[Kremote: Compressing objects:  30% (3/10)[Kremote: Compressing objects:  40% (4/10)[Kremote: Compressing objects:  50% (5/10)[Kremote: Compressing objects:  60% (6/10)[Kremote: Compressing objects:  70% (7/10)[Kremote: Compressing objects:  80% (8/10)[Kremote: Compressing objects:  90% (9/10)[Kremote: Compressing objects: 100% (10/10)[Kremote: Compressing objects: 100% (10/10), done.[K
+remote: Total 14 (delta 3), reused 14 (delta 3), pack-reused 0[K
+Unpacking objects:   7% (1/14)   Unpacking objects:  14% (2/14)   Unpacking objects:  21% (3/14)   Unpacking objects:  28% (4/14)   Unpacking objects:  35% (5/14)   Unpacking objects:  42% (6/14)   Unpacking objects:  50% (7/14)   Unpacking objects:  57% (8/14)   Unpacking objects:  64% (9/14)   Unpacking objects:  71% (10/14)   Unpacking objects:  78% (11/14)   Unpacking objects:  85% (12/14)   Unpacking objects:  92% (13/14)   Unpacking objects: 100% (14/14)   Unpacking objects: 100% (14/14), done.
+From https://github.com/hurhurhurt/i220a
+   7bd90ba..6761d1a  master     -> origin/master
+hint: Waiting for your editor to close the file... [?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"~/git-repos/i220a/.git/MERGE_MSG" 7L, 288C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[33mMerge branch 'master' of https://github.com/hurhur[mhurt/i220a
+
+[34m# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.[m
+[1m[34m~                                                                                                   [9;1H~                                                                                                   [10;1H~                                                                                                   [11;1H~                                                                                                   [12;1H~                                                                                                   [13;1H~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                     
