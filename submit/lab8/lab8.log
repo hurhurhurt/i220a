@@ -1,0 +1,711 @@
+Script started on 2019-10-10 13:18:43-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="100" LINES="30"]
+thur1@g7-30:/import/linux/home1/thur1/git-repos/i220a/work/lab8$ cd ~/git-repos
+thur1@g7-30:~/git-repos$ mkdir 8[Klab8.git
+thur1@g7-30:~/git-repos$ cd lab8.git
+thur1@g7-30:~/git-repos/lab8.git$ git init --bare
+Initialized empty Git repository in /import/linux/home1/thur1/git-repos/lab8.git/
+thur1@g7-30:~/git-repos/lab8.git$ mkdir -p ~/tmp 
+thur1@g7-30:~/git-repos/lab8.git$ cd ~/tmp
+thur1@g7-30:~/tmp$ git clone ssh://LOGIN@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[1P@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Cloning into 'lab8'...
+Warning: Permanently added the ECDSA host key for IP address '128.226.114.202' to the list of known hosts.
+thur1@remote.cs.binghamton.edu's password: 
+fatal: '/home/LOGIN/git-repos/lab8.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+thur1@g7-30:~/tmp$ git lo[Kc[K[Kclone \ ssh://LOGIN@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[1P/git-repos/lab8.git[1P/git-repos/lab8.git[1P/git-repos/lab8.git[1P/git-repos/lab8.git[1P/git-repos/lab8.gitt/git-repos/lab8.gith/git-repos/lab8.gitu/git-repos/lab8.gitr/git-repos/lab8.git1/git-repos/lab8.git[1P@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Cloning into 'lab8'...
+fatal: protocol ' ssh' is not supported
+thur1@g7-30:~/tmp$ git clone \ ssh://thur1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[1Pssh://thur1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pssh://thur1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Cloning into 'lab8'...
+thur1@remote.cs.binghamton.edu's password: 
+warning: You appear to have cloned an empty repository.
+thur1@g7-30:~/tmp$ cd lab8
+thur1@g7-30:~/tmp/lab8$ git remov[K[K[K[K[K[K[K[K[Kgit remote -v
+origin	ssh://thur1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git (fetch)
+origin	ssh://thur1@remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git (push)
+thur1@g7-30:~/tmp/lab8$ l[Kls -a
+.  ..  .git
+thur1@g7-30:~/tmp/lab8$ mkdir -p work/lab8
+thur1@g7-30:~/tmp/lab8$ cd work/lab8
+thur1@g7-30:~/tmp/lab8/work/lab8$ cp -[K[K[K[Kcp ~/cs220/labs/lab8/files/README.md .
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m../[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+thur1@g7-30:~/tmp/lab8/work/lab8$ gi [Kt add README.md
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status --short
+[32mA[m  README.md
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -m "added README"
+[master (root-commit) 8092f9e] added README
+ 1 file changed, 4 insertions(+)
+ create mode 100644 work/lab8/README.md
+thur1@g7-30:~/tmp/lab8/work/lab8$ git branch -l
+[?1h=* [32mmaster[m[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ git push --set upstr[K[K[K[K[K[K-upstream origin master
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)   Counting objects:  40% (2/5)   Counting objects:  60% (3/5)   Counting objects:  80% (4/5)   Counting objects: 100% (5/5)   Counting objects: 100% (5/5), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 330 bytes | 330.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status -s
+thur1@g7-30:~/tmp/lab8/work/lab8$ cp ~/cs220/labs/lab8/files/Makefile .
+thur1@g7-30:~/tmp/lab8/work/lab8$ cp ~/s[Kcs220/labs/lab8/[K/files/hello-c[Konce.[K[K[Ke.c hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+[01m[Khello.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Khello.c:5:5:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kprintf[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+     [01;35m[Kprintf[m[K("usage: %s NAME\n", argv[0]);
+     [01;35m[K^~~~~~[m[K
+[01m[Khello.c:5:5:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kprintf[m[K’
+[01m[Khello.c:5:5:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdio.h>[m[K’ or provide a declaration of ‘[01m[Kprintf[m[K’
+[01m[Khello.c:1:1:[m[K
++[32m[K#include <stdio.h>[m[K
+ int
+[01m[Khello.c:5:5:[m[K
+     [01;36m[Kprintf[m[K("usage: %s NAME\n", argv[0]);
+     [01;36m[K^~~~~~[m[K
+[01m[Khello.c:6:5:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kexit[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+     [01;35m[Kexit[m[K(1);
+     [01;35m[K^~~~[m[K
+[01m[Khello.c:6:5:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kexit[m[K’
+[01m[Khello.c:6:5:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdlib.h>[m[K’ or provide a declaration of ‘[01m[Kexit[m[K’
+[01m[Khello.c:1:1:[m[K
++[32m[K#include <stdlib.h>[m[K
+ int
+[01m[Khello.c:6:5:[m[K
+     [01;36m[Kexit[m[K(1);
+     [01;36m[K^~~~[m[K
+[01m[Khello.c:8:3:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kprintf[m[K’
+   [01;35m[Kprintf[m[K("hello %s\n", argv[1]);
+   [01;35m[K^~~~~~[m[K
+[01m[Khello.c:8:3:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdio.h>[m[K’ or provide a declaration of ‘[01m[Kprintf[m[K’
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello thomas
+hello thomas
+thur1@g7-30:~/tmp/lab8/work/lab8$ sit stau[Ktus -[K[K[K[K[K[K[K[K[K[K[K[Kgit status -s
+[31m??[m Makefile
+[31m??[m hello
+[31m??[m hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ cp ~/cs220/labs/lab8/files/.gitignore .
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status -s
+[31m??[m .gitignore
+[31m??[m Makefile
+[31m??[m hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ git add .
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status -s
+[32mA[m  .gitignore
+[32mA[m  Makefile
+[32mA[m  hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -m "working with s[Kwarnings"
+[master cb81126] working with warnings
+ 3 files changed, 22 insertions(+)
+ create mode 100644 work/lab8/.gitignore
+ create mode 100644 work/lab8/Makefile
+ create mode 100644 work/lab8/hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ git status s[K-s
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 10, done.
+Counting objects:  10% (1/10)   Counting objects:  20% (2/10)   Counting objects:  30% (3/10)   Counting objects:  40% (4/10)   Counting objects:  50% (5/10)   Counting objects:  60% (6/10)   Counting objects:  70% (7/10)   Counting objects:  80% (8/10)   Counting objects:  90% (9/10)   Counting objects: 100% (10/10)   Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 660 bytes | 330.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   8092f9e..cb81126  master -> master
+thur1@g7-30:~/tmp/lab8/work/lab8$ git log
+[?1h=[33mcommit cb811265f871aba86261bc5b6f173400c8ca5ac0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:23:31 2019 -0400[m
+[m
+    working with warnings[m
+[m
+[33mcommit 8092f9e139eec1f87f3fb2a0311a56d117d62019[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:21:34 2019 -0400[m
+[m
+    added README[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ make
+make: Nothing to be done for 'all'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ test
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello sue
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+thur1@g7-30:~/tmp/lab8/work/lab8$ emacs hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ gedit hello.c &
+[1] 14798
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:14798): Gtk-[1;33mWARNING[0m **: [34m13:24:12.943[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[01m[Khello.c:1:10:[m[K [01;31m[Kfatal error: [m[Kstido.h: No such file or directory
+ #include [01;31m[K<stido.h>[m[K
+          [01;31m[K^~~~~~~~~[m[K
+compilation terminated.
+make: *** [<builtin>: hello] Error 1
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ makegedit hello.c &
+[1] 14870
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:14870): Gtk-[1;33mWARNING[0m **: [34m13:24:33.912[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello sue
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git a=[K[Kstatus -s
+ [31mM[m hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "working: clean compile"
+[master 1223747] working: clean compile
+ 1 file changed, 3 insertions(+)
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)   Counting objects:  22% (2/9)   Counting objects:  33% (3/9)   Counting objects:  44% (4/9)   Counting objects:  55% (5/9)   Counting objects:  66% (6/9)   Counting objects:  77% (7/9)   Counting objects:  88% (8/9)   Counting objects: 100% (9/9)   Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 395 bytes | 395.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   cb81126..1223747  master -> master
+thur1@g7-30:~/tmp/lab8/work/lab8$ git log hello.c
+[?1h=[33mcommit 1223747c5b7df4099aa5decd2abbfc17e3930592[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:25:03 2019 -0400[m
+[m
+    working: clean compile[m
+[m
+[33mcommit cb811265f871aba86261bc5b6f173400c8ca5ac0[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:23:31 2019 -0400[m
+[m
+    working with warnings[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ git log -l hello.c
+[?1h=[33mcommit 1223747c5b7df4099aa5decd2abbfc17e3930592[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:25:03 2019 -0400[m
+[m
+    working: clean compile[m
+[m
+[33mcommit cb811265f871aba86261bc5b6f173400c8ca5ac0[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:23:31 2019 -0400[m
+[m
+    working with warnings[m
+[m
+[33mcommit 8092f9e139eec1f87f3fb2a0311a56d117d62019[m[m
+Author: Thomas <thur1@binghamton.edu>[m
+Date:   Thu Oct 10 13:21:34 2019 -0400[m
+[m
+    added README[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ ./[K[Kgedi t[K[Kt hello.c *[K&
+[1] 15078
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:15078): Gtk-[1;33mWARNING[0m **: [34m13:25:38.542[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[01m[Khello.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Khello.c:8:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kstdderr[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kstderr[m[K’?
+     fprintf([01;31m[Kstdderr[m[K, "usage: %s NAME\n", argv[0]);
+             [01;31m[K^~~~~~~[m[K
+             [32m[Kstderr[m[K
+[01m[Khello.c:8:13:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+make: *** [<builtin>: hello] Error 1
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ makegedit hello.c &
+[1] 15272
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:15272): Gtk-[1;33mWARNING[0m **: [34m13:26:36.866[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello sue
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "send usage message to stderr"
+[master 2c6c2d4] send usage message to stderr
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push
+Warning: Permanently added the ECDSA host key for IP address '128.226.114.206' to the list of known hosts.
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)   Counting objects:  22% (2/9)   Counting objects:  33% (3/9)   Counting objects:  44% (4/9)   Counting objects:  55% (5/9)   Counting objects:  66% (6/9)   Counting objects:  77% (7/9)   Counting objects:  88% (8/9)   Counting objects: 100% (9/9)   Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 387 bytes | 387.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+gTo ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   1223747..2c6c2d4  master -> master
+thur1@g7-30:~/tmp/lab8/work/lab8$ git shortlog
+[?1h=Thomas (4):[m
+      added README[m
+      working with warnings[m
+      working: clean compile[m
+      send usage message to stderr[m
+[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ git checkout -b hello-h[Kmulti
+Switched to a new branch 'hello-multi'
+thur1@g7-30:~/tmp/lab8/work/lab8$ git branch -l
+[?1h=* [32mhello-multi[m[m
+  master[m[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ cp ~/cs220/labs/lab8/files/hello-multi.c hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello john sue
+hello john
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "allow greeting multiple names"
+[hello-multi b610a2c] allow greeting multiple names
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push -u origina[K ma[K[Khello-multi
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)   Counting objects:  22% (2/9)   Counting objects:  33% (3/9)   Counting objects:  44% (4/9)   Counting objects:  55% (5/9)   Counting objects:  66% (6/9)   Counting objects:  77% (7/9)   Counting objects:  88% (8/9)   Counting objects: 100% (9/9)   Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 450 bytes | 450.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+ * [new branch]      hello-multi -> hello-multi
+Branch 'hello-multi' set up to track remote branch 'hello-multi' from 'origin'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ git checout [K[K[K[K[Kckout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello john sue
+usage: ./hello NAME
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./[K[Kgedit m[K[K[K[K[K[K[Kls
+hello  hello.c	Makefile  README.md
+thur1@g7-30:~/tmp/lab8/work/lab8$ gedit hello.c &
+[1] 15767
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:15767): Gtk-[1;33mWARNING[0m **: [34m13:28:38.411[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+mak[K[K[Km[Ktail -3 hello.c
+  printf("hello %s\n", argv[1]);
+  return 0;
+}
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello sue
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "added return at th[K[Kend of main()"
+[master 5034215] added return at end of main()
+ 1 file changed, 1 insertion(+)
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)   Counting objects:  22% (2/9)   Counting objects:  33% (3/9)   Counting objects:  44% (4/9)   Counting objects:  55% (5/9)   Counting objects:  66% (6/9)   Counting objects:  77% (7/9)   Counting objects:  88% (8/9)   Counting objects: 100% (9/9)   Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 383 bytes | 383.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   2c6c2d4..5034215  master -> master
+thur1@g7-30:~/tmp/lab8/work/lab8$ git checkout hello-multi
+Switched to branch 'hello-multi'
+Your branch is up to date with 'origin/hello-multi'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ git merge master
+Auto-merging work/lab8/hello.c
+CONFLICT (content): Merge conflict in work/lab8/hello.c
+Automatic merge failed; fix conflicts and then commit the result.
+thur1@g7-30:~/tmp/lab8/work/lab8$ gei[Kdit H[Khello.c &
+[1] 15984
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:15984): Gtk-[1;33mWARNING[0m **: [34m13:29:46.918[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ tail -5 hello.c
+    printf("hello %s\n", argv[i]);
+  }
+  printf("hello %s\n", argv[1]);
+  return 0;
+}
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+make: Nothing to be done for 'all'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello john sue
+hello john
+hello sue
+hello john
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello john suemake[Ktail -5 hello.cmake[Kgedit hello.c &
+[1] 16105
+thur1@g7-30:~/tmp/lab8/work/lab8$ 
+(gedit:16105): Gtk-[1;33mWARNING[0m **: [34m13:30:25.843[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+make
+cc -g -Wall -std=c11    hello.c   -o hello
+[1]+  Done                    gedit hello.c
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello hj[K[Kjohn sue
+hello john
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "merged master"
+[hello-multi 1a7e980] merged master
+thur1@g7-30:~/tmp/lab8/work/lab8$ git push
+thur1@remote.cs.binghamton.edu's password: 
+Enumerating objects: 13, done.
+Counting objects:   7% (1/13)   Counting objects:  15% (2/13)   Counting objects:  23% (3/13)   Counting objects:  30% (4/13)   Counting objects:  38% (5/13)   Counting objects:  46% (6/13)   Counting objects:  53% (7/13)   Counting objects:  61% (8/13)   Counting objects:  69% (9/13)   Counting objects:  76% (10/13)   Counting objects:  84% (11/13)   Counting objects:  92% (12/13)   Counting objects: 100% (13/13)   Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 412 bytes | 412.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   b610a2c..1a7e980  hello-multi -> hello-multi
+thur1@g7-30:~/tmp/lab8/work/lab8$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+thur1@g7-30:~/tmp/lab8/work/lab8$ git merge hello-multi
+Updating 5034215..1a7e980
+Fast-forward
+ work/lab8/hello.c | 9 [32m++++++[m[31m---[m
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+thur1@g7-30:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+thur1@g7-30:~/tmp/lab8/work/lab8$ ./hello john sue
+hello john
+hello sue
+thur1@g7-30:~/tmp/lab8/work/lab8$ git branch -l
+[?1h=  hello-multi[m[m
+* [32mmaster[m[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ git shortlog helloc[K.c
+[?1h=Thomas (6):[m
+      working with warnings[m
+      working: clean compile[m
+      send usage message to stderr[m
+      allow greeting multiple names[m
+      added return at end of main()[m
+      merged master[m
+[m
+[K[?1l>thur1@g7-30:~/tmp/lab8/work/lab8$ git commit -a -m "merged hello-multi"
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+thur1@g7-30:~/tmp/lab8/work/lab8$ git ps[Kush
+thur1@remote.cs.binghamton.edu's password: 
+Total 0 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8.git
+   5034215..1a7e980  master -> master
+thur1@g7-30:~/tmp/lab8/work/lab8$ cd ~/i220a
+bash: cd: /home/thur1/i220a: No such file or directory
+thur1@g7-30:~/tmp/lab8/work/lab8$ cd ~/i220a
+bash: cd: /home/thur1/i220a: No such file or directory
+thur1@g7-30:~/tmp/lab8/work/lab8$ cd ..
+thur1@g7-30:~/tmp/lab8/work$ cd ..
+thur1@g7-30:~/tmp/lab8$ cd ..
+thur1@g7-30:~/tmp$ cd ..
+thur1@g7-30:~$ cd ..
+thur1@g7-30:/home$ ls
+aabrey1    cgopina1	     hfu11	 lcanale2     preddyl1		 ssing117
+aagraw11   cgupta	     hgarg1	 lcoats1      project		 ssingh99
+aaharon1   chanusa	     hjia3	 ldo	      projects		 ssivaku1
+aakin1	   chao		     hkang	 legion       projects.nobackup  ssultan6
+aalamer1   cherna19	     hkilic2	 legion2      psaha4		 sswetha
+aambilw1   chouck	     hkulkar1	 lenny	      psaha5		 stammis1
+aamer	   chuang31	     hlum1	 levliya1     psahu1		 stapadi1
+aandhar2   ciweb	     hmahaja1	 lgustaf1     psammon1		 star
+aanveka2   cjenkin1	     hmanda1	 lijun	      psehraw1		 steflik
+abalkum    cjian1	     hmense1	 liymn	      pshang1		 sthorat2
+abelmna1   cjiang21	     hmulla1	 lkendal1     psilves1		 sthorat3
+abeltre1   cjoaqui1	     hnikam1	 lkollur1     psin		 stoke1
+abet	   cjones43	     hoeppner	 llasurd1     psingh43		 studio
+abetrev    ckane2	     hpacher1	 llu17	      psinha1		 studio.nobackup
+abettest   ckshirs1	     hparmar1	 lmanwan1     pthakka4		 sunyibo
+abhagwa1   ckulkar2	     hqin4	 lok	      ptilley1		 svibhut1
+abharan1   clandgr1	     hrasal1	 lornawel     puppula1		 svishwa2
+abhat3	   cli22	     hribic1	 lrosenb1     pvalenta		 swaghma1
+abixby1    clin18	     hrode1	 lsc01	      pwakodi1		 swang130
+abloodg1   clindsa1	     hroeder1	 lsearsangel  pwalke1		 swang206
+abozkur1   cliu118	     hsloan1	 lsunny1      pweb		 swang214
+aburke5    clow1	     huilu	 ltaveir1     pwilber1		 syarram1
+acanino1   cmachaf1	     hvadoda1	 lwisdom1     pyang		 sysadmin
+aceylan1   cmcborr1	     hwang161	 lxu31	      pzhao3		 syudhoa1
+achaud12   cmmiller	     hwu71	 lyadagi1     qjia4		 szaman5
+achaud15   cmontgo1	     hxiao4	 lyu	      qliang8		 szhai2
+achaudh9   cmoore2	     hyang51	 maber1       qxiong1		 szhan188
+achavan4   cmunro1	     hyi2	 maguila2     qzhang61		 szhang
+achen172   colinb	     hyingbo1	 mallingt     raj		 szhu5
+acheseb1   cpandit1	     hzeng	 maple	      rambast1		 tagrawa1
+achhabr1   cquelle3	     hzhu1	 marsene1     ramsurat1		 talon1
+achotal1   cs350	     hzou1	 marss86      rbadada1		 tameesh
+acmweb	   cs441-test	     ids-web	 marysomma1   rbey1		 tbabako1
+acohen13   csabet01_oc	     igomez1	 matlab       rbhowmik		 tballin1
+acullo1    csabet02_oc	     igoreli1	 maziz3       rblazej1		 tbarten1
+acurrer1   csabet03_oc	     iliano	 mbagonis5    rchen102		 tbartens
+adesu1	   cschnei3	     imarkic1	 mbayhoc1     rcheung5		 tbrentar
+adhruv1    csherla1	     indangered  mbellus1     rchowda1		 tbrown57
+adilliw1   cs-ipc	     intrieri	 mbradsh3     rdelval1		 tchan29
+admread    csperry1	     iperdom1	 mcaldro1     rdhuri1		 tcheng8
+adnan	   csweb	     isarfat1	 mcetin3      reckert		 tchu4
+adogana1   ctran20	     israat	 mchen12      regress		 tdevadit
+advweb	   ctrembl1	     ivdgl	 mcole8       remadm		 test
+aeghbal1   cutler	     iwobi	 mdamiat1     rerinfo1		 test5
+aeker1	   cvandli1	     jabbott3	 mdang1       reswara1		 tfan4
+aevans1    cviezel1	     jalbert5	 mdelgad1     reu		 tgabrie2
+afarrel3   cwetzel2	     jamjoom	 mdobies1     reu09		 tgilber5
+agarcia3   cwickiz1	     jao1	 meng	      rfujita1		 tgisi1
+agarcia4   cwong11	     jarnold5	 merwyn       rgeary1		 tgonzag1
+agarrit1   cyang58	     jarora2	 mfarrel8     rgirong1		 tgrusze1
+agim1	   cybersec	     jawayan1	 mfishki1     rgollap1		 tgundel1
+agjonba1   czhang27	     jbabbit1	 mfoley9      rgonzal		 thalai1
+agoetz3    czhou5	     jbarkov1	 mforcella    rgunczl1		 thoelze1
+agrace2    danzelo1	     jbarret3	 mgadi1       rhainin1		 thorowi1
+agreenb3   davehall	     jbednasz	 mghayoumi    richardsond	 thung1
+agross22   davehallldap      jburns11	 mghosal1     rimai1		 thur1
+aguarin3   davidl	     jcen3	 mgogats1     rjoseph3		 ticket
+agujara1   dbalkan	     jchen249	 mgomez4      rkaur21		 tkapadi1
+agummal1   dbottch1	     jchen441	 mgovinda     rkelley2		 tkump1
+ahoriha1   dchhabd1	     jcipoll1	 mgreen       rkugver1		 tli16
+ajain13    dcordei1	     jcope1	 mgupta3      rkulka22		 tliu76
+ajain35    ddas1	     jcurtin4	 mhems1       rlangen1		 tman1
+ajasper    ddemicc1	     jdaley2	 mhubli1      rlevass1		 tmarder1
+ajimen29   ddesai9	     jdiaz48	 mike	      rlotlik1		 tmatusz1
+ajinete1   ddoddag1	     jdua1	 millerti     rmarvin1		 tpmsim
+ajohan78   devtyushkin	     jedouar1	 mis	      rmccaul1		 tquiles1
+ajoshi1    dfan2	     jeimer1	 mjain8       rmccorm4		 trecupe1
+akadu1	   dfeinma1	     jeipp1	 mjiang39     rmei6		 tredban1
+akaleli1   dferna15	     jelwell	 mjones46     rmeliti1		 tsharma6
+akancha1   dfitzge3	     jelwell1	 mkayaalp     rmittal1		 tsrivas1
+akayhan1   dfletch1	     jeymer1	 mkhasaw1     rmusale1		 tstache1
+akenjal1   dgaviol1	     jfeinla1	 mkhoman1     rnatara2		 tsteige1
+akenned8   dgleaso2	     jferrin1	 mkyea1       robotics		 tunsel1
+akhot1	   dgouvou1	     jgallia1	 mlatypo1     rorourk2		 twang61
+akulka17   dgriffith1	     jgoldb42	 mlewis       rosew		 twellin1
+akunz3	   dharper1	     jhaller1	 mlin71       rpena9		 twilli81
+alal2	   dhintz1	     jhart3	 mliu56       rpokhar1		 txu
+alee884    dickman	     jhartog1	 mlrg	      rquinli1		 tzhao7
+alee889    dima		     jhastie1	 mmadhan1     rrausha1		 ubalci1
+alevenb1   dirwin1	     jherath1	 mmallow1     rriess1		 udeshpa1
+aliang30   djacobs7	     jhertik1	 mmangal1     rriley		 uergash1
+amadnic2   djagtap1	     jhicks	 mmillar3     rsaptar2		 umrigar
+amahaja4   djhender	     jjacob44	 mmille60     rsaraf1		 upe
+amathe13   djwillia	     jjeanba2	 mmurray8     rsaxena3		 upuvvad1
+amccart9   dkim17	     jjjcart	 mnorton1     rsayers1		 urahman1
+amchugh2   dkunkel	     jjose1	 mnussba2     rseltze1		 usatlas1
+amcmanu4   dlam15	     jkassne1	 mobicom2016  rshahul1		 usatlas2
+ameya	   dli114	     jlei23	 monalisa     rsharpe1		 uscms01
+amillik1   dlockye1	     jlevin38	 mozsoy       rshendl1		 uscms02
+amishr11   dlundgren	     jli452	 mparker4     rsmith23		 vbadagu1
+anaik4	   dmacejk1	     jli461	 mparlaw1     rsomapu1		 vbakshi1
+anand	   dmaisur1	     jlin129	 mpatel43     rsumit		 vbeauge1
+anayak2    dmeisel1	     jloew	 mpinz1       rtes-mc		 vbhosal1
+aneeman    dmosess1	     jlouie2	 mplohet1     rthaiva1		 vchandr2
+aneesh	   dmu1		     jlu56	 mquinn5      rthete1		 vchaska1
+anikam1    dnair3	     jmcmah10	 mreale       rwang4		 vdevara2
+ankit	   dnarasi1	     jmeguir1	 mreid9       rwright3		 viktorpracht
+aorella1   doneal1	     jmessin2	 mriver25     ryder		 vinkolar
+apadman1   dpan8	     jmitche6	 mrldata      rzhang		 vkatrag2
+apatel	   dpatel39	     jmohrma1	 mrosato      rzheng14		 vkumari1
+apateri1   dpatil2	     jmontgo4	 mroshid1     sacosta8		 vlsiweb
+aperlow1   dpaul12	     jmontgo5	 mrotlev1     sagrawa4		 vmalcev1
+aplotko1   dreyes12	     josgood2	 mruffne1     sahire1		 vmunish1
+aputnal1   drichards1	     jparikh1	 msarica1     salqaht1		 vparekh1
+aquach1    drseuss	     jpark349	 mschult7     sameer		 vragovs1
+arahma	   dryan6	     jphilem1	 msha	      samgrid		 vsingh2
+aravind    dschroe1	     jquezad1	 mshah38      samiri1		 vtran6
+arayala1   dschust2	     jramli1	 mshakar1     samoore		 watadv
+arizzo10   dskoda1	     jraskin3	 msheldo2     santobu		 wdai
+arohill1   dtelson1	     jren18	 mshelto3     saswani1		 wduan1
+artir	   dthakur1	     jrising1	 msim	      satoshi		 weinscgg
+asahai1    dthatch1	     jrodr151	 mslocum1     saurabh		 welu
+asawant2   dtierne2	     jrosen46	 mspano2      sazarae1		 whuebne1
+asawwal1   dtimmer1	     jrosen52	 msweb	      sbadri1		 wkeller3
+aschwa30   dtownle1	     jrosswog	 msyed3       sbailey6		 wkenned1
+aselvan1   dwalcot1	     jryder	 mtan23       sbaptis2		 wleng1
+aservet1   dwalter2	     jsanch49	 mthakka2     sbdc		 wliu5
+asharif1   dwang84	     jschmit2	 mtullo1      sbengal2		 wmeng
+asharm14   dzhang46	     jseiber1	 munsal1      sbettad1		 wni
+asharm47   eadler1	     jshaikh1	 mvangor3     sblack3		 wsmith4
+ashimiz1   eaktas	     jsharke	 mvani1       sboggar1		 wyang
+ashimiz2   ealdreabi	     jsiegel6	 mweb	      sbohn1		 wzhangc1
+ashinde3   eates1	     jsimon7	 mwerner7     sbommal1		 wzhao1
+ashiral1   ebasan1	     jsimone1	 myan28       sbourke1		 xchen269
+asing134   ebaule1	     jskovro1	 myuksek1     sbravo1		 xdeng7
+astensl1   ebenz1	     jstein27	 mzheng47     scanavan		 xgao1
+astjohn    ebonzek1	     jsteinberg  mz-matlab    scao16		 xgarcia2
+astrong3   ecetine2	     jstpier1	 nabate1      schaud16		 xguo38
+athaile1   eciraco1	     jstrohm1	 nael	      schen232		 xianli
+athakur2   ecodrin1	     jstruck1	 nananth1     schinch1		 xli180
+atiwari3   ecoolid1	     jsu6	 nanohub      scogay1		 xli210
+atweedy1   edede1	     jsuhr2	 nate	      scraver		 xliang24
+auy2	   edurney1	     jsutton3	 nayan1       sdenman1		 xluo22
+avanroi1   eelliot4	     jszacha1	 naydin2      sdesai12		 xpeng
+avenetos1  eetheri1	     jterner1	 nayef	      sdesai13		 xshi1
+avinan	   eezor1	     jthakka1	 nbethan1     sdesai14		 xu_haohang
+avirga1    efergus3	     jthoma64	 nburzyn1     sdesai9		 xwang247
+aviswan3   ehaddad1	     jvail1	 ncilsal2     sdhanas1		 xwei
+avora4	   eisikte1	     jwang36	 ncorvi1      sdhanek1		 xwu30
+awalley1   ejang1	     jweacho1	 ndagost1     sdias1		 xwu9
+awest3	   elakic1	     jweng8	 ndeshmu1     sdoddam1		 xyu44
+awilso16   elanger4	     jwetzel1	 NFS11	      sdoski1		 xzhan215
+aworm1	   elurye1	     jwhitak4	 ngarg3       sdss		 xzhan244
+ayenugu1   emarang1	     jwhite48	 ngawade1     secarch		 xzhang7
+ayeung9    emattison	     jwolter1	 ngoyal1      secweb		 xzhang99
+balandi1   emcnier2	     jwong123	 ngreene5     sforker1		 yanwang
+baltar	   emergepl	     jwoyevo1	 ngujar1      sgallag3		 yaoliu
+barry	   emoelle2	     jwu166	 ngupta4      sgcpu		 ybai4
+bbeeral1   engage	     jwu6	 nhofman1     sgokarn1		 ychandi1
+bbuchan1   epalani1	     jyadav1	 nilton       sgowdra1		 ychen161
+bchadha1   epona	     jyao	 nkimura      sgreenb8		 ychen415
+bchen111   erdil	     jyao6	 nkommur1     sgupta38		 ydaggup1
+bchen114   eserdar1	     jyoo45	 nli19	      shan		 yding25
+bchoudh4   eshapir9	     jzee2019	 nmarman1     shane		 yguo71
+bchrobot   estern7	     jzhang	 nmishra1     shanson1		 yhan1
+bcohada1   et		     kandrad2	 nmonast1     shanuma1		 yhu15
+bdeore1    eterrac1	     kang	 npatel62     shegde1		 yhu92
+bdevrie1   etilden	     kartik	 npatel64     shuhong		 yingsun
+bdikmen1   eway1	     kbahulkar	 npatil5      siftekh1		 yjadhav1
+bdobriy1   eyalcin1	     kbaumst2	 npelleg1     sigda		 yjagda1
+beaumont   faculty	     kchanda2	 npeters1     simple		 yjiang5
+bestus1    faculty.nobackup  kchings1	 npoda1       simplepath	 yjun1
+bgrant11   facweb	     kchiu	 nreisch1     sjain13		 ykucuk1
+bharari1   fafram1	     kcox4	 nrogosz1     sjoshi14		 yli241
+bhogan9    fantona1	     kdamodh1	 nruizto1     skadiri1		 yli418
+bizar1	   fbrione1	     kdayala1	 nsamant1     skaldat1		 ylin
+bkalayc1   fchai1	     kdeshpa5	 nsane3885    skbu007		 ylin145
+bkeuria1   femmanu1	     kdh	 nsharm11     skolhap1		 ylin153
+bklayma1   find		     kdublin1	 nstecyn1     skonath1		 yliu158
+blackburn  fitz		     kfang2	 ntinen       skorade1		 yliu377
+blee75	   fmri		     kferna11	 nuruchi1     skothap1		 yliu401
+bliebe1    foreman	     kgaffne1	 nvallej1     skremli1		 ylu0
+bliew1	   forweb	     kgajwan1	 nvander1     skumar		 ypan13
+blong	   fscott1	     kghose	 nwallin1     skunz1		 ypan3
+blu20	   ftahmas1	     kgiampo1	 nxu4	      slellis1		 ypatel9
+bpoliks    gadu		     kgoel1	 oakgrove     sliu		 ysaglam1
+bpreise1   gaic		     kgulve1	 oalamut1     sliu22		 yshinga1
+brathke1   gaming	     khaled	 ocinar1      slnu1		 ysun59
+brichar7   garrison	     khanson3	 ocummin1     sloscal1		 ytang4
+brobergj   gbejara1	     kharras	 ohatwal1     smahmud2		 ytang43
+brood	   gbiyani1	     khenneb1	 okilic1      smanne1		 yteng1
+brose7	   gchen21	     khirana1	 okircan1     smartpark		 yxu
+brothbe3   gcrl		     khsieh3	 okulkar4     smason8		 yxu133
+bsadhna1   geert	     kjayapr1	 omavitu1     smestry1		 yyang200
+bsaliba1   ggonzal9	     kjones47	 onur	      smircha1		 yyang202
+bsendir1   ghlp		     kkasara1	 oolojed1     smoore4		 yzhan202
+bstace1    ghose	     kkoka1	 optiweb      smorram1		 yzhan401
+bsweet2    ghyan	     kkulkar3	 osanile1     smorri11		 yzhang25
+btas1	   gkumar1	     kkurtz	 osnetsvn     smukka1		 yzhang8
+btaylor1   gliu10	     klewis24	 osweb	      snagarak1		 zdu
+bugzilla   globus	     kliu20	 oudawan1     snatu1		 zfadika
+bvuduth1   gmore3	     kmahmou1	 pacts	      snimhan1		 zfield2
+bwang2	   gmyers	     kmanriq1	 pdeshpa2     software		 zge3
+bweiss1    grad		     kmore4	 pdeshpa3     soshay1		 zguo
+bwong28    grad.nobackup     kmoshie1	 pdexter1     sozdemi2		 zhangy
+byan2	   grase	     kna3	 pfeng1       spalshe1		 zhangying
+byang20    grattih1	     knadeem1	 phao3	      spark215		 zhongfei
+bzee1	   gredozu1	     knip1	 phdweb       sparra2		 zhuang28
+bzhang73   grid		     koneill7	 phil	      sparuch1		 zhuang80
+cadathlon  gridex	     kong	 phmsvn       spatwa1		 ziegler
+canlin	   gridweb	     kpathak1	 pixelcode    sraghav2		 zkabari1
+capsweb    gsivana1	     kphill11	 pkapoor2     srao12		 zkazemi1
+cauchym    gsoweb	     kragava1	 pkariya1     srapell2		 zli137
+cayachi1   gsteinb1	     kramana1	 pkarthi1     sraut1		 zli160
+cbanvar1   gstodda1	     kruan1	 pkaushi1     srazak		 zli191
+cbartol1   gtan		     ksaini1	 pkulkar3     srevade1		 zli192
+cbehan1    gtaskin1	     ksawant1	 plnu2	      sriram		 zlin2
+cbond2	   guydosh	     ksingh35	 plonkar1     srupnar1		 zlin89
+cbrugna1   gvalenc2	     ksingh42	 pmadden      ss1		 zmarian1
+cchen17    gwilber1	     kstigle1	 pmaino1      ssahabh1		 zqiu4
+cchen8	   gwint1	     ksun1	 pmcgoug1     ssahani1		 zseymou1
+cchiauz1   gyerrad1	     kthote1	 ppagar1      ssalick1		 zshu1
+cchilds1   hahuja1	     kusovski	 pparekh1     ssamate1		 zwang252
+cchoi20    halzein1	     kvartak2	 pparmar2     ssanaga1		 zwen7
+ccloss1    haygan1	     kwadeka1	 ppatel3      ssankhe1		 zzhan145
+ccui5	   hbagdi1	     kwallac6	 ppatel85     ssarems1		 zzhan150
+ccui7	   hbalu1	     kwan2	 ppatel95     ssaxena3		 zzhan218
+cdaware1   hbrown10	     kwill113	 ppatil7      ssayyad1		 zzhang27
+cdf	   hburkha1	     kwrite1	 ppawar3      ssekar1
+cdimegl1   hburns3	     kyan12	 ppriyam1     ssenkes1
+cdonovi1   hchen113	     kyi3	 pqi1	      ssenthil
+cfiutak1   hdesai1	     lander	 prasanna     sshah90
+cglashe1   head		     larson	 preddir1     sshin
+thur1@g7-30:/home$ cd thur1
+thur1@g7-30:~$ ls
+ a.out		    cstack.s	 lab11.c      '#midterm review.circ#'   t1.c	    v1.s
+ arduino	    cstack.txt	 lab12	      'midterm review.circ'     t1.s	   '#v.c#'
+ arduinostack.txt   desktop	 lab12.c       music		        templates   v.c
+ bin-c.log	    dir		 lab12.o      '~p'		        test	    videos
+ cs220		    documents	'lab 2.circ'   pictures		        testing     work
+ cs240		    downloads	'lab 3.circ'   project2.s	        testing.c   x.c
+ cstack		    git-repos	'lab 4.circ'   public		        testing.o
+ cstack.c	    lab11	 lab8.s        random		        tmp
+thur1@g7-30:~$ cd git-repos
+thur1@g7-30:~/git-repos$ ls
+cs220  i220a  lab8.git
+thur1@g7-30:~/git-repos$ cd work
+bash: cd: work: No such file or directory
+thur1@g7-30:~/git-repos$ ls
+cs220  i220a  lab8.git
+thur1@g7-30:~/git-repos$ cd wor[K[K[Ki220a
+thur1@g7-30:~/git-repos/i220a$ ls
+grading  README.md  submit  work
+thur1@g7-30:~/git-repos/i220a$ git remote add lab8  ssh://LOGIN@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd i220als[Kgit remote add lab8  ssh://LOGIN@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C@remote.cs.binghamton.edu/home/LOGIN/gi[1Pt-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C@remote.cs.binghamton.edu/home/LOGIN/git[1P-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C@remote.cs.binghamton.edu/home/LOGIN/git-[1Prepos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C@remote.cs.binghamton.edu/home/LOGIN/git-r[1Pepos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C@remote.cs.binghamton.edu/home/LOGIN/git-re[1Ppos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1@remote.cs.binghamton.edu/home/LOGIN/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/gi[1Pt-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/git[1P-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/git-[1Prepos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/git-r[1Pepos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/git-re[1Ppos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1/git-repos/lab8.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+thur1@g7-30:~/git-repos/i220a$ git pul --allow-m[Kunrelated-histories lab8 master
+git: 'pul' is not a git command. See 'git --help'.
+
+The most similar commands are
+	pull
+	push
+thur1@g7-30:~/git-repos/i220a$ git pul --allow-unrelated-histories lab8 master[C[1@l
+thur1@remote.cs.binghamton.edu's password: 
+warning: no common commits
+remote: Enumerating objects: 37, done.[K
+remote: Counting objects:   2% (1/37)   [Kremote: Counting objects:   5% (2/37)   [Kremote: Counting objects:   8% (3/37)   [Kremote: Counting objects:  10% (4/37)   [Kremote: Counting objects:  13% (5/37)   [Kremote: Counting objects:  16% (6/37)   [Kremote: Counting objects:  18% (7/37)   [Kremote: Counting objects:  21% (8/37)   [Kremote: Counting objects:  24% (9/37)   [Kremote: Counting objects:  27% (10/37)   [Kremote: Counting objects:  29% (11/37)   [Kremote: Counting objects:  32% (12/37)   [Kremote: Counting objects:  35% (13/37)   [Kremote: Counting objects:  37% (14/37)   [Kremote: Counting objects:  40% (15/37)   [Kremote: Counting objects:  43% (16/37)   [Kremote: Counting objects:  45% (17/37)   [Kremote: Counting objects:  48% (18/37)   [Kremote: Counting objects:  51% (19/37)   [Kremote: Counting objects:  54% (20/37)   [Kremote: Counting objects:  56% (21/37)   [Kremote: Counting objects:  59% (22/37)   [Kremote: Counting objects:  62% (23/37)   [Kremote: Counting objects:  64% (24/37)   [Kremote: Counting objects:  67% (25/37)   [Kremote: Counting objects:  70% (26/37)   [Kremote: Counting objects:  72% (27/37)   [Kremote: Counting objects:  75% (28/37)   [Kremote: Counting objects:  78% (29/37)   [Kremote: Counting objects:  81% (30/37)   [Kremote: Counting objects:  83% (31/37)   [Kremote: Counting objects:  86% (32/37)   [Kremote: Counting objects:  89% (33/37)   [Kremote: Counting objects:  91% (34/37)   [Kremote: Counting objects:  94% (35/37)   [Kremote: Counting objects:  97% (36/37)   [Kremote: Counting objects: 100% (37/37)   [Kremote: Counting objects: 100% (37/37), done.[K
+remote: Compressing objects:   5% (1/20)   [Kremote: Compressing objects:  10% (2/20)   [Kremote: Compressing objects:  15% (3/20)   [Kremote: Compressing objects:  20% (4/20)   [Kremote: Compressing objects:  25% (5/20)   [Kremote: Compressing objects:  30% (6/20)   [Kremote: Compressing objects:  35% (7/20)   [Kremote: Compressing objects:  40% (8/20)   [Kremote: Compressing objects:  45% (9/20)   [Kremote: Compressing objects:  50% (10/20)   [Kremote: Compressing objects:  55% (11/20)   [Kremote: Compressing objects:  60% (12/20)   [Kremote: Compressing objects:  65% (13/20)   [Kremote: Compressing objects:  70% (14/20)   [Kremote: Compressing objects:  75% (15/20)   [Kremote: Compressing objects:  80% (16/20)   [Kremote: Compressing objects:  85% (17/20)   [Kremote: Compressing objects:  90% (18/20)   [Kremote: Compressing objects:  95% (19/20)   [Kremote: Compressing objects: 100% (20/20)   [Kremote: Compressing objects: 100% (20/20), done.[K
+remote: Total 37 (delta 10), reused 0 (delta 0)[K
+Unpacking objects:   2% (1/37)   Unpacking objects:   5% (2/37)   Unpacking objects:   8% (3/37)   Unpacking objects:  10% (4/37)   Unpacking objects:  13% (5/37)   Unpacking objects:  16% (6/37)   Unpacking objects:  18% (7/37)   Unpacking objects:  21% (8/37)   Unpacking objects:  24% (9/37)   Unpacking objects:  27% (10/37)   Unpacking objects:  29% (11/37)   Unpacking objects:  32% (12/37)   Unpacking objects:  35% (13/37)   Unpacking objects:  37% (14/37)   Unpacking objects:  40% (15/37)   Unpacking objects:  43% (16/37)   Unpacking objects:  45% (17/37)   Unpacking objects:  48% (18/37)   Unpacking objects:  51% (19/37)   Unpacking objects:  54% (20/37)   Unpacking objects:  56% (21/37)   Unpacking objects:  59% (22/37)   Unpacking objects:  62% (23/37)   Unpacking objects:  64% (24/37)   Unpacking objects:  67% (25/37)   Unpacking objects:  70% (26/37)   Unpacking objects:  72% (27/37)   Unpacking objects:  75% (28/37)   Unpacking objects:  78% (29/37)   Unpacking objects:  81% (30/37)   Unpacking objects:  83% (31/37)   Unpacking objects:  86% (32/37)   Unpacking objects:  89% (33/37)   Unpacking objects:  91% (34/37)   Unpacking objects:  94% (35/37)   Unpacking objects:  97% (36/37)   Unpacking objects: 100% (37/37)   Unpacking objects: 100% (37/37), done.
+From ssh://remote.cs.binghamton.edu/home/thur1/git-repos/lab8
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> lab8/master
+hint: Waiting for your editor to close the file... [?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;30r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[30;1H[97m[41mE325: ATTENTION[m
+Found a swap file by the name "~/git-repos/i220a/.git/.MERGE_MSG.swp"
+[10Cowned by: thur1   dated: Sun Sep 22 16:44:08 2019
+[9Cfile name: ~thur1/git-repos/i220a/.git/MERGE_MSG
+[10Cmodified: YES
+[9Cuser name: thur1   host name: remote03
+[8Cprocess ID: 26302
+While opening file "/import/linux/home1/thur1/git-repos/i220a/.git/MERGE_MSG"
+[13Cdated: Thu Oct 10 13:32:57 2019
+      NEWER than swap file!
+
+(1) Another program may be editing the same file.  If this is the case,
+    be careful not to end up with two different instances of the same
+    file when making changes.  Quit, or continue with caution.
+(2) An edit session for this file crashed.
+    If this is the case, use ":recover" or "vim -r /import/linux/home1/thur1/git-repos/i220a/.git/M
+[29;100HE[30;1HRGE_MSG"
+    to recover the changes (see ":help recovery").
+    If you did this already, delete the swap file "/import/linux/home1/thur1/git-repos/i220a/.git/.
+[29;100HM[30;1HERGE_MSG.swp"
+    to avoid this message.
+[?1000l
+[32mSwap file "~/git-repos/i220a/.git/.MERGE_MSG.swp" already exists![m
+[32m[O]pen Read-Only, (E)dit anyway, (R)ecover, (D)elete it, (Q)uit, (A)bort: [?25h[?1000h[m[30;1H[K[?25l[30;1H"~/git-repos/i220a/.git/MERGE_MSG" 7L, 309C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130mMerge branch 'master' of ssh://remote.cs.binghamto[mn.edu/home/thur1/git-repos/lab8
+
+[34m# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.[m[7;14H[K[8;1H[94m~                                                                                                   [9;1H~                                                                                                   [10;1H~                                                                                                   [11;1H~                                                                                                   [12;1H~                                                                                                   [13;1H~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                      

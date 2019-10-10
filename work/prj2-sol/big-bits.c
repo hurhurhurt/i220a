@@ -1,17 +1,18 @@
 #include "big-bits.h"
 #include "hex-util.h"
-
 #include <assert.h>
 #include <errno.h>
 #include <limits.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 /** Provide concrete definition for struct BigBits to flesh out
  *  abstract BigBits data type.
  */
 struct BigBits {
-  //@TODO
+  int *arr;
+  unsigned int size;
 };
 
 
@@ -29,8 +30,14 @@ const BigBits *
 newBigBits(const char *hex)
 {
   assert(CHAR_BIT == 8);
-  //@TODO
-  return NULL;
+  int sizeHex = sizeof(hex);
+  struct BigBits * convertBits = malloc(sizeHex*sizeof(struct BigBits));
+  convertBits->arr = malloc(sizeHex);
+  convertBits->size = sizeHex;
+  for (int i = 0; i < sizeHex; i++){
+    convertBits->arr[i] = charToHexet(hex[i]);
+  }
+  return convertBits;
 }
 
 /** Frees all resources used by currently valid bigBits.  bigBits
@@ -39,7 +46,8 @@ newBigBits(const char *hex)
 void
 freeBigBits(BigBits *bigBits)
 {
-  //@TODO
+  free(bigBits->arr);
+  free(bigBits);
 }
 
 
@@ -72,7 +80,7 @@ andBigBits(const BigBits *bigBits1, const BigBits *bigBits2)
 const BigBits *
 orBigBits(const BigBits *bigBits1, const BigBits *bigBits2)
 {
-  //@TODO
+  return bigBits1->arr | bigBits2->arr;
   return NULL;
 }
 
