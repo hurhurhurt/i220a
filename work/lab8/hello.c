@@ -9,4 +9,5 @@ main(int argc, const char *argv[])
     exit(1);
   }
   printf("hello %s\n", argv[1]);
+  return 0;
 }
