@@ -11,4 +11,6 @@ main(int argc, const char *argv[])
   for (int i = 1; i < argc; i++) {
     printf("hello %s\n", argv[i]);
   }
+  //printf("hello %s\n", argv[1]);
+  return 0;
 }
