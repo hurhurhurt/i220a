@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Lab 6</title>
+    
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="lab6.umt:1:0"><h1 data-coord="lab6.umt:1:0">Lab 6</h1><p data-coord="lab6.umt:3:0"><strong data-coord="lab6.umt:3:0">Date</strong>: Sep 26, 2019
+</p><p data-coord="lab6.umt:5:0">This document first describes the aims of this lab.  It then provides
+necessary background.  It then describes the exercises which need to be
+performed.
+</p><section data-coord="lab6.umt:10:0"><h2 data-coord="lab6.umt:10:0">Aims</h2><p data-coord="lab6.umt:13:0">The aim of this lab is to familiarize you with the use of dynamic memory
+allocation in C.  After completing this lab, you should be familiar with the
+following topics:
+</p><ul data-coord="lab6.umt:17:0"><li data-coord="lab6.umt:17:0"><p data-coord="lab6.umt:17:4">Some feel for the strategies used by typical memory allocation
+libraries.
+</p></li><li data-coord="lab6.umt:20:0"><p data-coord="lab6.umt:20:4">Recognizing some symptoms of memory allocation errors.
+</p></li><li data-coord="lab6.umt:22:0"><p data-coord="lab6.umt:22:4">An introduction to some tools for diagnosing memory allocation errors.
+</p></li></ul></section><section data-coord="lab6.umt:25:0"><h2 data-coord="lab6.umt:25:0">Background</h2><p data-coord="lab6.umt:28:0">Possibilities for the lifetime of program data include the following:
+</p><dl data-coord="lab6.umt:30:0"><dt data-coord="lab6.umt:30:2"> <strong data-coord="lab6.umt:30:1">Lifetime Coincident with Execution of the Entire Program</strong></dt><dd data-coord="lab6.umt:31:0"><p data-coord="lab6.umt:31:4">The data comes to life when the program first starts up and stays
+alive as long the program is running.  This kind of data can be
+stored at "fixed" memory addresses; these addresses are computed
+by the compiler.
+</p><p data-coord="lab6.umt:36:4">Note that data which has lifetime coincident with that of the
+program is often referred to as <em data-coord="lab6.umt:36:102">static data</em>; this is not
+identical to data declared using C's <samp data-coord="lab6.umt:36:170">static</samp> keyword; all data
+declared as <samp data-coord="lab6.umt:36:213">static</samp> is <em data-coord="lab6.umt:36:225">static data</em>, but not all <em data-coord="lab6.umt:36:252">static data</em>
+need be declared <samp data-coord="lab6.umt:36:287">static</samp> (it can also be implicitly or explicitly
+declared <samp data-coord="lab6.umt:36:350">extern</samp>).
+</p></dd><dt data-coord="lab6.umt:43:2"> <strong data-coord="lab6.umt:43:1">Lifetime Coincident with Execution of a Block</strong></dt><dd data-coord="lab6.umt:44:0"><p data-coord="lab6.umt:44:4">During runtime, data which has lifetime coincident with the
+execution of a block can be allocated on a LIFO stack.  The
+data comes to life when the block is first entered and disappears
+once the exits.
+</p></dd></dl><p data-coord="lab6.umt:49:0">Unfortunately, neither one of these strategies will suffice for data
+with other kinds of lifetime.
+</p><p data-coord="lab6.umt:52:0">Most modern operating systems provide facilities for a running program to
+request non-stack memory dynamically while the program is running.   
+</p><dl data-coord="lab6.umt:55:0"><dt data-coord="lab6.umt:55:2"> <strong data-coord="lab6.umt:55:1">Windows</strong></dt><dd data-coord="lab6.umt:56:0"><p data-coord="lab6.umt:56:4">Programs can call <samp data-coord="lab6.umt:56:22">HeapAlloc()</samp> given a heap handle to an existing
+memory heap.
+</p></dd><dt data-coord="lab6.umt:59:2"> <strong data-coord="lab6.umt:59:1">Unix</strong></dt><dd data-coord="lab6.umt:60:0"><p data-coord="lab6.umt:60:4">Most Unix-based systems (Linux, Solaris, Android, OS X, ios, BSD)
+provide a system call <samp data-coord="lab6.umt:60:96">sbrk()</samp> which can be used to control the
+upper limit of the data area.  Memory can also be allocated using
+anonymous memory mappings.
+</p></dd></dl><p data-coord="lab6.umt:65:0">Of course, the details of these specific system calls are hidden from
+a C programmer as long as the programmer is willing to use the memory
+allocation facilities (<samp data-coord="lab6.umt:65:167">malloc()</samp> and friends) provided by the
+standard C library.  The area of memory from which <samp data-coord="lab6.umt:65:258">malloc()</samp>
+allocates memory is referred to as the <em data-coord="lab6.umt:65:308">heap</em>.
+</p></section><section data-coord="lab6.umt:72:0"><h2 data-coord="lab6.umt:72:0">Exercises</h2><section data-coord="lab6.umt:75:0"><h3 data-coord="lab6.umt:75:0">Starting up</h3><p data-coord="lab6.umt:78:0">Make sure you have followed the
+<a href="../lab-tips/lab-tips.html" data-coord="lab6.umt:78:61">tips</a> for setting up your environment for
+this lab.  Get a copy of all the lab6 files in your <samp data-coord="lab6.umt:78:154">work/lab6</samp> directory
+by copying the <samp data-coord="lab6.umt:78:191">~/cs220/labs/lab6/files</samp> directory into your newly created
+<samp data-coord="lab6.umt:78:251">lab6</samp> directory:
+</p><pre data-coord="lab6.umt:85:0">$ mkdir work/lab6
+$ cd work/lab6
+$ cp -r ~/cs220/labs/lab6/files/* .
+</pre><p data-coord="lab6.umt:90:0">Start logging your terminal interaction:
+</p><pre data-coord="lab6.umt:93:0">$ script -a lab6.log
+Script started, file is lab6.log
+</pre><p data-coord="lab6.umt:97:0">In the sequel, when shell commands are shown with a <samp data-coord="lab6.umt:97:52">$</samp> prompt, it means
+that the corresponding command was run using a <samp data-coord="lab6.umt:97:120">sh</samp>-based shell like
+<samp data-coord="lab6.umt:97:142">bash</samp>. So unless you have a strong preference otherwise, it is probably a
+good idea to use <samp data-coord="lab6.umt:97:234">bash</samp> as your shell; so if you see your prompt containing
+a <samp data-coord="lab6.umt:97:295">%</samp> or <samp data-coord="lab6.umt:97:302">&gt;</samp>, enter <samp data-coord="lab6.umt:97:313">bash</samp> by simply typing <samp data-coord="lab6.umt:97:337">bash</samp>.  
+</p></section><section data-coord="lab6.umt:153:0"><h3 data-coord="lab6.umt:153:0">Exercise 1: Observing Process Memory</h3><p data-coord="lab6.umt:156:0">This exercise demonstrates how one can monitor the memory size of a process
+under Unix systems.
+</p><p data-coord="lab6.umt:159:0">Change over to the directory <a href="./files/process-memory" data-coord="lab6.umt:159:55">process-memory.</a>  Build the
+<samp data-coord="lab6.umt:159:82">process-memory</samp> program by typing <samp data-coord="lab6.umt:159:117">make</samp>.  The program simply allocates
+<samp data-coord="lab6.umt:159:155">argv[1]</samp> MB of memory and then sleeps for 1 minute.
+</p><p data-coord="lab6.umt:163:0">Run the program but put it in the background using a trailing <samp data-coord="lab6.umt:163:62">&amp;</samp> by
+typing something like <samp data-coord="lab6.umt:163:91">./process-memory 10 &amp;</samp>.  The system will
+<a href="https://www.gnu.org/software/bash/manual/html_node/Job-Control-Basics.html" data-coord="lab6.umt:163:211">output</a> two numbers followed by the command-line prompt; the first
+number enclosed within square brackets <samp data-coord="lab6.umt:163:316">[]</samp> is is the <em data-coord="lab6.umt:163:331">job id</em> and the
+second number is the <em data-coord="lab6.umt:163:369">process id</em> or PID. This will be followed by a
+message from the background process saying that memory was allocated.
+</p><p data-coord="lab6.umt:171:0">You can get back a fresh command-line prompt by simply typing a
+return.
+</p><p data-coord="lab6.umt:174:0">Given the PID <em data-coord="lab6.umt:174:14">pid</em> for the process, look at the memory size of the
+process using <samp data-coord="lab6.umt:174:82">ps -Fp </samp><em data-coord="lab6.umt:174:91">PID</em>.  You will get a couple of lines printed
+out: a header followed by the values for the specified process.  Do
+<samp data-coord="lab6.umt:174:206">man ps</samp> to get the <em data-coord="lab6.umt:174:276"><a href="http://man7.org/linux/man-pages/man1/ps.1.html" data-coord="lab6.umt:174:276">ps man page</a></em>; the relevant fields for memory are <samp data-coord="lab6.umt:174:326">SZ</samp> which gives the
+total size of the process (in pages) and <samp data-coord="lab6.umt:174:388">RSS</samp> which gives the number
+of pages which are resident in memory.
+</p><p data-coord="lab6.umt:182:0">Repeat with <samp data-coord="lab6.umt:182:12">./process_memory 100 &amp;</samp> and observe the increase in <samp data-coord="lab6.umt:182:65">SZ</samp>,
+whereas the <samp data-coord="lab6.umt:182:83">RSS</samp> stays roughly the same since the allocated memory is
+totally inactive.
+</p><p data-coord="lab6.umt:186:0">Note that when the background processes you started using the <samp data-coord="lab6.umt:186:62">&amp;</samp> shell
+operator terminate, the shell will print a message on your terminal.
+</p></section><section data-coord="lab6.umt:190:0"><h3 data-coord="lab6.umt:190:0">Exercise 2: Buggy Program</h3><p data-coord="lab6.umt:193:0">Change over to the directory <a href="./files/bug-program" data-coord="lab6.umt:193:52">bug-program</a> where
+<a href="./files/bug-program/bug-program.c" data-coord="lab6.umt:193:107">bug-program.c</a> contains four
+memory allocation bugs.  Look at the program which should be
+reasonably understandable.
+</p><p data-coord="lab6.umt:198:0">Build the program by typing <samp data-coord="lab6.umt:198:28">make</samp>.  Even with the multiple bugs, the
+program will probably run without a problem!! The fact that it may do
+so illustrate the insiduous nature of such bugs in that such buggy
+programs seem to work most of the time.
+</p><p data-coord="lab6.umt:203:0">Can you understand why the indexes of the words are printed out in
+descending order?
+</p><p data-coord="lab6.umt:206:0">The following sections will introduce tools which will help you
+spot the bugs, but see if you can find one-or-more bugs without
+using the tools.  Some hints:
+</p><ul data-coord="lab6.umt:210:0"><li data-coord="lab6.umt:210:0"><p data-coord="lab6.umt:210:4">The amount of memory needed to store a string <strong data-coord="lab6.umt:210:50">must</strong> include
+space for the terminating <samp data-coord="lab6.umt:210:95">'\0</samp> NUL` character.
+</p></li><li data-coord="lab6.umt:213:0"><p data-coord="lab6.umt:213:4">When <samp data-coord="lab6.umt:213:9">malloc()</samp>'ing memory for some type <samp data-coord="lab6.umt:213:45">T</samp>, the normal call
+will look like <samp data-coord="lab6.umt:213:85">T *pointerToT = malloc(sizeof(T));</samp>.
+</p></li><li data-coord="lab6.umt:216:0"><p data-coord="lab6.umt:216:4">All allocated memory should be <samp data-coord="lab6.umt:216:35">free()</samp>'d.  Hence for every
+memory allocation call there should be a call to <samp data-coord="lab6.umt:216:117">free()</samp>.
+</p></li><li data-coord="lab6.umt:219:0"><p data-coord="lab6.umt:219:4">Memory should not be accessed once it has been <samp data-coord="lab6.umt:219:51">free()</samp>'d.
+</p></li></ul></section><section data-coord="lab6.umt:221:0"><h3 data-coord="lab6.umt:221:0">Exercise 3: Using Heap-Consistency Checking</h3><p data-coord="lab6.umt:224:0">Stay in the <a href="./files/bug-program" data-coord="lab6.umt:224:35">bug-program</a> directory, but now run the program
+using 
+</p><pre data-coord="lab6.umt:228:0">      $ MALLOC_CHECK_=1 ./bug-program
+</pre><p data-coord="lab6.umt:231:0">[Note the trailing underscore in <samp data-coord="lab6.umt:231:33">MALLOC_CHECK_</samp>].
+</p><p data-coord="lab6.umt:233:0">The program should run ok, but the program output should also be
+followed by memory diagnostics (and possibly terminate with a
+segmentation fault).  The way this works is that setting the
+<samp data-coord="lab6.umt:233:188">MALLOC_CHECK_</samp> environmental variable links in a special version of
+the C library which does some consistency checking on the memory
+allocations.  In the above case it may report some inconsistencies.
+</p><p data-coord="lab6.umt:240:0">Look at the listed inconsistencies, and see if you can find any of the
+bugs which result in the memory inconsistency.  Possibly firing up
+<samp data-coord="lab6.umt:240:138">gdb</samp> and tracing the operation of the program may help.
+</p></section><section data-coord="lab6.umt:244:0"><h3 data-coord="lab6.umt:244:0">Exercise 4: Using valgrind</h3><p data-coord="lab6.umt:247:0">You may or may not have been successful in fixing memory allocation
+bugs in the previous exercise.  The problem with the diagnostics
+produced in that exercise is that they did not point you to specific
+source lines.  An alternative is to use the <samp data-coord="lab6.umt:247:246">valgrind</samp> tool which
+produces much better diagnostics at the source level.
+</p><p data-coord="lab6.umt:253:0">Stay in the <a href="./files/bug-program" data-coord="lab6.umt:253:35">bug-program</a> directory, but now run the program
+using 
+</p><pre data-coord="lab6.umt:257:0">$ valgrind -v --leak-check=yes ./bug-program 2&gt;bug-program.valgrind
+</pre><p data-coord="lab6.umt:260:0">This should record the standard error diagnostics in the
+<samp data-coord="lab6.umt:260:57">bug-program.valgrind</samp> file.  Now look at that file and the
+<a href="http://valgrind.org/docs/manual/QuickStart.html" data-coord="lab6.umt:260:168">docs</a> for valgrind
+and try to figure out the bugs.  Look at the specific lines mentioned
+for <samp data-coord="lab6.umt:260:260">bug-program.c</samp> to figure out the problems.
+</p><p data-coord="lab6.umt:266:0">Since the report is quite long, search the file for errors mentioning
+<samp data-coord="lab6.umt:266:70">bug-program.c</samp>.  Look at the line specified by the line number mentioned in
+valgrind report.  Consider the error reported by valgrind for that line and
+try to find the bug which may cause it.  Note that the same bug may result
+in multiple errors.
+</p><p data-coord="lab6.umt:272:0">Since it is very likely that each of the words in the Jabberwocky poem
+cause the same bugs, it may be a good idea to comment out all words
+other than the first and then run valgrind once again.  This way the
+report will be shorter and it may be easier to find the bugs.
+</p><p data-coord="lab6.umt:277:0">Once you have identified the bugs, fix them.  Run a valgrind report so
+that valgrind reports a clean output without <strong data-coord="lab6.umt:277:116">any</strong> errors.
+</p></section></section><section data-coord="lab6.umt:280:0"><h2 data-coord="lab6.umt:280:0">References</h2><p data-coord="lab6.umt:284:0">Text, section 9.11.
+</p><p data-coord="lab6.umt:286:0">Valgrind at &lt;http://valgrind.org&gt;.
+</p><p data-coord="lab6.umt:288:0"><em data-coord="lab6.umt:288:110"><a href="http://www.gnu.org/software/libc/manual/html_node/Heap-Consistency-Checking.html#Heap-Consistency-Checking" data-coord="lab6.umt:288:110">Gcc Heap Consistency Checking</a></em>.
+</p></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>

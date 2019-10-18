@@ -402,4 +402,177 @@ v = 0x20000000000 (2.19902e+12), ulp = 262144
 v = 0x40000000000 (4.39805e+12), ulp = 524288
 v = 0x80000000000 (8.79609e+12), ulp = 1048576
 v = 0x100000000000 (1.75922e+13), ulp = 2097152
-v = 0x200000000000 (3.51844e+13), ulp = 4
+v = 0x200000000000 (3.51844e+13), ulp = 4194304
+v = 0x400000000000 (7.03687e+13), ulp = 8388608
+v = 0x800000000000 (1.40737e+14), ulp = 16777216
+v = 0x1000000000000 (2.81475e+14), ulp = 33554432
+v = 0x2000000000000 (5.6295e+14), ulp = 67108864
+v = 0x4000000000000 (1.1259e+15), ulp = 134217728
+v = 0x8000000000000 (2.2518e+15), ulp = 268435456
+v = 0x10000000000000 (4.5036e+15), ulp = 536870912
+v = 0x20000000000000 (9.0072e+15), ulp = 1073741824
+v = 0x40000000000000 (1.80144e+16), ulp = 2147483648
+v = 0x80000000000000 (3.60288e+16), ulp = 4294967296
+v = 0x100000000000000 (7.20576e+16), ulp = 8589934592
+v = 0x200000000000000 (1.44115e+17), ulp = 17179869184
+v = 0x400000000000000 (2.8823e+17), ulp = 34359738368
+v = 0x800000000000000 (5.76461e+17), ulp = 68719476736
+v = 0x1000000000000000 (1.15292e+18), ulp = 137438953472
+v = 0x2000000000000000 (2.30584e+18), ulp = 274877906944
+v = 0x4000000000000000 (4.61169e+18), ulp = 549755813888
+v = 0x8000000000000000 (9.22337e+18), ulp = 1099511627776
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ ./ulp data>ulp.dt[Kata
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ ./ulp data>ulp.data
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ -[Kgnuplot -p ulp.gp
+03:57:19 PM: Error: Unable to initialize GTK+, is DISPLAY set properly?
+Failed to initialize wxWidgets.
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ ./ulp lg-data > [Kulp-lg.data
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ gnuplot -p ulp-lg.gp
+03:57:37 PM: Error: Unable to initialize GTK+, is DISPLAY set properly?
+Failed to initialize wxWidgets.
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ ^C
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex8$ cd ..
+thur1@remote06:~/git-repos/i220a/submit/lab4/files$ cd ex9
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ make
+cc -g -Wall -std=c11    loop.c   -o loop
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ ./;pp[K[K[Kloop
+^X^C
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ emacs l[K[K[K[K[K[K[Kemacs loop.c
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools C Help                                                              [0m[39;49m[27m
+[A
+[1m[34m#include[0m[39;49m [32m<stdio.h>[39;49m[K
+[K
+[32mint[39;49m [1m[34mmain[0m[39;49m() {[K
+[K
+  [1m[36mwhile[0m[39;49m (1) {[K
+    [32mfloat[39;49m [33md[39;49m;[K
+    scanf([32m"%f"[39;49m, &d);[K
+    [32mfloat[39;49m [33mx[39;49m;[K
+    [1m[36mfor[0m[39;49m (x = d; x <= d + 1000.0; x = x + 1000.0) {[K
+    }[K
+    printf([32m"loop exited with x = %.14g\n"[39;49m, x);[K
+  }[K
+  [1m[36mreturn[0m[39;49m 0;[K
+}[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mloop.c      [0m[39;49m[27m[7m   All L1    [0m[39;49m[27m[7mGit-master[0m[39;49m[27m[7m  (C/*l Abbrev) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[K[2d[35d[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ make
+make: 'loop' is up to date.
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ ./loop
+^X^C
+thur1@remote06:~/git-repos/i220a/submit/lab4/files/ex9$ d [K[Kcd ..
+thur1@remote06:~/git-repos/i220a/submit/lab4/files$ cd ..
+thur1@remote06:~/git-repos/i220a/submit/lab4$ cd ..
+thur1@remote06:~/git-repos/i220a/submit$ git push[K[K[K[Kcommti _[K[K[K[Kit -a -m "lab4 udated[K[K[K[K[Kpdatd"[K[Ked"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+	[31mlab4/files/ex8/ulp-lg.data[m
+	[31mlab4/files/ex8/ulp.data[m
+	[31mlab4/lab4.log[m
+
+nothing added to commit but untracked files present
+thur1@remote06:~/git-repos/i220a/submit$ git add *
+thur1@remote06:~/git-repos/i220a/submit$ git commit -a -m "lab4 [K[K4 updated"
+[master 1cd1f36] lab4 updated
+ 3 files changed, 533 insertions(+)
+ create mode 100644 submit/lab4/files/ex8/ulp-lg.data
+ create mode 100644 submit/lab4/files/ex8/ulp.data
+ create mode 100644 submit/lab4/lab4.log
+thur1@remote06:~/git-repos/i220a/submit$ git push
+Username for 'https://github.com': hurhurhurt
+Password for 'https://hurhurhurt@github.com': 
+Enumerating objects: 14, done.
+Counting objects:   7% (1/14)   Counting objects:  14% (2/14)   Counting objects:  21% (3/14)   Counting objects:  28% (4/14)   Counting objects:  35% (5/14)   Counting objects:  42% (6/14)   Counting objects:  50% (7/14)   Counting objects:  57% (8/14)   Counting objects:  64% (9/14)   Counting objects:  71% (10/14)   Counting objects:  78% (11/14)   Counting objects:  85% (12/14)   Counting objects:  92% (13
