@@ -2,10 +2,11 @@ answers:
 
 1) given
 2) given
-3) inputs: 1, 10, 100, 1000 output: 1, 16, 256, 4096 --> the mask shifts >> 1
-4) 0
+3) 123abcd would only output 0x23abcd, takes lower 6 bits
+4) 0 is the same as -0
 5) given
 6) given
-7) 0
+7) 0 output NaN
 8) given
-9) 2 ^33
+9) 2 ^33 would put the result in an infinite loop
+
