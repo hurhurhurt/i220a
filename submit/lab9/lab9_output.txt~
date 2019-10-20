@@ -1,2 +1,0 @@
-ex2) $0x7fffff was the mask, which was in the AND command within objdump -d mystery.o >mystery.objdump
-
