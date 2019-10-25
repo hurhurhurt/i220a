@@ -1,0 +1,12 @@
+bad hex value
+0xz*4
+ ^
+bad hex value
+0xzz*a
+ ^
+invalid char '*'
+0x2a*z
+    ^
+invalid char '*'
+0xa*a*5 0x1*a*z |
+             ^

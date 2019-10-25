@@ -1,0 +1,6 @@
+Name:		Thomas Hur
+B-Number:	B00690038
+Email:		thur1@binghamton.edu
+
+Free function() is commented out because of double free errors, but besides that implementation works fine
+
