@@ -1,0 +1,800 @@
+Script started on 2019-10-27 22:53:47-04:00 [TERM="xterm" TTY="/dev/pts/3" COLUMNS="100" LINES="35"]
+thur1@remote04:~/git-repos/i220a/work/lab10$ cd files
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ ls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd files
+bash: cd: files: No such file or directory
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ ls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd cpuid1
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ ls
+cpuid.s  main.c  Makefile
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ ./cup[K[Kpuid
+cpuid: eax = 0xd; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ ls
+cpuid  cpuid.o	cpuid.s  main.c  main.o  Makefile
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ emacs cp[K[Kcpuid.s
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Asm Help                                                            [0m[39;49m[27m
+[A
+#get_cpuid(int *eaxP, int *ebxP, int *ecxP, int *edxP).[K
+#rdi = eaxP, rsi = ebxP, rdx = edxP, rcx = ecxP[K
+        [1m[36m.text[0m[39;49m[K
+        [1m[36m.globl[0m[39;49m get_cpuid[K
+[1m[34mget_cpuid[0m[39;49m:[K
+        [1m[36mpushq[0m[39;49m   [33m%rcx[39;49m[K
+        [1m[36mpushq[0m[39;49m   [33m%rdx[39;49m[K
+        [1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[K
+        [1m[36mcpuid[0m[39;49m[K
+        #largest param in [33m%eax[39;49m[K
+        #12-char manufacturer string in ebx, edx, ecx.[K
+        [1m[36mmovl[0m[39;49m    [33m%eax[39;49m, ([33m%rdi[39;49m)    #store eax cpuid result[K
+        [1m[36mmovl[0m[39;49m    [33m%ebx[39;49m, ([33m%rsi[39;49m)    #store ebx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for edxP[K
+        [1m[36mmovl[0m[39;49m    [33m%edx[39;49m, ([33m%rax[39;49m)    #store edx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for ecxP[K
+        [1m[36mmovl[0m[39;49m    [33m%ecx[39;49m, ([33m%rax[39;49m)    #store ecx cpuid result[K
+        [1m[36mret[0m[39;49m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mcpuid.s     [0m[39;49m[27m[7m   All L2     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[A[3d[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;35H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[34;35H[?25l[7m8[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[34;35H[?25l[7m9[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[34;34H[?25l[7m20[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[35d[?25lEnd of buffer[21;1H[?12l[?25h[?12;25h[35d[K[34;34H[?25l[7m19[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[34;35H[?25l[7m8[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[34;35H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;35H[?25l[7m0[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9 [0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[35d[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ e[Kcd ...[K
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd [K[K[Kls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd rotate
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ls
+Makefile  rotate.c
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ make
+cc -S -Wall -Og -std=c11 rotate.c
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ./roate[K[K[Ktate
+bash: ./rotate: No such file or directory
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ls
+Makefile  rotate.c  rotate.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ./r[K[K[Kmake
+make: Nothing to be done for 'all'.
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ./rotta[K[Kate
+bash: ./rotate: No such file or directory
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ ls
+Makefile  rotate.c  rotate.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ emacs rotate.s
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Asm Help                                                            [0m[39;49m[27m
+[A
+        [1m[36m.file[0m[39;49m   [32m"rotate.c"[39;49m[K
+        [1m[36m.text[0m[39;49m[K
+        [1m[36m.globl[0m[39;49m  f[K
+        [1m[36m.type[0m[39;49m   f, @function[K
+[1m[34mf[0m[39;49m:[K
+[1m[34m.LFB2[0m[39;49m:[K
+        [1m[36m.cfi_startproc[0m[39;49m[K
+        [1m[36mmovl[0m[39;49m    [33m%edx[39;49m, [33m%ecx[39;49m[K
+        [1m[36mroll[0m[39;49m    [33m%cl[39;49m, [33m%edi[39;49m[K
+        [1m[36mrorl[0m[39;49m    [33m%cl[39;49m, [33m%esi[39;49m[K
+        [1m[36mleal[0m[39;49m    ([33m%rdi[39;49m,[33m%rsi[39;49m), [33m%eax[39;49m[K
+        [1m[36mret[0m[39;49m[K
+        [1m[36m.cfi_endproc[0m[39;49m[K
+[1m[34m.LFE2[0m[39;49m:[K
+        [1m[36m.size[0m[39;49m   f, .-f[K
+        [1m[36m.ident[0m[39;49m  [32m"GCC: (Debian 8.3.0-6) 8.3.0"[39;49m[K
+        [1m[36m.section[0m[39;49m        .note.GNU-stack,[32m""[39;49m,@progbits[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mrotate.s    [0m[39;49m[27m[7m   All L2     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[A[3d[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;35H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[35d[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/rotate$ cd ..
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd [K[K[Kls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd cpuid1
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ make
+make: 'cpuid' is up to date.
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ ./cpuid
+cpuid: eax = 0xd; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid1$ cd ..
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd cpuid2
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ make
+cc -g -Wall -std=c11    -c -o main.o main.c
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ ls
+cpuid  cpuid.o	cpuid.s  main.c  main.o  Makefile
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ ./main[K[K[K[K[K[K./cpuid
+usage: ./cpuid CPUID_OP
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ ls
+cpuid  cpuid.o	cpuid.s  main.c  main.o  Makefile
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ emacs cpuid.s
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Asm Help                                                            [0m[39;49m[27m
+[A
+#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[K
+#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[K
+        [1m[36m.text[0m[39;49m[K
+        [1m[36m.globl[0m[39;49m get_cpuid[K
+[1m[34mget_cpuid[0m[39;49m:[K
+        [1m[36mpushq[0m[39;49m   [33m%rcx[39;49m[K
+        [1m[36mpushq[0m[39;49m   [33m%rdx[39;49m[K
+        [1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[K
+        [1m[36mcpuid[0m[39;49m[K
+        #largest param in [33m%eax[39;49m[K
+        #12-char manufacturer string in ebx, edx, ecx.[K
+        [1m[36mmovl[0m[39;49m    [33m%eax[39;49m, ([33m%rdi[39;49m)    #store eax cpuid result[K
+        [1m[36mmovl[0m[39;49m    [33m%ebx[39;49m, ([33m%rsi[39;49m)    #store ebx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for edxP[K
+        [1m[36mmovl[0m[39;49m    [33m%edx[39;49m, ([33m%rax[39;49m)    #store edx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for ecxP[K
+        [1m[36mmovl[0m[39;49m    [33m%ecx[39;49m, ([33m%rax[39;49m)    #store ecx cpuid result[K
+        [1m[36mret[0m[39;49m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mcpuid.s     [0m[39;49m[27m[7m   All L1     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[K[34;34H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h	[C[C[C[C[C[C		[C[C[C[?25l[33mx[39;49m[K[34;6H[7m**[0m[39;49m[27m[7;19H[?12l[?25h[?12;25h[?25l[33mdx[39;49m[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;20H[?12l[?25h[?12;25h[?25l[33mx[39;49m[K[?12l[?25h[?12;25h[?25l[33mcx[39;49m[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;20H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;20H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;20H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;20H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;20H[?12l[?25h[?12;25h[C[34;34H[?25l[7m7[0m[39;49m[27m[8;21H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;21H[?12l[?25h[?12;25h[34;34H[?25l[7m9[0m[39;49m[27m[10;14H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;21H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;21H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;21H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;21H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;21H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;21H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;21H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;21H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;21H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;21H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;21H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;21H[?12l[?25h[?12;25h[34;35H[?25l[7m0[0m[39;49m[27m[11;21H[?12l[?25h[?12;25h[34;34H[?25l[7m9 [0m[39;49m[27m[10;14H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;21H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;21H[?12l[?25h[?12;25h[1;33r[10;1H[1L[1;35r[9;1H[K
+[?25l        [1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[K[34;34H[7m8[0m[39;49m[27m[9;9H[?12l[?25h[?12;25h[?25l[1m[36mp[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mu[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36ms[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mh[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mq[0m[39;49m[?12l[?25h[?12;25h[C		[?25l%[?12l[?25h[?12;25h[?25l[33m%r[39;49m[?12l[?25h[?12;25h[?25l[33m8[39;49m[?12l[?25h[?12;25h[?25l[33mi[39;49m[?12l[?25h[?12;25h[?25l[33mo[39;49m[?12l[?25h[?12;25h[?25l[33m0[39;49m[?12l[?25h[?12;25h[1;33r[11;1H[1L[1;35r[10;1H[K
+[?25l        [1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[K[34;34H[7m9[0m[39;49m[27m[10;9H[?12l[?25h[?12;25h[?25l[1m[36mc[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mp[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mu[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mi[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36md[0m[39;49m[?12l[?25h[?12;25h[1;33r[12;1H[1L[1;35r[11;1H[K
+[?25l        [1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[K[34;34H[7m10[0m[39;49m[27m[11;9H[?12l[?25h[?12;25h[?25l[1m[36mm[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mo[0m[39;49m[?12l[?25h[?12;25h[K[K	[1;33r[12;1H[1M[1;35r[11;9H[?25l[1m[36mxorl[0m[39;49m    [33m%eax[39;49m, [33m%eax[39;49m      #setup cpuid opcode to 0[33;1H[K[34;34H[7m9 [0m[39;49m[27m[10;14H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;14H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;14H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;14H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;14H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;13H[?12l[?25h[?12;25h	[C[C[C[C[C[C		[C[C[?25l[33mi[39;49m) [?12l[?25h[?12;25h[?25l[33msi[39;49m)[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;27H[?12l[?25h[?12;25h[?25l[33mi[39;49m) [?12l[?25h[?12;25h[?25l[33mdi[39;49m)[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;27H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;27H[?12l[?25h[?12;25h[C[34;35H[?25l[7m4[0m[39;49m[27m[15;28H[?12l[?25h[?12;25h[C	[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C[35;1H[?25lAuto-saving...[15;55H[?12l[?25h[?12;25h[35;15H[?25ldone[15;55H[?12l[?25h[?12;25h[35;1H[K[15;56H[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;35H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[34;35H[?25l[7m8[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[34;35H[?25l[7m7[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[34;35H[?25l[7m6[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[34;35H[?25l[7m0[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9 [0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[34;34H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h	[C[C[?25l[1m[36morl[0m[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36mrl[0m[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36ml[0m[39;49m [?12l[?25h[?12;25h[?25l        [1m[36m%eax[0m[39;49m	[?12l[?25h[?12;25h[8P[?25l[1m[36meax[0m[39;49m, [33m%eax[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36max[0m[39;49m, [33m%eax[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36mx[0m[39;49m, [33m%eax[39;49m[8P	[?12l[?25h[?12;25h[?25l, [33m%eax[39;49m 	[?12l[?25h[?12;25h[?25l [1m[36m%eax[0m[39;49m 	[?12l[?25h[?12;25h[1P	[?25l[1@ 	[?12l[?25h[?12;25h[?25l[1m[36meax[0m[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36max[0m[39;49m 	[?12l[?25h[?12;25h[?25l[1m[36mx[0m[39;49m [?12l[?25h[?12;25h[?25l [?12l[?25h[?12;25h[8P[?25l[1m[36msetup[0m[39;49m[1P	[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l [1m[36mcpuid[0m[39;49m[1P	[?12l[?25h[?12;25h[1P[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l [1m[36mopcode[0m[39;49m to 0[K	[?12l[?25h[?12;25h[1P[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1m[36mode[0m[39;49m to 0[K	[?12l[?25h[?12;25h[?25l[1m[36mde[0m[39;49m to 0[K	[?12l[?25h[?12;25h[?25l[1m[36me[0m[39;49m to 0[K	[?12l[?25h[?12;25h[?25l [1m[36mto[0m[39;49m 0[K	[?12l[?25h[?12;25h[1P[?25l[1m[36mo[0m[39;49m 0[K	[?12l[?25h[?12;25h[?25l [1m[36m0[0m[39;49m[K[?12l[?25h[?12;25h[1P[K	[1;33r[12;1H[1M[1;35r[11;9H[?25l[1m[36mcpuid[0m[39;49m[33;1H[K[34;34H[7m9 [0m[39;49m[27m[10;14H[?12l[?25h[?12;25h[34;34H[?25l[7m10[0m[39;49m[27m[11;14H[?12l[?25h[?12;25h[34;35H[?25l[7m1[0m[39;49m[27m[12;14H[?12l[?25h[?12;25h[34;35H[?25l[7m2[0m[39;49m[27m[13;14H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;13H[?12l[?25h[?12;25h[34;35H[?25l[7m4[0m[39;49m[27m[15;13H[?12l[?25h[?12;25h[34;35H[?25l[7m3[0m[39;49m[27m[14;13H[?12l[?25h[?12;25h	[C[C[C[C[C[C		[C[C[C[C	[C[35;1H[?25lAuto-saving...[14;34H[?12l[?25h[?12;25h[35;15H[?25ldone[14;34H[?12l[?25h[?12;25h[35;1H[K[14;35H[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C	[1;33r[16;1H[1L[1;35r[15;1H[K
+[?25l        [1m[36mmovl[0m[39;49m    [33m%ebx[39;49m, ([33m%rdi[39;49m)    #store ebx cpuid result[K[34;35H[7m4[0m[39;49m[27m[15;9H[?12l[?25h[?12;25h[?25l[1m[36mp[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mo[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mp[0m[39;49m[?12l[?25h[?12;25h[?25l[1m[36mq[0m[39;49m[?12l[?25h[?12;25h[C[C		[?25l%[?12l[?25h[?12;25h[?25l[33m%r[39;49m[?12l[?25h[?12;25h[?25l[33ma[39;49m[?12l[?25h[?12;25h[?25l[33mx[39;49m[?12l[?25h[?12;25h[34;35H[?25l[7m5[0m[39;49m[27m[16;21H[?12l[?25h[?12;25h[?25l[33mdx[39;49m, ([33m%rdi[39;49m)[16;21H[?12l[?25h[?12;25h[?25l[33mx[39;49m, ([33m%rdi[39;49m) [16;20H[?12l[?25h[?12;25h[?25l[33mx[39;49m, ([33m%rdi[39;49m) [16;19H[?12l[?25h[?12;25h[?25l[33mdx[39;49m, ([33m%rdi[39;49m)[16;20H[?12l[?25h[?12;25h[C[C[C		[C[C[C[?25l) [?12l[?25h[?12;25h[?25l) [?12l[?25h[?12;25h[?25l[33ma[39;49m)[?12l[?25h[?12;25h[?25l[33mx[39;49m)[?12l[?25h[?12;25h[C	[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[34;35H[?25l[7m6[0m[39;49m[27m[17;51H[?12l[?25h[?12;25h			[C	[C[C[C[C[34;35H[?25l[7m7[0m[39;49m[27m[18;21H[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1@[33mc[39;49m[?12l[?25h[?12;25h[C[C[34;35H[?25l[7m8[0m[39;49m[27m[19;21H[?12l[?25h[?12;25h[34;35H[?25l[7m9[0m[39;49m[27m[20;22H[?12l[?25h[?12;25h[35;1H[?25lAuto-saving...[20;20H[?12l[?25h[?12;25h[35;15H[?25ldone[20;20H[?12l[?25h[?12;25h[35;1H[K[20;19H[?25l[33mx[39;49m, ([33m%rax[39;49m) [20;19H[?12l[?25h[?12;25h[?25l[33mbx[39;49m, ([33m%rax[39;49m)[20;20H[?12l[?25h[?12;25h[C[34;34H[?25l[7m20[0m[39;49m[27m[21;12H[?12l[?25h[?12;25h[35;1H[?25lSaving file /home/thur1/git-repos/i220a/work/lab10/files/cpuid2/cpuid.s...[21;12H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab10/files/cpuid2/cpuid.s[K[21;12H[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[21;12H[?12l[?25h[?12;25h[35;1H[K[21;12H[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ make
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cpuid.s: Assembler messages:
+cpuid.s:8: Error: bad register name `%r8io0'
+make: *** [Makefile:11: cpuid.o] Error 1
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ emacs cpuid.s
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Asm Help                                                            [0m[39;49m[27m
+[A
+#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[K
+#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[K
+        [1m[36m.text[0m[39;49m[K
+        [1m[36m.globl[0m[39;49m get_cpuid[K
+[1m[34mget_cpuid[0m[39;49m:[K
+        [1m[36mpushq[0m[39;49m   [33m%rdx[39;49m[K
+        [1m[36mpushq[0m[39;49m   [33m%rcx[39;49m[K
+        [1m[36mpushq[0m[39;49m   [33m%r8io0[39;49m[K
+        [1m[36mcpuid[0m[39;49m[K
+        [1m[36mcpuid[0m[39;49m[K
+        #largest param in [33m%eax[39;49m[K
+        #12-char manufacturer string in ebx, edx, ecx.[K
+        [1m[36mmovl[0m[39;49m    [33m%eax[39;49m, ([33m%rsi[39;49m)    #store eax cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m[K
+        [1m[36mmovl[0m[39;49m    [33m%edx[39;49m, ([33m%rax[39;49m)    #store ebx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for edxP[K
+        [1m[36mmovl[0m[39;49m    [33m%ecx[39;49m, ([33m%rax[39;49m)    #store edx cpuid result[K
+        [1m[36mpopq[0m[39;49m    [33m%rax[39;49m            #pop address for ecxP[K
+        [1m[36mmovl[0m[39;49m    [33m%ebx[39;49m, ([33m%rax[39;49m)    #store ecx cpuid result[K
+        [1m[36mret[0m[39;49m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mcpuid.s     [0m[39;49m[27m[7m   All L2     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[A[3d[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h	[34;34H[?25l[7m9[0m[39;49m[27m[10;9H[?12l[?25h[?12;25h[C[34;34H[?25l[7m8[0m[39;49m[27m[9;10H[?12l[?25h[?12;25h[C[C[C[C[C		[C[C[C[C[C[C[34;34H[?25l[7m9[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;23H[?12l[?25h[?12;25h[K[34;6H[?25l[7m**[0m[39;49m[27m[9;22H[?12l[?25h[?12;25h[K[K[35;1H[?25lSaving file /home/thur1/git-repos/i220a/work/lab10/files/cpuid2/cpuid.s...[9;20H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab10/files/cpuid2/cpuid.s[K[9;20H[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[9;20H[?12l[?25h[?12;25h[35;1H[K[9;20H[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ make
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ .[Kls
+cpuid  cpuid.o	cpuid.s  cpuid.s~  main.c  main.o  Makefile
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ ./cpuid
+usage: ./cpuid CPUID_OP
+thur1@remote04:~/git-repos/i220a/work/lab10/files/cpuid2$ cd ..
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd[K[Kls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd parity
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ ls
+main.c	Makefile  parity.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+cc main.o parity.o -o parity
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ ./p[K[K[Kls
+main.c	main.o	Makefile  parity  parity.o  parity.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ ./m[Kparity
+usage: ./parity INT1...
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ ./parity 1 2 3 4 5 6 7 15 21
+parity(1) = 1
+parity(2) = 2
+parity(3) = 3
+parity(4) = 4
+parity(5) = 5
+parity(6) = 6
+parity(7) = 7
+parity(15) = 15
+parity(21) = 21
+thur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ emacs parti[K[Kiy[Kty.s
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Asm Help                                                            [0m[39;49m[27m
+[A
+        [1m[36m.text[0m[39;49m[K
+        [1m[36m.globl[0m[39;49m get_parity[K
+#edi contains n[K
+[1m[34mget_parity[0m[39;49m:[K
+[K
+        #@TODO: add code here to set eax to 1 iff edi has even parity[K
+        [1m[36mret[0m[39;49m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mparity.s    [0m[39;49m[27m[7m   All L2     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[A[3d[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h	[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[K[34;6H[?25l[7m**[0m[39;49m[27m[7;69H[?12l[?25h[?12;25h[35;1H[?25lAuto-saving...[7;69H[?12l[?25h[?12;25h[35;15H[?25ldone[7;69H[?12l[?25h[?12;25h[35;1H[K[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;69H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h	[35;1H[?25lAuto-saving...[6;9H[?12l[?25h[?12;25h[35;15H[?25ldone[6;9H[?12l[?25h[?12;25h[35;1H[K[6;9H[1;34r[33;1H[1M[1;35r[35;1H[?25l[34m-h) [39;49m[A[34mSave file /home/thur1/git-repos/i220a/work/lab10/files/parity/parity.s? (y, n, !, ., q, C-r, d or C[39;49m\
+[A[35;5H[?12l[?25h[?12;25h[?25l-h) y[ASave file /home/thur1/git-repos/i220a/work/lab10/files/parity/parity.s? (y, n, !, ., q, C-r, d or C[35;6H[?12l[?25h[?12;25h[K[34;4H[?25ling file /home/thur1/git-repos/i220a/work/lab10/files/parity/parity.s...[K[6;9H[?12l[?25h[?12;25h[34;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab10/files/parity/parity.s[K[6;9H[?12l[?25h[?12;25h[33;1H[K
+[?25l[7m-UU-:----F1  [0m[39;49m[27m[7m[1mparity.s    [0m[39;49m[27m[7m   All L5     (Assembler) -------------------------------------------------[0m[39;49m[27m
+[6;9H[?12l[?25h[?12;25h[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/parity$ cd ..
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ ls
+cpuid1	cpuid2	parity	rip  rotate  rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd cd [K[K[Krip
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rip$ ls
+Makefile  rip.c
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rip$ make
+cc -Wall -Og -std=c11 -S rip.c
+cc -Wall -Og -std=c11    rip.c   -o rip
+objdump -d rip > rip.dump
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rip$ ls
+Makefile  rip  rip.c  rip.dump	rip.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rip$ ./rip
+&get_rip() = 0x55dfa74f4135; rip = 0x55dfa74f413c
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rip$ cd ..
+thur1@remote04:~/git-repos/i220a/work/lab10/files$ cd rsp
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rsp$ make
+cc -Wall -Og -std=c11 -S rsp.c
+[01m[Krsp.c:[m[K In function ‘[01m[Kget_rsp[m[K’:
+[01m[Krsp.c:9:10:[m[K [01;35m[Kwarning: [m[K‘[01m[Krsp[m[K’ is used uninitialized in this function [[01;35m[K-Wuninitialized[m[K]
+   return [01;35m[Krsp[m[K;
+          [01;35m[K^~~[m[K
+cc -Wall -Og -std=c11    rsp.c   -o rsp
+[01m[Krsp.c:[m[K In function ‘[01m[Kget_rsp[m[K’:
+[01m[Krsp.c:9:10:[m[K [01;35m[Kwarning: [m[K‘[01m[Krsp[m[K’ is used uninitialized in this function [[01;35m[K-Wuninitialized[m[K]
+   return [01;35m[Krsp[m[K;
+          [01;35m[K^~~[m[K
+objdump -d rsp > rsp.dump
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rsp$ emacs [K[K[K[K[Kls[K[K[Kls
+Makefile  rsp  rsp.c  rsp.dump	rsp.s
+thur1@remote04:~/git-repos/i220a/work/lab10/files/rsp$ emacs rsp.c
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools C Help                                                              [0m[39;49m[27m
+[A
+[1m[34m#include[0m[39;49m [32m<stdio.h>[39;49m[K
+[K
+[31m/** Return value of %rsp register just before return */[39;49m[K
+[1m[36mstatic[0m[39;49m [32mvoid[39;49m *[K
+[1m[34mget_rsp[0m[39;49m([32mvoid[39;49m)[K
+{[K
+  [32mvoid[39;49m *[33mrsp[39;49m;[K
+  [31m//@TODO: inline assembly to set rsp C var to value of %rsp register                               [39;49m
+[A
+  [1m[36mreturn[0m[39;49m rsp;[K
+}[K
+[K
+[32mint[39;49m [1m[34mmain[0m[39;49m() {[K
+  [32mint[39;49m [33mstkVar[39;49m;[K
+  printf([32m"&stkVar = %p; rsp = %p\n"[39;49m, &stkVar, get_rsp());[K
+  [1m[36mreturn[0m[39;49m 0;[K
+}[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mrsp.c       [0m[39;49m[27m[7m   All L1     (C/*l Abbrev) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[K[34;34H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[34;34H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[34;34H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[34;34H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[34;34H[?25l[7m6[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[34;34H[?25l[7m7[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[34;34H[?25l[7m8[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C	[34;34H[?25l[7m7[0m[39;49m[27m[8;13H[?12l[?25h[?12;25h[1;18r[9;1H[1L[1;35r[9;1H[K[34;6H[?25l[7m**--F1  [0m[39;49m[27m[7m[1mrsp.c       [0m[39;49m[27m[7m   All L8[0m[39;49m[27m[9;3H[?12l[?25h[?12;25h[35;1H[?25lAuto-saving...[9;3H[?12l[?25h[?12;25h[35;15H[?25ldone[9;3H[?12l[?25h[?12;25h[35;1H[K[9;3H[35;1H[?25l[34mSave file /home/thur1/git-repos/i220a/work/lab10/files/rsp/rsp.c? (y, n, !, ., q, C-r, d or C-h) [39;49m[?12l[?25h[?12;25h[?25lSave file /home/thur1/git-repos/i220a/work/lab10/files/rsp/rsp.c? (y, n, !, ., q, C-r, d or C-h) y[?12l[?25h[?12;25h[35;4H[?25ling file /home/thur1/git-repos/i220a/work/lab10/files/rsp/rsp.c...[K[9;3H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab10/files/rsp/rsp.c[K[9;3H[?12l[?25h[?12;25h[35;1H[K[9;3H[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote04:~/git-repos/i220a/work/lab10/files/rsp$ exit
+
+Script done on 2019-10-27 23:19:16-04:00 [COMMAND_EXIT_CODE="0"]
