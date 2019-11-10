@@ -1,0 +1,1225 @@
+Script started on 2019-11-10 17:05:07-05:00 [TERM="xterm" TTY="/dev/pts/2" COLUMNS="100" LINES="35"]
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo \\
+\
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo /'
+> e[Kecho [K[K[K[K[Kbash: unexpected EOF while looking for matching `''
+bash: syntax error: unexpected end of file
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo /'[K[K\'
+'
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo \*
+*
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo[K[K[K[Kecho \$HOME\"\\
+$HOME"\
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo '\'
+\
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo '\\'
+\\
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo '*$~'
+*$~
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo '\''
+> '
+\
+
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo "\"\\"
+"\
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo "$HOME"
+/home/thur1
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo \
+> abc \
+> 123
+abc 123
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ls
+lab12.log  quote-files
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ cd quote-files
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ cd ..
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ touch ou[K[Klab12_output.txt
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ touch lab12_output.txt[1P lab12_output.txt[1P lab12_output.txt[1P lab12_output.txt[1P lab12_output.txt[1P lab12_output.txte lab12_output.txtm lab12_output.txta lab12_output.txtc lab12_output.txts lab12_output.txt
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[35d[?25lLoading /etc/emacs/site-start.d/50texlive-lang-english.el (source)...done[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
+[A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction ElDoc) ------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[K[H[?25l[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
+[A
+1[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:**--F1  [0m[39;49m[27m[7m[1mlab12_output.txt[0m[39;49m[27m[7m   All L1     (Text) --------------------------------------------------[0m[39;49m[27m
+[A[2;2H[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[2;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[34;38H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l2[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[3;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[3;2H[K[K[34;38H[?25l[7m1[0m[39;49m[27m[2;3H[?12l[?25h[?12;25h[34;38H[?25l[7m2[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25la[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[3;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[3;4H[35;1H[?25lAuto-saving...[3;4H[?12l[?25h[?12;25h[35;15H[?25ldone[3;4H[?12l[?25h[?12;25h[35;1H[K[3;4H[1;34r[33;1H[1M[1;35r[35;1H[?25l[34mC-h) [39;49m[A[34mSave file /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt? (y, n, !, ., q, C-r, d or [39;49m\
+[A[35;6H[?12l[?25h[?12;25h[?25lC-h) y[ASave file /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt? (y, n, !, ., q, C-r, d or [35;7H[?12l[?25h[?12;25h[K[34;4H[?25ling file /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt...[K[3;4H[?12l[?25h[?12;25h[34;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt[K[3;4H[?12l[?25h[?12;25h[33;1H[K
+[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1mlab12_output.txt[0m[39;49m[27m[7m   All L2     (Text) --------------------------------------------------[0m[39;49m[27m
+[3;4H[?12l[?25h[?12;25h[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote03:~/git-repos/i220a/work/lab12/files$ ls[K[Kls ?'&[K$'?
+ls: cannot access '?$?': No such file or directory
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ls ?'$'?[K[K[K[K[K[K[K[Kcd u[Kquote-files
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ cd quote-files[6Pls ?'$'?
+'1$2'  'a$b'
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ls *"'"*
+"'12"  "a'b"
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ls '\'*
+'\\ab'
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ls -- ??
+'**'   -l
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ^C
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ^C
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ ^C
+thur1@remote03:~/git-repos/i220a/work/lab12/files/quote-files$ cd ,,[K[K..
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ emacs out[K[K[Koutp[K[K[K[Klab2[K12_output.txt
+[?1049h[22;0;0t[?12;25h[?1h=[H[2J[35d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[34d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) -----------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
+[?12l[?25h[?12;25h[35;33H[?25l50a2ps.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lsymptote.el (source)...[H
+[?12l[?25h[?12;25h[35;59H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lutoconf.el (source)...[K[H
+[?12l[?25h[?12;25h[35;58H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lcmake-data.el (source)...[K[H
+[?12l[?25h[?12;25h[35;60H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[35;77H[?25ldone[H
+[?12l[?25h[?12;25h[35;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[35;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[35;35H[?25lerlang-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;61H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lhaskell-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/elpa/haskel[34@l-mode-16.1/haskell-mode-autoloads[H
+[?12l[?25h[?12;25h[35;96H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50haskell-mode[34P[H
+[?12l[?25h[?12;25h[35;35H[?25llatex-cjk-common.el (source)...[H
+[?12l[?25h[?12;25h[35;10H[?25lusr/share/emacs/site-lisp/latex-cjk-commo[9@n/cjk-enc[H
+[?12l[?25h[?12;25h[35;75H[?25ldone[H
+[?12l[?25h[?12;25h[35;10H[?25letc/emacs/site-start.d/50latex-cjk-common[9P[H
+[?12l[?25h[?12;25h[35;45H[?25lthai.el (source)...[K[H
+[?12l[?25h[?12;25h[35;64H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25lpsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lython-docutils.el (source)...[H
+[?12l[?25h[?12;25h[35;65H[?25ldone[H
+[?12l[?25h[?12;25h[35;35H[?25ltcsh.el (source)...[K[H
+[?12l[?25h[?12;25h[35;54H[?25ldone[H
+[?12l[?25h[?12;25h[35;36H[?25lexlive-lang-english.el (source)...[H
+[?12l[?25h[?12;25h[35;70H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[?2004h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[35d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
+[A
+1)[K
+a)[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1mlab12_output.txt[0m[39;49m[27m[7m   All L1     (Text) --------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[35d[K[2d[?25ll1)[34;6H[7m**[0m[39;49m[27m[2;2H[?12l[?25h[?12;25h[?25ls1)[?12l[?25h[?12;25h[?25l1)[K[?12l[?25h[?12;25h[?25l1)[K[?12l[?25h[?12;25h[C[34;38H[?25l[7m2[0m[39;49m[27m[3;2H[?12l[?25h[?12;25h[C[C[?25lls ?'$'?[?12l[?25h[?12;25h[34;38H[?25l[7m3[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[?25lb[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[4;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[4;4H[?25lls *"'"*[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25lc[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[5;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[5;4H[?25lls '\'*[?12l[?25h[?12;25h[34;38H[?25l[7m5[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[?25ld[?12l[?25h[?12;25h[35;1H[?25lNo matching parenthesis found[6;2H[?12l[?25h[?12;25h[?25l)[?12l[?25h[?12;25h[35;1H[K[6;4H[?25l*ls -- ??[?12l[?25h[?12;25h[?25lls -- ??[K[6;4H[?12l[?25h[?12;25h[34;38H[?25l[7m4[0m[39;49m[27m[5;4H[?12l[?25h[?12;25h[35;1H[?25lSaving file /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt...[5;4H[?12l[?25h[?12;25h[35;1H[?25lWrote /home/thur1/git-repos/i220a/work/lab12/files/lab12_output.txt[K[5;4H[?12l[?25h[?12;25h[34;6H[?25l[7m--[0m[39;49m[27m[5;4H[?12l[?25h[?12;25h[35;1H[K[5;4H[35;1H[K[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49mthur1@remote03:~/git-repos/i220a/work/lab12/files$ env
+SHELL=/bin/bash
+DERBY_HOME=/usr/lib/jvm/java-8-oracle/db
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+KRB5CCNAME=FILE:/tmp/krb5cc_14212_oUldwbLrjw
+PWD=/home/thur1/git-repos/i220a/work/lab12/files
+LOGNAME=thur1
+XDG_SESSION_TYPE=tty
+J2REDIR=/usr/lib/jvm/java-8-oracle/jre
+VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+HOME=/home/thur1
+LANG=en_US.UTF-8
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv
+SSH_CONNECTION=149.125.28.52 60697 128.226.114.203 22
+XDG_SESSION_CLASS=user
+TERM=xterm
+J2SDKDIR=/usr/lib/jvm/java-8-oracle
+USER=thur1
+SHLVL=2
+XDG_SESSION_ID=120819
+XDG_RUNTIME_DIR=/run/user/14212
+SSH_CLIENT=149.125.28.52 60697 22
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/14212/bus
+MAIL=/var/mail/thur1
+SSH_TTY=/dev/pts/2
+OLDPWD=/home/thur1/git-repos/i220a/work/lab12/files/quote-files
+_=/usr/bin/env
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ cd .[K[K[Kecho $h[KHOME[K[1P[1P[1@e[C[C[C[C[C[C[C[C#
+#
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $HOM#[K[K[K[K[KHOME
+HOME
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ eccho $HO[K[K[K[K[K[K[K[K[Kecho $HOE[KME
+/home/thur1
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $xxx
+
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ xxx=123
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $xxx
+123
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ev[K[Kenv | gre[Kep xxx
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ eport[K[K[K[Kxport xxx
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ env | grep xx
+xxx=123
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ expore xx=456
+bash: expore: command not found
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ export xx=456
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ env | grep xx
+xxx=123
+xx=456
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $p
+
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ p = $PAHT[K[KTH
+bash: p: command not found
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ p [K = $PATH[K[K[K[K[K[K[K[K[Kecho $p
+
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ p = PATH
+bash: p: command not found
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echp $[K[K[K[K[K[Kc[Kecho $p
+
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ =[Kp=$PATH
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $p
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ delete [K[K[K[K #p[K[K[K[K[K[K$PATH [K[K[K[K[K[Kp =[K[K[K$PATH='[K
+bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin=: No such file or directory
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ $PATH=a[K0
+bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin=0: No such file or directory
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ $PATH=0[K[K[K[K[K[K[Kecho $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ $PATH = ""
+bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin: No such file or directory
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ $[Kecho $PATH 
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $PATH [K=[K
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $PATH[Kecho $PATH=""
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin=
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ls
+lab12.log  lab12_output.txt  lab12_output.txt~	quote-files
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ls
+lab12.log  lab12_output.txt  lab12_output.txt~	quote-files
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ ls ; wc *
+lab12.log  lab12_output.txt  lab12_output.txt~	quote-files
+    307     689   16384 lab12.log
+      5      14      50 lab12_output.txt
+      2       2       7 lab12_output.txt~
+wc: quote-files: Is a directory
+      0       0       0 quote-files
+    314     705   16441 total
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ find -L ~/cs220 -name '*.c' 
+/home/thur1/cs220/hws/hw3-sol/fib.c
+/home/thur1/cs220/hws/hw3-sol/mask.c
+/home/thur1/cs220/hws/hw3-sol/rec-fn.c
+/home/thur1/cs220/labs/lab2/files/ex1/hello.c
+/home/thur1/cs220/labs/lab2/files/ex3/main.c
+/home/thur1/cs220/labs/lab2/files/ex3/quadr.c
+/home/thur1/cs220/labs/lab2/files/ex4/key-value.c
+/home/thur1/cs220/labs/lab2/files/ex4/main.c
+/home/thur1/cs220/labs/lab2/files/ex4/process-file.c
+/home/thur1/cs220/labs/lab3/files/ex1/hello.c
+/home/thur1/cs220/labs/lab3/files/ex2/hello.c
+/home/thur1/cs220/labs/lab4/files/ex1/uints.c
+/home/thur1/cs220/labs/lab4/files/ex2/ints.c
+/home/thur1/cs220/labs/lab4/files/ex3/identify.c
+/home/thur1/cs220/labs/lab4/files/ex4/negeq.c
+/home/thur1/cs220/labs/lab4/files/ex6/0.1.c
+/home/thur1/cs220/labs/lab4/files/ex7/nan.c
+/home/thur1/cs220/labs/lab4/files/ex8/ulp.c
+/home/thur1/cs220/labs/lab4/files/ex9/loop.c
+/home/thur1/cs220/labs/lab6/files/brk/brk.c
+/home/thur1/cs220/labs/lab6/files/bug-program/bug-program.c
+/home/thur1/cs220/labs/lab6/files/process-memory/process-memory.c
+/home/thur1/cs220/labs/lab7/files/libgeom/circ.c
+/home/thur1/cs220/labs/lab7/files/libgeom/rect.c
+/home/thur1/cs220/labs/lab7/files/libgeom/testgeom.c
+/home/thur1/cs220/labs/lab7/files/libvec/addvec.c
+/home/thur1/cs220/labs/lab7/files/libvec/multvec.c
+/home/thur1/cs220/labs/lab7/files/libvec/testvec.c
+/home/thur1/cs220/labs/lab7/files/log10/log10.c
+/home/thur1/cs220/labs/lab7/files/multiple-defs/f.c
+/home/thur1/cs220/labs/lab7/files/multiple-defs/main.c
+/home/thur1/cs220/labs/lab7/files/multiple-symbols/def1.c
+/home/thur1/cs220/labs/lab7/files/multiple-symbols/def2.c
+/home/thur1/cs220/labs/lab7/files/multiple-symbols/main.c
+/home/thur1/cs220/labs/lab7/files/static-dynamic/log10.c
+/home/thur1/cs220/labs/lab8/files/hello-multi.c
+/home/thur1/cs220/labs/lab8/files/hello-one.c
+/home/thur1/cs220/labs/lab9/files/hello.c
+/home/thur1/cs220/misc/bin-num/220a/bin-num.c
+/home/thur1/cs220/misc/bin-num/220a/main.c
+/home/thur1/cs220/misc/bin-num/220b/bin-num.c
+/home/thur1/cs220/misc/bin-num/220b/main.c
+/home/thur1/cs220/misc/shapes/cs220a/shapes.c
+/home/thur1/cs220/misc/shapes/cs220b/shapes.c
+/home/thur1/cs220/projects/prj1/prj1-sol/errors.c
+/home/thur1/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/home/thur1/cs220/projects/prj1/prj1-sol/main.c
+/home/thur1/cs220/projects/prj1-sol/bits-to-ints.c
+/home/thur1/cs220/projects/prj1-sol/errors.c
+/home/thur1/cs220/projects/prj1-sol/main.c
+/home/thur1/cs220/projects/prj2/prj2-sol/big-bits.c
+/home/thur1/cs220/projects/prj2/prj2-sol/errors.c
+/home/thur1/cs220/projects/prj2/prj2-sol/hex-util.c
+/home/thur1/cs220/projects/prj2/prj2-sol/main.c
+/home/thur1/cs220/projects/prj2/prj2-sol/stack.c
+/home/thur1/cs220/projects/prj2-sol/alt-big-bits.c
+/home/thur1/cs220/projects/prj2-sol/big-bits.c
+/home/thur1/cs220/projects/prj2-sol/errors.c
+/home/thur1/cs220/projects/prj2-sol/hex-util.c
+/home/thur1/cs220/projects/prj2-sol/main.c
+/home/thur1/cs220/projects/prj2-sol/stack.c
+/home/thur1/cs220/projects/prj4/aux-files/fns.c
+/home/thur1/cs220/projects/prj4/prj4-sol/fn-trace.c
+/home/thur1/cs220/projects/prj4/prj4-sol/main.c
+/home/thur1/cs220/projects/prj4/prj4-sol/x86-64_lde.c
+/home/thur1/cs220/slides/c-intro/code/bases.c
+/home/thur1/cs220/slides/c-intro/code/out-bits.c
+/home/thur1/cs220/slides/c-intro/code/sum.c
+/home/thur1/cs220/slides/c-intro/code/count-1s-1.c
+/home/thur1/cs220/slides/c-intro/code/count-1s-2.c
+/home/thur1/cs220/slides/c-intro/code/endian.c
+/home/thur1/cs220/slides/c-intro/code/integer-sizes.c
+/home/thur1/cs220/slides/c-intro/code/kilo-powers.c
+/home/thur1/cs220/slides/c-intro/code/ptr-sum.c
+/home/thur1/cs220/slides/c-intro/code/robust-sum.c
+/home/thur1/cs220/slides/c-intro/code/sum-args.c
+/home/thur1/cs220/slides/c-intro/code/wc.c
+/home/thur1/cs220/slides/intro/code/hello.c
+/home/thur1/cs220/slides/adts/code/stack.c
+/home/thur1/cs220/slides/x86/code/arith.c
+/home/thur1/cs220/slides/x86/code/conditional-move.c
+/home/thur1/cs220/slides/x86/code/div-mod.c
+/home/thur1/cs220/slides/x86/code/dynamic-array.c
+/home/thur1/cs220/slides/x86/code/find.c
+/home/thur1/cs220/slides/x86/code/mstore/main.c
+/home/thur1/cs220/slides/x86/code/mstore/mstore.c
+/home/thur1/cs220/slides/x86/code/abs-diff.c
+/home/thur1/cs220/slides/x86/code/cmp-sets.c
+/home/thur1/cs220/slides/x86/code/fact-do-while.c
+/home/thur1/cs220/slides/x86/code/fact-while.c
+/home/thur1/cs220/slides/x86/code/indirect-goto.c
+/home/thur1/cs220/slides/x86/code/scale.c
+/home/thur1/cs220/slides/x86/code/sum-dist-origin-s.c
+/home/thur1/cs220/slides/x86/code/sum-dist-origin.c
+/home/thur1/cs220/slides/x86/code/sum.c
+/home/thur1/cs220/slides/x86/code/switch.c
+/home/thur1/cs220/slides/x86/code/array-access.c
+/home/thur1/cs220/slides/x86/code/move.c
+/home/thur1/cs220/slides/x86/code/point3.c
+/home/thur1/cs220/slides/x86/code/read-point.c
+/home/thur1/cs220/slides/x86/code/rec-fact.c
+/home/thur1/cs220/slides/x86/code/stack-frame.c
+/home/thur1/cs220/slides/x86/code/structs.c
+/home/thur1/cs220/slides/x86/code/vframe.c
+/home/thur1/cs220/slides/x86/code/acc-fact.c
+/home/thur1/cs220/slides/advanced-c/code/enum-strings.c
+/home/thur1/cs220/slides/advanced-c/code/float-decode.c
+/home/thur1/cs220/slides/advanced-c/code/oo-shapes/circle.c
+/home/thur1/cs220/slides/advanced-c/code/oo-shapes/main.c
+/home/thur1/cs220/slides/advanced-c/code/oo-shapes/rect.c
+/home/thur1/cs220/slides/advanced-c/code/oo-shapes/shape.c
+/home/thur1/cs220/slides/advanced-c/code/stack/main.c
+/home/thur1/cs220/slides/advanced-c/code/stack/stack.c
+/home/thur1/cs220/exercises/questions/src/x86/fns-asm.c
+/home/thur1/cs220/src/libcs220/errors.c
+/home/thur1/cs220/src/libcs220/memalloc.c
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ find -L ~/cs220 -name '*.c' | wc -l
+116
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ find / -name '*.c' 2>/dev/null
+&find / -name '*.c' 2>/dev/null >c-files.lst &
+/backup/thur1/linux/2019/09-08/DIR/t2.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/projects/prj1/prj1-sol/main.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/projects/prj1/prj1-sol/errors.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/count-1s-1.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/count-1s-2.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/bases.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/endian.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/integer-sizes.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/kilo-powers.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/out-bits.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/ptr-sum.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/robust-sum.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/sum-args.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/sum.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/c-intro/code/wc.c
+/backup/thur1/linux/2019/09-08/git-repos/cs220/slides/intro/code/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex4/key-value.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex4/main.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex4/process-file.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex1/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex3/main.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab2/ex3/quadr.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab3/ex1/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/submit/lab3/ex2/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/work/lab3/ex1/hello.c
+/backup/thur1/linux/2019/09-08/git-repos/i220a/work/lab3/ex2/hello.c
+&
+/backup/thur1/linux/2019/10-06/cstack.c
+/backup/thur1/linux/2019/10-06/lab11.c
+/backup/thur1/linux/2019/10-06/lab12.c
+/backup/thur1/linux/2019/10-06/t1.c
+/backup/thur1/linux/2019/10-06/testing.c
+/backup/thur1/linux/2019/10-06/v.c
+/backup/thur1/linux/2019/10-06/x.c
+/backup/thur1/linux/2019/10-06/dir/t2.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libgeom/circ.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libgeom/rect.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libvec/addvec.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libvec/multvec.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/libvec/testvec.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/log10/log10.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/multiple-defs/f.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/multiple-defs/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/labs/lab7/files/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/misc/bin-num/220a/bin-num.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/misc/bin-num/220b/bin-num.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1/prj1-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj1/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj2/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj2/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj2/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj2/prj2-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/projects/prj2/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/adts/code/stack.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/wc.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/count-1s-1.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/count-1s-2.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/bases.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/out-bits.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/sum.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/endian.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/integer-sizes.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/kilo-powers.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/ptr-sum.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/robust-sum.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/c-intro/code/sum-args.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/intro/code/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/abs-diff.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/arith.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/cmp-sets.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/conditional-move.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/div-mod.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/dynamic-array.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/fact-do-while.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/fact-while.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/fact.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/find.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/indirect-goto.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/mul.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/multi-dim.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/no-frame.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/rect-array.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/rect.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/stack-frame.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/sum.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/swap.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/switch.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/move/move.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/mstore/main.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/mstore/mstore.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/simple/simple.c
+/backup/thur1/linux/2019/10-06/git-repos/cs220/slides/x86/code/sum1/sum1.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/grading/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/grading/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/grading/prj1-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex1/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex3/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex3/quadr.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex4/key-value.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex4/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab2/ex4/process-file.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex1/pointers.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex2/in-pointers.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex3/bad-types.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex4/cast-types.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex5/void-pointers.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab5/lab5/files/ex6/in-voids.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libvec/multvec.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libvec/testvec.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libvec/addvec.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/log10/log10.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/multiple-defs/f.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/multiple-defs/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libgeom/circ.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libgeom/rect.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/lab7/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/submit/prj1-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/prj2-sol/main.c
+/backup/thur1/linux/2019/10-06/git-repos/i220a/work/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-06/random/memory.c
+&/backup/thur1/linux/2019/10-17/dir/t2.c
+/backup/thur1/linux/2019/10-17/cstack.c
+/backup/thur1/linux/2019/10-17/lab11.c
+/backup/thur1/linux/2019/10-17/lab12.c
+/backup/thur1/linux/2019/10-17/t1.c
+/backup/thur1/linux/2019/10-17/testing.c
+/backup/thur1/linux/2019/10-17/v.c
+/backup/thur1/linux/2019/10-17/x.c
+
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libgeom/circ.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libgeom/rect.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libvec/addvec.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libvec/multvec.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/libvec/testvec.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/log10/log10.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/multiple-defs/f.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/multiple-defs/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab7/files/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab8/files/hello-multi.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/labs/lab8/files/hello-one.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/misc/bin-num/220a/bin-num.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/misc/bin-num/220a/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/misc/bin-num/220b/bin-num.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/misc/bin-num/220b/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1/prj1-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj1/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj2/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj2/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj2/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj2/prj2-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/projects/prj2/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/adts/code/stack.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/wc.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/count-1s-1.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/count-1s-2.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/bases.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/out-bits.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/sum.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/endian.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/integer-sizes.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/kilo-powers.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/ptr-sum.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/robust-sum.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/c-intro/code/sum-args.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/intro/code/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/move/move.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/abs-diff.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/arith.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/cmp-sets.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/conditional-move.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/div-mod.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/dynamic-array.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/fact-do-while.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/fact-while.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/fact.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/find.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/indirect-goto.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/mul.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/multi-dim.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/no-frame.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/rect-array.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/rect.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/stack-frame.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/sum.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/swap.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/switch.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/mstore/main.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/mstore/mstore.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/simple/simple.c
+/backup/thur1/linux/2019/10-17/git-repos/cs220/slides/x86/code/sum1/sum1.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/grading/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/grading/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/grading/prj1-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex3/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex3/quadr.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex4/key-value.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex4/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex4/process-file.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab2/ex1/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex1/pointers.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex2/in-pointers.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex3/bad-types.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex4/cast-types.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex5/void-pointers.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab5/lab5/files/ex6/in-voids.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/log10/log10.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/multiple-defs/f.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/multiple-defs/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libgeom/circ.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libgeom/rect.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libvec/multvec.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libvec/testvec.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab7/libvec/addvec.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/lab8/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj1-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj2-sol/main.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/submit/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/work/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-17/git-repos/i220a/work/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-17/random/memory.c
+/backup/thur1/linux/2019/10-20/cstack.c
+/backup/thur1/linux/2019/10-20/lab11.c
+/backup/thur1/linux/2019/10-20/lab12.c
+/backup/thur1/linux/2019/10-20/t1.c
+/backup/thur1/linux/2019/10-20/testing.c
+/backup/thur1/linux/2019/10-20/v.c
+/backup/thur1/linux/2019/10-20/x.c
+/backup/thur1/linux/2019/10-20/dir/t2.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libgeom/circ.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libgeom/rect.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libvec/addvec.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libvec/multvec.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/libvec/testvec.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/log10/log10.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/multiple-defs/f.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/multiple-defs/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab7/files/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab8/files/hello-multi.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/labs/lab8/files/hello-one.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/misc/bin-num/220a/bin-num.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/misc/bin-num/220a/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/misc/bin-num/220b/bin-num.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/misc/bin-num/220b/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1/prj1-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj1/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj2/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj2/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj2/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj2/prj2-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/projects/prj2/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/adts/code/stack.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/wc.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/count-1s-1.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/count-1s-2.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/bases.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/out-bits.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/sum.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/endian.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/integer-sizes.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/kilo-powers.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/ptr-sum.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/robust-sum.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/c-intro/code/sum-args.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/intro/code/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/abs-diff.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/arith.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/cmp-sets.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/conditional-move.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/div-mod.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/dynamic-array.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/fact-do-while.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/fact-while.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/fact.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/find.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/indirect-goto.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/mul.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/multi-dim.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/no-frame.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/rect-array.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/rect.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/stack-frame.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/sum.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/swap.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/switch.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/move/move.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/mstore/main.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/mstore/mstore.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/simple/simple.c
+/backup/thur1/linux/2019/10-20/git-repos/cs220/slides/x86/code/sum1/sum1.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/grading/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/grading/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/grading/prj1-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex1/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex3/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex3/quadr.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex4/key-value.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex4/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab2/ex4/process-file.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex1/pointers.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex2/in-pointers.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex3/bad-types.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex4/cast-types.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex5/void-pointers.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab5/lab5/files/ex6/in-voids.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libgeom/circ.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libgeom/rect.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libvec/multvec.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libvec/testvec.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/libvec/addvec.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/log10/log10.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/multiple-defs/f.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/multiple-defs/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab7/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/lab8/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj1-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj2-sol/main.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/submit/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/work/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-20/git-repos/i220a/work/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-20/random/memory.c
+h/backup/thur1/linux/2019/10-23/dir/t2.c
+/backup/thur1/linux/2019/10-23/cstack.c
+/backup/thur1/linux/2019/10-23/lab11.c
+/backup/thur1/linux/2019/10-23/lab12.c
+/backup/thur1/linux/2019/10-23/t1.c
+/backup/thur1/linux/2019/10-23/testing.c
+/backup/thur1/linux/2019/10-23/v.c
+/backup/thur1/linux/2019/10-23/x.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libgeom/circ.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libgeom/rect.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libvec/addvec.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libvec/multvec.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/libvec/testvec.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/log10/log10.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/multiple-defs/f.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/multiple-defs/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab7/files/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab8/files/hello-multi.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab8/files/hello-one.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/labs/lab9/files/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/misc/bin-num/220a/bin-num.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/misc/bin-num/220a/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/misc/bin-num/220b/bin-num.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/misc/bin-num/220b/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1/prj1-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj1/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/alt-big-bits.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2/prj2-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/projects/prj2/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/adts/code/stack.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/wc.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/count-1s-1.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/count-1s-2.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/bases.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/out-bits.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/sum.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/endian.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/integer-sizes.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/kilo-powers.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/ptr-sum.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/robust-sum.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/c-intro/code/sum-args.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/intro/code/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/abs-diff.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/cmp-sets.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/fact-do-while.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/fact-while.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/indirect-goto.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/read-point.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/scale.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/sum-dist-origin-s.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/sum-dist-origin.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/sum.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/switch.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/move/move.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/mstore/main.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/mstore/mstore.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/arith.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/conditional-move.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/div-mod.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/dynamic-array.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/fact.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/find.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/mul.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/multi-dim.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/no-frame.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/rect-array.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/rect.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/stack-frame.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/swap.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/simple/simple.c
+/backup/thur1/linux/2019/10-23/git-repos/cs220/slides/x86/code/sum1/sum1.c
+ jobs
+/backup/thur1/linux/2019/10-23/git-repos/i220a/grading/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/grading/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/grading/prj1-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex1/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex3/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex3/quadr.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex4/key-value.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex4/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab2/ex4/process-file.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex1/pointers.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex2/in-pointers.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex3/bad-types.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex4/cast-types.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex5/void-pointers.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab5/lab5/files/ex6/in-voids.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libgeom/circ.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libgeom/rect.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libvec/multvec.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libvec/testvec.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/libvec/addvec.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/log10/log10.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/multiple-defs/f.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/multiple-defs/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab7/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab8/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/lab9/files/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj1-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj2-sol/big-bits.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj2-sol/errors.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj2-sol/hex-util.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj2-sol/main.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/submit/prj2-sol/stack.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/work/lab3/ex1/hello.c
+/backup/thur1/linux/2019/10-23/git-repos/i220a/work/lab3/ex2/hello.c
+/backup/thur1/linux/2019/10-23/random/memory.c
+/backup/thur1/linux/2019/10-26/cstack.c
+/backup/thur1/linux/2019/10-26/lab11.c
+/backup/thur1/linux/2019/10-26/lab12.c
+/backup/thur1/linux/2019/10-26/t1.c
+/backup/thur1/linux/2019/10-26/testing.c
+/backup/thur1/linux/2019/10-26/v.c
+/backup/thur1/linux/2019/10-26/x.c
+/backup/thur1/linux/2019/10-26/dir/t2.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex1/hello.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex3/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex3/quadr.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex4/key-value.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex4/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab2/files/ex4/process-file.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab3/files/ex1/hello.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab3/files/ex2/hello.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex2/ints.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex3/identify.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex4/negeq.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex6/0.1.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex7/nan.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex8/ulp.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex9/loop.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab4/files/ex1/uints.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab6/files/brk/brk.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab6/files/bug-program/bug-program.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab6/files/process-memory/process-memory.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libgeom/circ.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libgeom/rect.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libgeom/testgeom.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libvec/addvec.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libvec/multvec.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/libvec/testvec.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/log10/log10.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/multiple-defs/f.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/multiple-defs/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/multiple-symbols/def1.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/multiple-symbols/def2.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/multiple-symbols/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab7/files/static-dynamic/log10.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab8/files/hello-multi.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab8/files/hello-one.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/labs/lab9/files/hello.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/misc/bin-num/220a/bin-num.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/misc/bin-num/220a/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/misc/bin-num/220b/bin-num.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/misc/bin-num/220b/main.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/projects/prj1-sol/bits-to-ints.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/projects/prj1-sol/errors.c
+/backup/thur1/linux/2019/10-26/git-repos/cs220/projects/prj1-sol/main.c
+^X^C
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ jobs
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ kill $l
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ kill $1
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ kill &1
+[1] 17238
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+bash: 1: command not found
+[1]+  Exit 2                  kill
+thur1@remote03:~/git-repos/i220a/work/lab12/files$ cd ~
+thur1@remote03:~$ pwd
+/home/thur1
+thur1@remote03:~$ xx=123
+thur1@remote03:~$ pwd; echo $xx; (xx=abc; cd /; pwd; echo $xx); pwd; echo $xx
+/home/thur1
+123
+/
+abc
+/home/thur1
+123
+thur1@remote03:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`
+/home/thur1/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/thur1/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/thur1/cs220/projects/prj2/prj2-sol/main.c:main()
+/home/thur1/cs220/projects/prj2-sol/main.c:main()
+/home/thur1/cs220/projects/prj4/aux-files/fns.c:int main() {
+/home/thur1/cs220/projects/prj4/prj4-sol/main.c:main(int argc, const char *argv[]) {
+thur1@remote03:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[C[C[C[C[C[C[1@\[1P[1P[1P[1P[1P[1P[1P[1P[1@w[1@c[C[1@ [1@-[1@l
+wc: 'MAIN(': No such file or directory
+   47 /home/thur1/cs220/projects/prj1/prj1-sol/bits-to-ints.h
+   30 /home/thur1/cs220/projects/prj1/prj1-sol/errors.c
+   14 /home/thur1/cs220/projects/prj1/prj1-sol/errors.h
+   54 /home/thur1/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+   58 /home/thur1/cs220/projects/prj1/prj1-sol/main.c
+  178 /home/thur1/cs220/projects/prj1-sol/bits-to-ints.c
+   46 /home/thur1/cs220/projects/prj1-sol/bits-to-ints.h
+   30 /home/thur1/cs220/projects/prj1-sol/errors.c
+   14 /home/thur1/cs220/projects/prj1-sol/errors.h
+   58 /home/thur1/cs220/projects/prj1-sol/main.c
+   87 /home/thur1/cs220/projects/prj2/prj2-sol/big-bits.c
+   61 /home/thur1/cs220/projects/prj2/prj2-sol/big-bits.h
+   30 /home/thur1/cs220/projects/prj2/prj2-sol/errors.c
+   14 /home/thur1/cs220/projects/prj2/prj2-sol/errors.h
+   49 /home/thur1/cs220/projects/prj2/prj2-sol/hex-util.c
+   18 /home/thur1/cs220/projects/prj2/prj2-sol/hex-util.h
+  302 /home/thur1/cs220/projects/prj2/prj2-sol/main.c
+   75 /home/thur1/cs220/projects/prj2/prj2-sol/stack.c
+   52 /home/thur1/cs220/projects/prj2/prj2-sol/stack.h
+  140 /home/thur1/cs220/projects/prj2-sol/alt-big-bits.c
+  184 /home/thur1/cs220/projects/prj2-sol/big-bits.c
+   61 /home/thur1/cs220/projects/prj2-sol/big-bits.h
+   30 /home/thur1/cs220/projects/prj2-sol/errors.c
+   14 /home/thur1/cs220/projects/prj2-sol/errors.h
+   49 /home/thur1/cs220/projects/prj2-sol/hex-util.c
+   18 /home/thur1/cs220/projects/prj2-sol/hex-util.h
+  302 /home/thur1/cs220/projects/prj2-sol/main.c
+   75 /home/thur1/cs220/projects/prj2-sol/stack.c
+   52 /home/thur1/cs220/projects/prj2-sol/stack.h
+  330 /home/thur1/cs220/projects/prj4/aux-files/fns.c
+   68 /home/thur1/cs220/projects/prj4/prj4-sol/fn-trace.c
+   47 /home/thur1/cs220/projects/prj4/prj4-sol/fn-trace.h
+  116 /home/thur1/cs220/projects/prj4/prj4-sol/main.c
+   40 /home/thur1/cs220/projects/prj4/prj4-sol/x86-64_lde.c
+   15 /home/thur1/cs220/projects/prj4/prj4-sol/x86-64_lde.h
+ 2758 total
+thur1@remote03:~$ ecg[Kho $?
+1
+thur1@remote03:~$ false; echo 123
+123
+thur1@remote03:~$ true; echo 123
+123
+thur1@remote03:~$ false && echo 123
+thur1@remote03:~$ true && echo 123
+123
+thur1@remote03:~$ false || echo 123
+123
+thur1@remote03:~$ true || echo 123
+thur1@remote03:~$ cd ..
+thur1@remote03:/home$ exit
+
+Script done on 2019-11-10 17:20:06-05:00 [COMMAND_EXIT_CODE="0"]

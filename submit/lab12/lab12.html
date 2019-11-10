@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Lab 12</title>
+    <link href="lab12/hl-fine_blue.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="lab12.umt:1:0"><h1 data-coord="lab12.umt:1:0">Lab 12</h1><p data-coord="lab12.umt:3:0"><strong data-coord="lab12.umt:3:0">Date</strong>: Nov 7, 2019
+</p><p data-coord="lab12.umt:5:0">This document first describes the aims of this lab.  It then provides
+necessary background.  It then describes the exercises which need to be
+performed.
+</p><p data-coord="lab12.umt:9:0">In the listings which follow, comments are any text extending from 
+a <samp data-coord="lab12.umt:9:70">#</samp> character to end-of-line.
+</p><section data-coord="lab12.umt:12:0"><h2 data-coord="lab12.umt:12:0">Aims</h2><p data-coord="lab12.umt:15:0">The aim of this lab is to introduce you to some advanced features of the
+Unix command-line.  After completing this lab, you should be familiar with
+the following topics:
+</p><ul data-coord="lab12.umt:19:0"><li data-coord="lab12.umt:19:0"><p data-coord="lab12.umt:19:4">Using the output of Unix commands within other commands.
+</p></li><li data-coord="lab12.umt:21:0"><p data-coord="lab12.umt:21:4">The difference between shell and environmental variables and the
+use of each.
+</p></li><li data-coord="lab12.umt:24:0"><p data-coord="lab12.umt:24:4">Control constructs.
+</p></li></ul></section><section data-coord="lab12.umt:27:0"><h2 data-coord="lab12.umt:27:0">Background</h2><p data-coord="lab12.umt:30:0">Recall from <a href="../lab1/lab1.html" data-coord="lab12.umt:30:33">lab1,</a> that there are many Unix
+shells, usually belonging to one of two main families: <samp data-coord="lab12.umt:30:119">sh</samp>-based
+shells and <samp data-coord="lab12.umt:30:141">csh</samp>-based shells.  In this lab, we will be using <samp data-coord="lab12.umt:30:192">bash</samp>
+which is a <samp data-coord="lab12.umt:30:210">sh</samp>-based shell.
+</p><p data-coord="lab12.umt:35:0">Unix shells are programming languages in which it is possible to write
+programs with minimal red-tape (such programming languages are referred to
+as <em data-coord="lab12.umt:35:149">scripting languages</em>).  Hence they have variables as well as control
+constructs like conditionals and loops.
+</p><p data-coord="lab12.umt:40:0">Since shells have minimal excise, there are no variable declarations.
+Variables simply come to life when they are assigned to.  In <samp data-coord="lab12.umt:40:131">sh</samp>-based
+shells a variable assignment of <em data-coord="lab12.umt:40:174">value</em> to some variable named <em data-coord="lab12.umt:40:205">name</em> simply
+looks like <em data-coord="lab12.umt:40:230">name</em><samp data-coord="lab12.umt:40:236">=</samp><em data-coord="lab12.umt:40:239">value</em>.  There cannot be any space around the <samp data-coord="lab12.umt:40:286">=</samp>.
+Hence <samp data-coord="lab12.umt:40:297">dir=tmp</samp> assigns the value <samp data-coord="lab12.umt:40:325">tmp</samp> to the shell variable <samp data-coord="lab12.umt:40:353">dir</samp>.
+</p><p data-coord="lab12.umt:46:0">In both families of shells, the value of an existing variable can
+be accessed by preceeding its name by a <samp data-coord="lab12.umt:46:106">$</samp>.  Hence after the assignment
+above, <samp data-coord="lab12.umt:46:146">$dir</samp> would result in <samp data-coord="lab12.umt:46:169">tmp</samp>.
+</p><p data-coord="lab12.umt:50:0">A shell is setup to run in a <em data-coord="lab12.umt:50:29">read-eval-loop</em> where it reads a
+<em data-coord="lab12.umt:50:63">command</em> from its input and evaluates it.  The input is line-oriented
+with successive commands usually separated by newline characters.
+Before executing each line the shell parses it in several phases;
+during the parse, several characters are regarded as special
+characters (AKA <em data-coord="lab12.umt:50:343">metacharacters</em>).  Most non-alphanumeric characters
+except a very few (comma (`,`), forward-slash (`/`), colon (`:`),
+period (`.`), at-sign or ampersat (`@`), hyphen (`-`) and underscore
+(`_`)) should be regarded as metacharacters and quoted if they are not
+to have their special meaning.  A special character can be quoted by
+preceeding it by a backslash character <samp data-coord="lab12.umt:50:710">\</samp> or by being enclosed
+within single quotes <samp data-coord="lab12.umt:50:756">'</samp>.  Double-quotes function as a weak-form of
+quoting (variables, backslash-escape sequences and some other special
+characters are still interpreted within double-quotes).
+</p><p data-coord="lab12.umt:65:0">The syntax of a shell command is
+<a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_10_02" data-coord="lab12.umt:65:123">complex,</a> but one can think of shell commands as operands separated by
+operators with the following operators (in decreasing order of
+precedence):
+</p><dl data-coord="lab12.umt:71:0"><dt data-coord="lab12.umt:71:2"> Binary <samp data-coord="lab12.umt:71:8">|</samp></dt><dd data-coord="lab12.umt:72:0"><p data-coord="lab12.umt:72:5">The <em data-coord="lab12.umt:72:9">pipe</em> operator used for redirecting the standard-output of one
+command to the standard-input of the other.
+</p></dd><dt data-coord="lab12.umt:75:2"> Binary <samp data-coord="lab12.umt:75:8">&amp;&amp;</samp> and <samp data-coord="lab12.umt:75:17">||</samp></dt><dd data-coord="lab12.umt:76:0"><p data-coord="lab12.umt:76:5">Control operators which evaluate their second operand based on whether
+or not the evaluation of the first operand succeeded (similar to C's
+<samp data-coord="lab12.umt:76:155">&amp;&amp;</samp> and <samp data-coord="lab12.umt:76:164">||</samp> operators).
+</p></dd><dt data-coord="lab12.umt:80:2"> Postfix <samp data-coord="lab12.umt:80:9">;</samp> and <samp data-coord="lab12.umt:80:17">&amp;</samp></dt><dd data-coord="lab12.umt:81:0"><p data-coord="lab12.umt:81:5">Command terminators/separators.  <samp data-coord="lab12.umt:81:38">&amp;</samp> will evaluate its operand in the
+<em data-coord="lab12.umt:81:80">background</em>.
+</p></dd></dl><p data-coord="lab12.umt:84:0">As mentioned earlier, Unix shells are full programming languages and
+have programming constructs.  This lab is restricted to those
+constructs which are useful within a single line.  However, there are
+many other facilities include <samp data-coord="lab12.umt:84:231">if</samp> and <samp data-coord="lab12.umt:84:240">case</samp> conditionals as well as
+loops and functions.  Refer to a <samp data-coord="lab12.umt:84:304">bash</samp> manual for details.
+</p></section><section data-coord="lab12.umt:90:0"><h2 data-coord="lab12.umt:90:0">Exercises</h2><section data-coord="lab12.umt:93:0"><h3 data-coord="lab12.umt:93:0">Starting up</h3><p data-coord="lab12.umt:96:0">Use the startup directions from the earlier labs to create a
+<samp data-coord="lab12.umt:96:61">work/lab11</samp> directory and fire up a terminal whose output you are
+logging using the <samp data-coord="lab12.umt:96:146">script</samp> command.  Make sure that your <samp data-coord="lab12.umt:96:185">lab11</samp>
+directory contains a copy of the <a href="./files" data-coord="lab12.umt:96:237">files</a> directory.
+</p><p data-coord="lab12.umt:101:0">The exercises all assume the use of a <samp data-coord="lab12.umt:101:38">bash</samp>-shell.  So if you are using
+another shell, please start a <samp data-coord="lab12.umt:101:103">bash</samp>-shell by typing <samp data-coord="lab12.umt:101:126">bash</samp> at your
+command-prompt.
+</p></section></section><section data-coord="lab12.umt:105:0"><h2 data-coord="lab12.umt:105:0">Exercise 1: Quoting</h2><p data-coord="lab12.umt:108:0">In Unix, a filename can contain any character other than a
+forward-slash <samp data-coord="lab12.umt:108:73">/</samp> (which is used as a <em data-coord="lab12.umt:108:97">path-separator</em> character) and
+an ASCII <samp data-coord="lab12.umt:108:138">NUL</samp> character <samp data-coord="lab12.umt:108:154">\0</samp>.  However, since many non-alphanumeric
+characters are special to the shell, specifying the names of files
+which contain special characters requires quoting.  This exercise
+deals with that.  Change over to the <a href="./files/quote-files" data-coord="lab12.umt:108:391">quote-files</a> directory.  Do an <samp data-coord="lab12.umt:108:421">ls</samp> and you will notice filenames
+containing characters which are special to most Unix shells.
+</p><p data-coord="lab12.umt:117:0">To understand how quotes work within <samp data-coord="lab12.umt:117:37">bash</samp>, let's first play with using
+backslash as the quote character.  Try the following commands:
+</p><pre>$ <span class="hl kwb">echo</span> <span class="hl esc">\\</span>
+$ <span class="hl kwb">echo</span> <span class="hl esc">\&apos;</span>
+$ <span class="hl kwb">echo</span> \<span class="hl opt">*</span>
+$ <span class="hl kwb">echo</span> \<span class="hl kwd">$HOME</span><span class="hl esc">\&quot;\\</span></pre><p data-coord="lab12.umt:128:0">(Recall that <samp data-coord="lab12.umt:128:13">echo</samp> is a command which merely echoes its arguments).  The
+above examples should show you that <samp data-coord="lab12.umt:128:110">\</samp> can always be used to quote the
+following character.
+</p><p data-coord="lab12.umt:132:0">Now play with characters enclosed within single quotes (`'`).  You will
+see that no character within single-quotes is special in any way.
+</p><pre>$ <span class="hl kwb">echo</span> <span class="hl str">&apos;</span><span class="hl esc">\&apos;</span>
+<span class="hl str">$ echo &apos;</span><span class="hl esc">\\</span><span class="hl str">&apos;</span>
+<span class="hl str">$ echo &apos;</span><span class="hl opt">*</span>$~<span class="hl str">&apos;</span></pre><p data-coord="lab12.umt:142:0">Since no character within single-quotes is special, there is no way to
+specify a single-quote within single-quotes.  If you try something like
+<samp data-coord="lab12.umt:142:143">echo '\''</samp>, you will get a secondary shell prompt <samp data-coord="lab12.umt:142:194">&gt;</samp> as the shell
+terminates the first string at the second occurrence of <samp data-coord="lab12.umt:142:267">'</samp> and then starts
+looking for a terminating quote for the third <samp data-coord="lab12.umt:142:333">'</samp>.  If you type in a <samp data-coord="lab12.umt:142:356">'</samp> at
+the <samp data-coord="lab12.umt:142:367">&gt;</samp> prompt, you should see output containing a <samp data-coord="lab12.umt:142:414">\</samp> and a newline
+character.
+</p><pre>$ <span class="hl kwb">echo</span> <span class="hl str">&apos;</span><span class="hl esc">\&apos;</span><span class="hl str">&apos;</span>
+<span class="hl opt">&gt;</span> <span class="hl str">&apos;</span></pre><p data-coord="lab12.umt:156:0">Now try using <samp data-coord="lab12.umt:156:14">"</samp> as your quote character:
+</p><pre>$ <span class="hl kwb">echo</span> <span class="hl str">&quot;</span><span class="hl esc">\&quot;\\</span><span class="hl str">&quot;</span>
+$ <span class="hl kwb">echo</span> <span class="hl str">&quot;</span><span class="hl ipl">$HOME</span><span class="hl str">&quot;</span></pre><p data-coord="lab12.umt:164:0">You will see that some characters are still interpreted specially within
+the double-quotes.
+</p><p data-coord="lab12.umt:167:0">It is possible to spread a single command over multiple physical lines by
+quoting the newline character (usually by a backslash).  For example,
+</p><pre>$ <span class="hl kwb">echo</span> \
+<span class="hl opt">&gt;</span> abc \
+<span class="hl opt">&gt;</span> <span class="hl num">123</span></pre><p data-coord="lab12.umt:177:0">This is useful for splitting up long commands over multiple physical lines.
+After processing the quoted newlines, the shell sees only a single logical
+line.
+</p><p data-coord="lab12.umt:181:0">Recall the file-globbing patterns from <a href="../lab1/lab1.html" data-coord="lab12.umt:181:60">lab1.</a>  Now
+use those along with your knowledge of quoting and the <samp data-coord="lab12.umt:181:126">ls</samp> command
+to:
+</p><ol data-coord="lab12.umt:185:0"><li data-coord="lab12.umt:185:0"><p data-coord="lab12.umt:185:4">List precisely those files in the current directory which contain a
+dollar sign <samp data-coord="lab12.umt:185:88">$</samp> in their names.
+</p></li><li data-coord="lab12.umt:188:0"><p data-coord="lab12.umt:188:4">List precisely those files in the current directory which contain a 
+single-quote <samp data-coord="lab12.umt:188:90">'</samp> in their names.
+</p></li><li data-coord="lab12.umt:191:0"><p data-coord="lab12.umt:191:4">List precisely those files in the current directory which start with
+a backslash <samp data-coord="lab12.umt:191:89">\</samp>.
+</p></li><li data-coord="lab12.umt:194:0"><p data-coord="lab12.umt:194:4">List precisely those files in the current directory which contain a
+name consisting of exactly 2 characters.
+</p></li></ol><p data-coord="lab12.umt:197:0">Is the result for the last question consistent with what you would expect
+after looking at the output of a simple <samp data-coord="lab12.umt:197:114">ls</samp> command?  According to <samp data-coord="lab12.umt:197:142">ls</samp>,
+there are two filenames <samp data-coord="lab12.umt:197:172">**</samp> and <samp data-coord="lab12.umt:197:181">-l</samp> consisting of exactly 2 characters.
+If you succeeded in picking those out using a globbing pattern, the <samp data-coord="lab12.umt:197:290">ls</samp>
+program would have seen <samp data-coord="lab12.umt:197:319">-l</samp> and <samp data-coord="lab12.umt:197:328">**</samp> as its arguments.  It would regard
+<samp data-coord="lab12.umt:197:368">-l</samp> as a command-line option specifying a <em data-coord="lab12.umt:197:411">long listing</em> for its remaining
+argument <samp data-coord="lab12.umt:197:453">**</samp>.  
+</p><p data-coord="lab12.umt:205:0">The problem is that globbing is implemented entirely within
+the shell.  This is often advantageous but the flip side is that a
+command like <samp data-coord="lab12.umt:205:140">ls</samp> cannot distinguish the origin of an argument <samp data-coord="lab12.umt:205:190">-l</samp> as
+originating from a glob pattern or actually typed by a user as an
+option. You cannot fix by any quoting within the shell.
+</p><p data-coord="lab12.umt:211:0">Fortunately, many modern Unix commands allow a special option <samp data-coord="lab12.umt:211:62">--</samp>
+which guarantees that the following arguments are not treated as
+command-line options.  Now use <samp data-coord="lab12.umt:211:163">--</samp> to fix your solution above.
+</p></section><section data-coord="lab12.umt:216:0"><h2 data-coord="lab12.umt:216:0">Exercise 2: Shell and Environment Variables</h2><p data-coord="lab12.umt:219:0">Every process runs in an environment which is a collection of <em data-coord="lab12.umt:219:62">NAME</em><samp data-coord="lab12.umt:219:72">=</samp><em data-coord="lab12.umt:219:79">VALUE</em> pairs.  The <samp data-coord="lab12.umt:219:99">env</samp> command prints out the current
+environment.  This environment is provided to all programs which are
+launched by the shell.  Use the <samp data-coord="lab12.umt:219:237">env</samp> command to list out your current
+environment.
+</p><pre>$ env
+$ <span class="hl kwb">echo</span> <span class="hl kwd">$HOME</span>
+$ <span class="hl kwb">echo</span> <span class="hl kwd">$PATH</span></pre><p data-coord="lab12.umt:232:0">The environment variable <samp data-coord="lab12.umt:232:25">HOME</samp> contains the path to your home directory,
+and the <samp data-coord="lab12.umt:232:82">PATH</samp> variable contains a <samp data-coord="lab12.umt:232:109">:</samp> separated list of directories which
+are searched for matching programs when you attempt to run a command.
+</p><p data-coord="lab12.umt:236:0">Now let's add a shell variable:
+</p><pre>$ <span class="hl kwb">echo</span> <span class="hl kwd">$xxx</span>         <span class="hl slc">#not currently defined</span>
+$ xxx<span class="hl opt">=</span><span class="hl num">123</span>           <span class="hl slc">#set a value for xxx; no space around =</span>
+$ <span class="hl kwb">echo</span> <span class="hl kwd">$xxx</span>         <span class="hl slc">#it now has a value</span>
+$ env | <span class="hl kwc">grep</span> xxx    <span class="hl slc">#it is only a shell variable; not in env</span></pre><p data-coord="lab12.umt:246:0">You should see that you now have a shell variable <samp data-coord="lab12.umt:246:50">xxx</samp> but it has
+not been added to the environment.  To add it to the environment, you will
+need to <em data-coord="lab12.umt:246:150">export</em> it to the environment.  Try the following:
+</p><pre>$ <span class="hl kwb">export</span> xxx
+$ env | <span class="hl kwc">grep</span> xx
+$ <span class="hl kwb">export</span> xx<span class="hl opt">=</span><span class="hl num">456</span>
+$ env | <span class="hl kwc">grep</span> xx</pre><p data-coord="lab12.umt:258:0">From the above it should be clear that all environmental variables are
+available as shell variables, but shell variables become environment
+variables only if they are explicitly exported to the environment.
+</p><p data-coord="lab12.umt:262:0">[For <samp data-coord="lab12.umt:262:5">csh</samp>-based shells, the analog to <samp data-coord="lab12.umt:262:39">export</samp> is <samp data-coord="lab12.umt:262:51">setenv</samp>.]
+</p><p data-coord="lab12.umt:264:0">Perform the following exercises:
+</p><ol data-coord="lab12.umt:266:0"><li data-coord="lab12.umt:266:0"><p data-coord="lab12.umt:266:4">Create a shell variable <samp data-coord="lab12.umt:266:28">p</samp> which contains a copy of your current
+<samp data-coord="lab12.umt:266:74">PATH</samp> environment variable.  Verify by echoing <samp data-coord="lab12.umt:266:122">$p</samp>.
+</p></li><li data-coord="lab12.umt:269:0"><p data-coord="lab12.umt:269:4">Make your PATH environmental variable empty.  Verify by <samp data-coord="lab12.umt:269:60">echo $PATH</samp>.
+</p></li><li data-coord="lab12.umt:271:0"><p data-coord="lab12.umt:271:4">Try a <samp data-coord="lab12.umt:271:10">ls</samp>.  You should get an error as the system cannot find any
+<samp data-coord="lab12.umt:271:75">ls</samp> program along your (currently empty) <samp data-coord="lab12.umt:271:117">PATH</samp>.  (Note that
+since <samp data-coord="lab12.umt:271:147">echo</samp> continues to work, it must be built-in to the shell).
+</p></li><li data-coord="lab12.umt:275:0"><p data-coord="lab12.umt:275:4">Restore your environment <samp data-coord="lab12.umt:275:29">PATH</samp> variable from the <samp data-coord="lab12.umt:275:54">p</samp> shell variable.
+Verify by confirming that a <samp data-coord="lab12.umt:275:106">ls</samp> command is once again working.
+</p></li></ol><p data-coord="lab12.umt:278:0">[Note: Environmental variables were involved in the first bug revealed
+by the <a href="http://en.wikipedia.org/wiki/Shellshock_%28software_bug%29" data-coord="lab12.umt:278:140">shellshock</a> security exploits for <samp data-coord="lab12.umt:278:173">bash</samp>.]
+</p></section><section data-coord="lab12.umt:283:0"><h2 data-coord="lab12.umt:283:0">Exercise 3: Multiple Commands per Line and Background Commands</h2><p data-coord="lab12.umt:286:0">Recall that it was possible to split a single command over multiple lines
+by quoting the newline character.  It is also possible to type multiple
+commands in a single physical line by terminating each command by a <samp data-coord="lab12.umt:286:214">;</samp>:
+</p><pre>$ <span class="hl kwc">ls</span> <span class="hl opt">;</span> <span class="hl kwc">wc</span> <span class="hl opt">*</span></pre><p data-coord="lab12.umt:295:0">Usually, when the shell launches a program corresponding to a command, the
+shell does not regain control until <strong data-coord="lab12.umt:295:111">after</strong> the program has terminated.
+However, if you terminate the command with an <samp data-coord="lab12.umt:295:193">&amp;</samp>, then the shell launches
+the program corresponding to the command and returns immediately ready to
+handle the next command.  The launched program continues to run in the
+background.  
+</p><p data-coord="lab12.umt:302:0">Background execution is useful when you want to run a command which takes a
+long time to complete.  For example, if you would like to find all <samp data-coord="lab12.umt:302:143">.c</samp>
+files in the <samp data-coord="lab12.umt:302:161">cs220</samp> directory, you can use the <samp data-coord="lab12.umt:302:196">find</samp> command which
+recursively searches specified directories for all paths which meet certain
+conditions:
+</p><pre>$ <span class="hl kwc">find</span> <span class="hl kwb">-L</span> ~<span class="hl opt">/</span>cs220 <span class="hl kwb">-name</span> <span class="hl str">&apos;*.c&apos;</span> 
+$ <span class="hl kwc">find</span> <span class="hl kwb">-L</span> ~<span class="hl opt">/</span>cs220 <span class="hl kwb">-name</span> <span class="hl str">&apos;*.c&apos;</span> | <span class="hl kwc">wc</span> <span class="hl kwb">-l</span></pre><p data-coord="lab12.umt:314:0">[By now, the reason for quoting the <samp data-coord="lab12.umt:314:36">*.c</samp> should be clear].
+</p><p data-coord="lab12.umt:316:0">The <samp data-coord="lab12.umt:316:4">-L</samp> option above tells <samp data-coord="lab12.umt:316:28">find</samp> to follow symbolic links; try the
+command without the option to see the difference.
+</p><p data-coord="lab12.umt:319:0">[The <samp data-coord="lab12.umt:319:5">find</samp> command is extremely useful and it is a good idea to get
+an idea of its capabilities by looking at its
+<em data-coord="lab12.umt:319:167"><a href="http://man7.org/linux/man-pages/man1/find.1.html" data-coord="lab12.umt:319:167">man page</a></em>.]
+</p><p data-coord="lab12.umt:323:0">But if you want to do the same thing over the entire system, it would
+typically take quite a few minutes:
+</p><pre>$ <span class="hl kwc">find</span> <span class="hl opt">/</span> <span class="hl kwb">-name</span> <span class="hl str">&apos;*.c&apos;</span> <span class="hl num">2</span><span class="hl opt">&gt;/</span>dev<span class="hl opt">/</span>null</pre><p data-coord="lab12.umt:331:0">(the <samp data-coord="lab12.umt:331:5">2&gt;/dev/null</samp> redirects standard-error to a black-hole bit-bucket).
+</p><p data-coord="lab12.umt:333:0">This will take a while to run and you would rather not wait.  So you can run
+it in the background by terminating the command with a <samp data-coord="lab12.umt:333:132">&amp;</samp> character:
+</p><pre>$ <span class="hl kwc">find</span> <span class="hl opt">/</span> <span class="hl kwb">-name</span> <span class="hl str">&apos;*.c&apos;</span> <span class="hl num">2</span><span class="hl opt">&gt;/</span>dev<span class="hl opt">/</span>null <span class="hl opt">&gt;</span>c-files.lst <span class="hl opt">&amp;</span></pre><p data-coord="lab12.umt:341:0">The shell returns immediately while the <samp data-coord="lab12.umt:341:40">find</samp> command continues to run.  
+Note that since we would prefer not to have <samp data-coord="lab12.umt:341:119">find</samp> interrupt us with its
+output we have redirected its standard output to a file <samp data-coord="lab12.umt:341:204">c-files.lst</samp>.  
+</p><p data-coord="lab12.umt:345:0">[If you let the above run around a few 10s of seconds, you should see
+that it has started appending names of C files to <samp data-coord="lab12.umt:345:120">c-files.lst</samp> by either
+<samp data-coord="lab12.umt:345:144">cat</samp>'ing it or doing a <samp data-coord="lab12.umt:345:168">ls -l</samp> on it; alternatively, in a different terminal 
+do a <samp data-coord="lab12.umt:345:228">tail -f c-files.lst</samp>.]
+</p><p data-coord="lab12.umt:350:0">You can see what jobs are currently running in the background by using the
+<samp data-coord="lab12.umt:350:75">jobs</samp> shell built-in:
+</p><pre>$ <span class="hl kwb">jobs</span></pre><p data-coord="lab12.umt:358:0">The above will print a small integer for each currently running background
+job.  You can manipulate a job using its job number by typing specific
+commands followed by the job number preceeded by a <samp data-coord="lab12.umt:358:197">%</samp> character:
+</p><pre>$ <span class="hl kwb">kill</span> <span class="hl opt">%</span><span class="hl num">1</span></pre><p data-coord="lab12.umt:367:0">would kill job 1.
+</p></section><section data-coord="lab12.umt:370:0"><h2 data-coord="lab12.umt:370:0">Exercise 4: Sub-Shells</h2><p data-coord="lab12.umt:373:0">Any commands which you type within parentheses are run in a separate
+sub-shell.  Hence changes which are local to a shell (like shell variables,
+and the current directory) are not visible outside the sub-shell.
+</p><pre>$ <span class="hl kwb">cd</span> ~
+$ <span class="hl kwb">pwd</span>
+$ xx<span class="hl opt">=</span><span class="hl num">123</span>
+$ <span class="hl kwb">pwd</span><span class="hl opt">;</span> <span class="hl kwb">echo</span> <span class="hl kwd">$xx</span><span class="hl opt">; (</span>xx<span class="hl opt">=</span>abc<span class="hl opt">;</span> <span class="hl kwb">cd</span> <span class="hl opt">/;</span> <span class="hl kwb">pwd</span><span class="hl opt">;</span> <span class="hl kwb">echo</span> <span class="hl kwd">$xx</span><span class="hl opt">);</span> <span class="hl kwb">pwd</span><span class="hl opt">;</span> <span class="hl kwb">echo</span> <span class="hl kwd">$xx</span></pre><p data-coord="lab12.umt:385:0">The last line shows that changes made in the sub-shell does not affect the
+current shell.
+</p></section><section data-coord="lab12.umt:389:0"><h2 data-coord="lab12.umt:389:0">Exercise 5: Using the Output of a Command within Another Command</h2><p data-coord="lab12.umt:392:0">If a shell command contains a sequence of characters within
+back-quotes <samp data-coord="lab12.umt:392:72">`</samp>, or <samp data-coord="lab12.umt:392:81">$(</samp> and <samp data-coord="lab12.umt:392:90">)</samp> delimiters, then that sequence of
+characters is executed as a shell command and the output of that
+command is pasted into the current command.  So, for example:
+</p><pre>$ <span class="hl kwc">grep</span> <span class="hl kwb">-i</span> <span class="hl str">&apos;MAIN(&apos;</span> <span class="hl str">`find ~/cs220/projects -name &apos;*.[ch]&apos;`</span></pre><p data-coord="lab12.umt:402:0">would print out all lines from <samp data-coord="lab12.umt:402:31">.c</samp> and <samp data-coord="lab12.umt:402:40">.h</samp> files from the
+<samp data-coord="lab12.umt:402:60">~/cs220/projects</samp> directory which contain the sequence of characters
+<samp data-coord="lab12.umt:402:130">MAIN(</samp> (irrespective of case).
+</p><p data-coord="lab12.umt:406:0">Use the <samp data-coord="lab12.umt:406:8">wc -l</samp> command to print out the number of lines in each <samp data-coord="lab12.umt:406:65">.c</samp> and 
+<samp data-coord="lab12.umt:406:75">.h</samp> file in the <samp data-coord="lab12.umt:406:92">~/cs220/projects</samp> directory.
+</p><p data-coord="lab12.umt:409:0">[Many modern shells like <samp data-coord="lab12.umt:409:25">bash</samp> allow the use of <samp data-coord="lab12.umt:409:49">$(...)</samp> instead of
+<samp data-coord="lab12.umt:409:69">`...`</samp>, thus allowing nesting.]
+</p></section><section data-coord="lab12.umt:412:0"><h2 data-coord="lab12.umt:412:0">Exercise 6: Conditional Execution of Commands</h2><p data-coord="lab12.umt:415:0">Every shell command has an exit status (the return value from <samp data-coord="lab12.umt:415:62">main()</samp>).
+The command is said to have <em data-coord="lab12.umt:415:101">succeeded</em> if the exit status is <samp data-coord="lab12.umt:415:135">0</samp> and
+<em data-coord="lab12.umt:415:143">failed</em> otherwise.  The exit status of the last shell command is always
+available in the shell variable <samp data-coord="lab12.umt:415:248">?</samp>:
+</p><pre>$ <span class="hl kwb">echo</span> $?</pre><p data-coord="lab12.umt:425:0">The command <samp data-coord="lab12.umt:425:12">false</samp> is a NOP except that it always fails; similarly, the 
+command <samp data-coord="lab12.umt:425:82">true</samp> is a NOP except that it always succeeds.  Now try:
+</p><pre>$ false<span class="hl opt">;</span> <span class="hl kwb">echo</span> <span class="hl num">123</span>
+$ true<span class="hl opt">;</span> <span class="hl kwb">echo</span> <span class="hl num">123</span></pre><p data-coord="lab12.umt:434:0">You should see that when we use <samp data-coord="lab12.umt:434:32">;</samp> to separate commands, the next command
+runs irrespective of whether or not the preceeding command succeeded.  
+</p><p data-coord="lab12.umt:437:0">But now try:
+</p><pre>~~
+$ false <span class="hl opt">&amp;&amp;</span> <span class="hl kwb">echo</span> <span class="hl num">123</span>
+$ true <span class="hl opt">&amp;&amp;</span> <span class="hl kwb">echo</span> <span class="hl num">123</span>
+$ false || <span class="hl kwb">echo</span> <span class="hl num">123</span>
+$ true || <span class="hl kwb">echo</span> <span class="hl num">123</span>
+~~~</pre><p data-coord="lab12.umt:447:0">You will see that <samp data-coord="lab12.umt:447:18">&amp;&amp;</samp> evaluates it's second command iff its first command
+succeeded (i.e. returned 0) and <samp data-coord="lab12.umt:447:107">||</samp> evaluates it's second command iff its
+first command failed.
+</p><p data-coord="lab12.umt:451:0">The <samp data-coord="lab12.umt:451:4">sleep</samp> command sleeps for the number of seconds specified by its
+first argument.  For example, <samp data-coord="lab12.umt:451:100">sleep 10</samp> will sleep for 10 seconds.
+Use the sleep command and the above facilities to run a command in the
+<strong data-coord="lab12.umt:451:209">background</strong> which will echo <samp data-coord="lab12.umt:451:238">123</samp> to the terminal after a delay of 5
+seconds.  Note that you should get the shell prompt <strong data-coord="lab12.umt:451:331">immediately</strong>
+after typing in your command, and then after a delay of approximately
+5 seconds, the <samp data-coord="lab12.umt:451:430">123</samp> should appear on your terminal.
+</p></section><section data-coord="lab12.umt:460:0"><h2 data-coord="lab12.umt:460:0">References</h2><p data-coord="lab12.umt:463:0">Brian W. Kernighan, Rob Pike, <em data-coord="lab12.umt:463:30">The Unix Programming Environment</em>,
+Prentice-Hall, 1984.
+</p><p data-coord="lab12.umt:466:0">Web shell tutorials: do a google search on <em data-coord="lab12.umt:466:43">bourne shell</em> or <em data-coord="lab12.umt:466:61">bash
+tutorials</em>.
+</p><p data-coord="lab12.umt:470:0"><em data-coord="lab12.umt:470:0"><a href="http://www.gnu.org/software/bash/manual/html_node/index.html#Top" data-coord="lab12.umt:470:0">GNU bash Manual</a></em>.
+</p></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>
