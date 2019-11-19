@@ -1,0 +1,47 @@
+$ ./do-fn-trace ~/cs220/projects/prj4/aux-files/fns testFn
+/home/umrigar/cs220/projects/prj4/aux-files/fns:testFn() = -889195092
+0x7f64e92a057a: nInCalls:       8; nOutCalls:       8; length:     316
+0x7f64e92a06b6: nInCalls:      10; nOutCalls:      11; length:     448
+0x7f64e92a0876: nInCalls:       7; nOutCalls:       9; length:     379
+0x7f64e92a09f1: nInCalls:       7; nOutCalls:       4; length:     185
+0x7f64e92a0aaa: nInCalls:       7; nOutCalls:      10; length:     471
+0x7f64e92a0c81: nInCalls:       6; nOutCalls:       2; length:     119
+0x7f64e92a0cf8: nInCalls:       5; nOutCalls:       9; length:     374
+0x7f64e92a0e6e: nInCalls:       7; nOutCalls:       9; length:     401
+0x7f64e92a0fff: nInCalls:       6; nOutCalls:       9; length:     391
+0x7f64e92a1186: nInCalls:       3; nOutCalls:       8; length:     332
+0x7f64e92a12d2: nInCalls:       4; nOutCalls:       3; length:     185
+0x7f64e92a138b: nInCalls:       8; nOutCalls:       9; length:     404
+0x7f64e92a151f: nInCalls:       6; nOutCalls:       9; length:     396
+0x7f64e92a16ab: nInCalls:       8; nOutCalls:      10; length:     394
+0x7f64e92a1835: nInCalls:       6; nOutCalls:       2; length:     116
+0x7f64e92a18a9: nInCalls:       7; nOutCalls:       9; length:     397
+0x7f64e92a1a36: nInCalls:      12; nOutCalls:       4; length:     171
+0x7f64e92a1ae1: nInCalls:       8; nOutCalls:       2; length:     129
+0x7f64e92a1b62: nInCalls:       4; nOutCalls:       3; length:     119
+0x7f64e92a1bd9: nInCalls:       5; nOutCalls:       3; length:     141
+0x7f64e92a1c66: nInCalls:       1; nOutCalls:       1; length:      21
+$ ./do-fn-trace -r ~/cs220/projects/prj4/aux-files/fns testFn
+/home/umrigar/cs220/projects/prj4/aux-files/fns:testFn() = -889195092
+       0: nInCalls:       8; nOutCalls:       8; length:     316
+     316: nInCalls:      10; nOutCalls:      11; length:     448
+     764: nInCalls:       7; nOutCalls:       9; length:     379
+    1143: nInCalls:       7; nOutCalls:       4; length:     185
+    1328: nInCalls:       7; nOutCalls:      10; length:     471
+    1799: nInCalls:       6; nOutCalls:       2; length:     119
+    1918: nInCalls:       5; nOutCalls:       9; length:     374
+    2292: nInCalls:       7; nOutCalls:       9; length:     401
+    2693: nInCalls:       6; nOutCalls:       9; length:     391
+    3084: nInCalls:       3; nOutCalls:       8; length:     332
+    3416: nInCalls:       4; nOutCalls:       3; length:     185
+    3601: nInCalls:       8; nOutCalls:       9; length:     404
+    4005: nInCalls:       6; nOutCalls:       9; length:     396
+    4401: nInCalls:       8; nOutCalls:      10; length:     394
+    4795: nInCalls:       6; nOutCalls:       2; length:     116
+    4911: nInCalls:       7; nOutCalls:       9; length:     397
+    5308: nInCalls:      12; nOutCalls:       4; length:     171
+    5479: nInCalls:       8; nOutCalls:       2; length:     129
+    5608: nInCalls:       4; nOutCalls:       3; length:     119
+    5727: nInCalls:       5; nOutCalls:       3; length:     141
+    5868: nInCalls:       1; nOutCalls:       1; length:      21
+$ 

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Lab 13</title>
+    
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="lab13.umt:1:0"><h1 data-coord="lab13.umt:1:0">Lab 13</h1><p data-coord="lab13.umt:3:0"><strong data-coord="lab13.umt:3:0">Date</strong>: Nov 14, 2019
+</p><p data-coord="lab13.umt:5:0">This document first describes the aims of this lab.  It then provides
+necessary background.  It then describes the exercises which need to be
+performed.
+</p><section data-coord="lab13.umt:10:0"><h2 data-coord="lab13.umt:10:0">Aims</h2><p data-coord="lab13.umt:13:0">The aim of this lab is to introduce to you to the C library functions
+used for doing input/output (I/O).  After completing
+this lab, you should be familiar with the following topics:
+</p><ul data-coord="lab13.umt:17:0"><li data-coord="lab13.umt:17:0"><p data-coord="lab13.umt:17:4">The use plain <samp data-coord="lab13.umt:17:18">char</samp>'s as return values.
+</p></li><li data-coord="lab13.umt:19:0"><p data-coord="lab13.umt:19:4">Opening and closing files.
+</p></li><li data-coord="lab13.umt:21:0"><p data-coord="lab13.umt:21:4">Reading/writing blocks of bytes.
+</p></li></ul></section><section data-coord="lab13.umt:24:0"><h2 data-coord="lab13.umt:24:0">Background</h2><p data-coord="lab13.umt:27:0">Unlike other languages which were prevalent at the time C was first
+implemented, the C language itself does not specify any I/O facilities.
+Instead, all I/O in C is relegated to library functions.  C comes
+with I/O functions in its standard library; usually, these functions
+are declared in the standard header file <samp data-coord="lab13.umt:27:316">&lt;stdio.h&gt;</samp>.
+</p><p data-coord="lab13.umt:33:0">The C I/O functions will work irrespective of which operating system
+the function is running on.  However, they will be implemented using
+the native I/O facilities; under Unix they will wrap Unix primitives
+like <em data-coord="lab13.umt:33:261"><a href="https://en.wikipedia.org/wiki/File_descriptor" data-coord="lab13.umt:33:261">file
+descriptors</a></em>, <samp data-coord="lab13.umt:33:281">read()</samp> and <samp data-coord="lab13.umt:33:294">write()</samp>.
+</p></section><section data-coord="lab13.umt:40:0"><h2 data-coord="lab13.umt:40:0">Starting Up</h2><p data-coord="lab13.umt:43:0">Use the startup directions from the earlier labs to create a
+<samp data-coord="lab13.umt:43:61">work/lab13</samp> directory and fire up a terminal whose output you are
+logging using the <samp data-coord="lab13.umt:43:146">script</samp> command.  Make sure that your <samp data-coord="lab13.umt:43:185">lab13</samp>
+directory contains a copy of the <a href="./files" data-coord="lab13.umt:43:237">files</a> directory.
+</p></section><section data-coord="lab13.umt:49:0"><h2 data-coord="lab13.umt:49:0">Standard Input Character Count</h2><p data-coord="lab13.umt:52:0">Change over to the <a href="files/stdin-char-count" data-coord="lab13.umt:52:45">stdin-char-count</a>
+directory.  Look at the <a href="files/stdin-char-count/stdin-char-count.c" data-coord="lab13.umt:52:131">stdin-char-count.c</a> program as well as the
+<a href="files/stdin-char-count/Makefile" data-coord="lab13.umt:52:208">Makefile.</a>  The program simply
+outputs the encoding for <samp data-coord="lab13.umt:52:263">EOF</samp> followed by the number of characters
+read from standard input.  However, note that the Makefile uses a
+special <samp data-coord="lab13.umt:52:380">-f</samp> flag to ensure that a plain <samp data-coord="lab13.umt:52:413">char</samp> type is unsigned;
+hence the declaration for <samp data-coord="lab13.umt:52:464">char c</samp> in the program is equivalent to
+<samp data-coord="lab13.umt:52:505">unsigned char c</samp>.
+</p><p data-coord="lab13.umt:62:0">Compile and run the program on itself:
+</p><pre data-coord="lab13.umt:65:0">$ ./stdin-char-count &lt;stdin-char-count.c
+</pre><p data-coord="lab13.umt:68:0">The program should output the value of EOF as <samp data-coord="lab13.umt:68:46">-1</samp> but will then get
+stuck in an infinite loop. <samp data-coord="lab13.umt:68:96">^C</samp> out of it.
+</p><p data-coord="lab13.umt:71:0">The problem is that we are assigning the output of <samp data-coord="lab13.umt:71:51">getchar()</samp> to an
+<samp data-coord="lab13.umt:71:69">unsigned char</samp> and then comparing it with a negative value; that comparison
+will always be false, resulting in the infinite loop.
+</p><p data-coord="lab13.umt:75:0">Without changing the Makefile, change the declaration for <samp data-coord="lab13.umt:75:58">c</samp> so as to
+avoid the infinite loop.  If you now run the program:
+</p><pre data-coord="lab13.umt:79:0">$ ./stdin-char-count &lt;stdin-char-count.c
+</pre><p data-coord="lab13.umt:82:0">it should output the number of characters in <samp data-coord="lab13.umt:82:45">stdin-char-count.c</samp>.
+Compare your result with that from <samp data-coord="lab13.umt:82:102">wc stdin-char-count.c</samp>.
+</p></section><section data-coord="lab13.umt:85:0"><h2 data-coord="lab13.umt:85:0">File Character Count</h2><p data-coord="lab13.umt:88:0">Change over to the <a href="files/file-char-count" data-coord="lab13.umt:88:44">file-char-count</a> directory.
+Look at the program in the <a href="files/file-char-count/file-char-count.c" data-coord="lab13.umt:88:141">file-char-count.c</a> file.  It outputs a count of the number of
+characters in the file specified by its single command-line argument.
+</p><p data-coord="lab13.umt:93:0">The key function is
+<a href="http://man7.org/linux/man-pages/man3/fopen.3.html" data-coord="lab13.umt:93:73">fopen().</a>  It is
+used to open the file with name specified by its first argument for
+reading as specified by its second <samp data-coord="lab13.umt:93:192">"r"</samp> <strong data-coord="lab13.umt:93:198">mode</strong> argument.  If the open
+succeeds, <samp data-coord="lab13.umt:93:238">fopen()</samp> returns a non-<samp data-coord="lab13.umt:93:266">NULL</samp> pointer to a <samp data-coord="lab13.umt:93:286">FILE</samp> ADT.
+This <samp data-coord="lab13.umt:93:303">FILE</samp> pointer can be used by other functions for performing
+operations on the file.
+</p><p data-coord="lab13.umt:101:0">Compile the program using <samp data-coord="lab13.umt:101:26">make</samp>.  Run it on itself:
+</p><pre data-coord="lab13.umt:104:0">$ ./file-char-count file-char-count.c
+</pre><p data-coord="lab13.umt:107:0">Compare the result with that produced by <samp data-coord="lab13.umt:107:41">wc</samp>.
+</p><p data-coord="lab13.umt:109:0">Check to see if the program handles non-existent files:
+</p><pre data-coord="lab13.umt:112:0">$ ./file-char-count xxx
+</pre><p data-coord="lab13.umt:116:0">It seems to run ok, but has a major bug.  Can you spot the bug?
+</p><p data-coord="lab13.umt:118:0">If you cannot spot the bug, try running the program using
+<a href="http://valgrind.org/" data-coord="lab13.umt:118:82">valgrind.</a>
+</p><pre data-coord="lab13.umt:122:0">$ valgrind ./file-char-count file-char-count.c
+</pre><p data-coord="lab13.umt:125:0">and you will see that the program is leaking memory.  So it is
+allocating memory at some point which is never being released.  Try to
+figure out where that is and fix the bug; test using valgrind.
+</p></section><section data-coord="lab13.umt:129:0"><h2 data-coord="lab13.umt:129:0">File Copy</h2><p data-coord="lab13.umt:132:0">Change over to the <a href="files/file-copy" data-coord="lab13.umt:132:38">file-copy</a> directory.  Look at
+the program in the <a href="files/file-copy/file-copy.c" data-coord="lab13.umt:132:118">file-copy.c</a> file.  It copies
+the file specified by its first command-line argument into the file
+specified by its second command-line argument.
+</p><p data-coord="lab13.umt:137:0">Again, the key function is
+<a href="http://man7.org/linux/man-pages/man3/fopen.3.html" data-coord="lab13.umt:137:80">fopen().</a>  Not
+only is it being used to open the file with name specified by the
+first command-line argument for reading, but it is also being used to
+open the file with name specified by the second command-line argument
+for writing.  In the first <samp data-coord="lab13.umt:137:327">fopen()</samp>, the mode argument is specified
+as <samp data-coord="lab13.umt:137:372">"r"</samp>, but the second <samp data-coord="lab13.umt:137:394">fopen()</samp> has its mode argument specified as
+<samp data-coord="lab13.umt:137:439">"w"</samp>.
+</p><p data-coord="lab13.umt:146:0">Compile the program using <samp data-coord="lab13.umt:146:26">make</samp>.  Run it on itself and verify that
+it makes a correct copy:
+</p><pre data-coord="lab13.umt:150:0">$ ./file-copy                 #should output usage
+$ ls -l file-copy.c t         #t should not be there
+$ ./file-copy file-copy.c t
+$ ls -l file-copy.c t         #t be there with same char count
+$ cmp file-copy.c t           #should compare ok
+</pre><p data-coord="lab13.umt:157:0">Notice that <samp data-coord="lab13.umt:157:12">t</samp> got created.
+</p><p data-coord="lab13.umt:159:0">Now use your <samp data-coord="lab13.umt:159:13">file-copy</samp> program to copy some other file
+to <samp data-coord="lab13.umt:159:60">t</samp>.  
+</p><pre data-coord="lab13.umt:163:0">$ ./file-copy Makefile t
+$ cmp Makefile t               #should compare ok
+</pre><p data-coord="lab13.umt:168:0">Set up the destination file so that it cannot be written into:
+</p><pre data-coord="lab13.umt:171:0">$ chmod a-w t               #turn-off write perms for t
+$ ./file-copy file-copy.c t #should fail in the fopen("w")
+$ cmp Makefile t            #should compare ok as t unchanged
+</pre><p data-coord="lab13.umt:176:0">The program would not have noticed the fact that the <samp data-coord="lab13.umt:176:53">fopen()</samp>
+for writing failed if we had not checked the return value
+from the <samp data-coord="lab13.umt:176:130">fopen()</samp>.  If you look at the code for the function,
+notice that almost all library calls are checked for errors;
+that is absolutely necessary for writing good quality code which
+fails fast when encountering an error situation.
+</p><p data-coord="lab13.umt:183:0">Unfortunately, the <samp data-coord="lab13.umt:183:19">file-copy</samp> program does not do a complete job of
+error checking.  If you look at the
+<em data-coord="lab13.umt:183:158"><a href="http://man7.org/linux/man-pages/man3/fgetc.3.html" data-coord="lab13.umt:183:158">man page</a></em> for
+<samp data-coord="lab13.umt:183:173">fgetc()</samp>, the return value is documented as "EOF on end of file or
+error".  This means that the <samp data-coord="lab13.umt:183:271">while</samp>-loop in the <samp data-coord="lab13.umt:183:291">doCopy()</samp> function
+will terminate on either a real end-of-file or on error.  Add code to
+<samp data-coord="lab13.umt:183:381">doCopy()</samp> to have the program terminate when an error occurs on
+<samp data-coord="lab13.umt:183:446">fgetc()</samp>.  <strong data-coord="lab13.umt:183:458">Hint</strong>: look at the
+<em data-coord="lab13.umt:183:532"><a href="http://man7.org/linux/man-pages/man3/fileno.3.html" data-coord="lab13.umt:183:532">man page</a></em> for
+<samp data-coord="lab13.umt:183:547">ferror()</samp>.
+</p></section><section data-coord="lab13.umt:194:0"><h2 data-coord="lab13.umt:194:0">Appending To A File</h2><p data-coord="lab13.umt:197:0">Stay in the <a href="files/file-copy" data-coord="lab13.umt:197:31">file-copy</a> directory.
+</p><p data-coord="lab13.umt:199:0">Using the <samp data-coord="lab13.umt:199:10">"w"</samp>-mode argument to the second <samp data-coord="lab13.umt:199:44">fopen()</samp> will clobber the
+contents of the file if it already exist.  To avoid this, open the
+file for <em data-coord="lab13.umt:199:147">append</em> by changing the mode argument from <samp data-coord="lab13.umt:199:191">"w"</samp> to <samp data-coord="lab13.umt:199:200">"a"</samp>.
+Compile and test.
+</p><pre data-coord="lab13.umt:205:0">$ rm -f t                      #ensure t not present
+$ ./file-copy file-copy.c t    #create empty t and append file-copy.c
+$ ./file-copy Makefile t       #append Makefile to t
+</pre><p data-coord="lab13.umt:210:0">So the destination file <samp data-coord="lab13.umt:210:24">t</samp> should contain the contents of <samp data-coord="lab13.umt:210:59">Makefile</samp>
+appended to the contents of <samp data-coord="lab13.umt:210:98">file-copy.c</samp>.  Verify using a text editor.
+You can also verify that the sum of the line counts of the two source
+files match the total number of lines in <samp data-coord="lab13.umt:210:253">t</samp>:
+</p><pre data-coord="lab13.umt:216:0">$ wc -l file-copy.c Makefile
+$ wc -l t
+</pre></section><section data-coord="lab13.umt:220:0"><h2 data-coord="lab13.umt:220:0">Buffering</h2><p data-coord="lab13.umt:223:0">When a function such as <samp data-coord="lab13.umt:223:24">fputc()</samp> writes a character, the path taken
+by the data is as follows:
+</p><ol data-coord="lab13.umt:226:0"><li data-coord="lab13.umt:226:0"><p data-coord="lab13.umt:226:4">Normally, <samp data-coord="lab13.umt:226:14">fputc()</samp> does not do any I/O.  Instead it is set up to
+write the character into a buffer in memory.  This buffer is
+controlled by the <samp data-coord="lab13.umt:226:157">stdio</samp> library and is in
+<em data-coord="lab13.umt:226:231"><a href="https://en.wikipedia.org/wiki/User_space" data-coord="lab13.umt:226:231">user space</a></em>.
+</p></li><li data-coord="lab13.umt:231:0"><p data-coord="lab13.umt:231:4">When the buffer becomes full, the contents of the buffer is
+written from the user space buffer to a kernel space buffer using
+a OS call like
+<a href="http://man7.org/linux/man-pages/man2/write.2.html" data-coord="lab13.umt:231:210">write().</a>
+Since this involves calling the OS, it can be quite slow compared
+to a normal memory write by one or two orders of magnitude. 
+</p></li><li data-coord="lab13.umt:238:0"><p data-coord="lab13.umt:238:4">When the kernel buffer becomes full, it is actually written
+out to the file.  This I/O is <strong data-coord="lab13.umt:238:98">extremely slow</strong> compared
+to normal memory writes by several orders of magnitude.
+</p></li></ol><p data-coord="lab13.umt:242:0">When reading a character using <samp data-coord="lab13.umt:242:31">fgetc()</samp> the data flows in the other
+direction: from the file to the kernel buffer and then into a stdio
+buffer using <a href="http://man7.org/linux/man-pages/man2/read.2.html" data-coord="lab13.umt:242:202">read()</a> and finally into the program using a function like <samp data-coord="lab13.umt:242:260">fgetc()</samp>.
+</p><p data-coord="lab13.umt:247:0">Without root access, we cannot control (3).  However, the stdio
+library does allow us to control the stdio buffer using
+<a href="http://man7.org/linux/man-pages/man3/setbuf.3.html" data-coord="lab13.umt:247:174">setvbuf()</a> and
+friends.
+</p><p data-coord="lab13.umt:252:0">Change over to the <a href="files/no-buffer-copy" data-coord="lab13.umt:252:43">no-buffer-copy</a> directory
+and look at the <a href="files/no-buffer-copy/no-buffer-copy.c" data-coord="lab13.umt:252:125">no-buffer-copy.c</a> file.  The program uses an optional extra
+command-line argument: stdio buffering is turned on iff that extra
+argument is specified and equal to <samp data-coord="lab13.umt:252:286">1</samp>.  Compile and measure the
+difference when copying the <samp data-coord="lab13.umt:252:344">gcc</samp> executable into the
+<a href="http://man7.org/linux/man-pages/man4/null.4.html" data-coord="lab13.umt:252:422">/dev/null</a> data
+sink:
+</p><pre data-coord="lab13.umt:262:0">$ time ./no-buffer-copy `which gcc` /dev/null 1
+$ time ./no-buffer-copy `which gcc` /dev/null 0
+</pre><p data-coord="lab13.umt:266:0">You should see an appreciable difference in performance.
+</p></section><section data-coord="lab13.umt:268:0"><h2 data-coord="lab13.umt:268:0">Record I/O</h2><p data-coord="lab13.umt:271:0">Change over to the <a href="files/rec-io" data-coord="lab13.umt:271:35">rec-io</a> directory and look at the
+<a href="files/rec-io/gen-rand-points.c" data-coord="lab13.umt:271:102">gen-rand-points.c.</a>  This program
+generates a number (given by its first argument) of random
+2-dimensional points with coordinates in [0, 1000], while writing them
+to a file (given by its second argument) <strong data-coord="lab13.umt:271:306">in binary</strong>.
+</p><p data-coord="lab13.umt:277:0">Build the program by typing <samp data-coord="lab13.umt:277:28">make gen-rand-points</samp> and run it.
+</p><pre data-coord="lab13.umt:280:0">$ ./gen-rand-points 100 points.dat
+</pre><p data-coord="lab13.umt:283:0">It will print out the average magnitude of all the generated points.
+</p><p data-coord="lab13.umt:285:0">Look at the generated <samp data-coord="lab13.umt:285:22">points.dat</samp> file using a text editor.  You
+should see that it looks like garbage as it contains the binary
+representation of the points.
+</p><p data-coord="lab13.umt:289:0">Each point is written out to the file using
+<a href="http://man7.org/linux/man-pages/man3/fwrite.3p.html" data-coord="lab13.umt:289:99">fwrite().</a>
+Look at its documentation to understand what it does.
+</p><p data-coord="lab13.umt:293:0">Given this binary dump of the points, it is possible to read back the
+points using <a href="http://man7.org/linux/man-pages/man3/fread.3p.html" data-coord="lab13.umt:293:137">fread().</a>  Build the <samp data-coord="lab13.umt:293:157">stat-points</samp> program and run it on the generated
+points in <samp data-coord="lab13.umt:293:217">points.dat</samp>:
+</p><pre data-coord="lab13.umt:300:0">$ ./stat-points points.dat
+</pre><p data-coord="lab13.umt:303:0">It will print out statistics about the magnitude of the points.  Note that
+the average should match the average printed out by the <samp data-coord="lab13.umt:303:131">gen-rand-points</samp>
+program.
+</p><p data-coord="lab13.umt:307:0">The <samp data-coord="lab13.umt:307:4">stat-points</samp> program reads each point in to a dynamically grown
+array and sorts the array in order to determine the <samp data-coord="lab13.umt:307:121">min</samp>, <samp data-coord="lab13.umt:307:128">max</samp> and
+<samp data-coord="lab13.umt:307:138">median</samp>.  The code in <a href="./files/rec-io/dyn-array.h" data-coord="lab13.umt:307:191">dyn-array.h</a>
+provides a specification for a dynamic array ADT and
+<a href="./files/rec-io/dyn-array.c" data-coord="lab13.umt:307:286">dyn-array.c</a> provides its implementation.
+</p><p data-coord="lab13.umt:313:0">These programs shows that using <samp data-coord="lab13.umt:313:32">fread()</samp> and <samp data-coord="lab13.umt:313:46">fwrite()</samp> it is possible
+to dump out binary data.  However, the binary data has severe portability
+problems:
+</p><ul data-coord="lab13.umt:317:0"><li data-coord="lab13.umt:317:0"><p data-coord="lab13.umt:317:4">If <samp data-coord="lab13.umt:317:7">points.dat</samp> was written out on a little-endian system and read
+back on a big-endian system, the results would be garbage.
+</p></li><li data-coord="lab13.umt:320:0"><p data-coord="lab13.umt:320:4">If <samp data-coord="lab13.umt:320:7">points.dat</samp> was read back in on a system using a different
+<samp data-coord="lab13.umt:320:71">int</samp> size than the one on which it was written, then the results
+would be garbage.
+</p></li><li data-coord="lab13.umt:324:0"><p data-coord="lab13.umt:324:4">Even if <samp data-coord="lab13.umt:324:12">points.dat</samp> was read and written on the same system,
+but the reading and writing programs were compiled using separate
+compilers, or the same compiler with different options, the result
+could be garbage (this is likely to be prevented because of ABI
+compatibility reasons).
+</p></li></ul><p data-coord="lab13.umt:330:0">Nevertheless, with <samp data-coord="lab13.umt:330:19">gen-rand-points</samp> and <samp data-coord="lab13.umt:330:41">stat-points</samp> running on the
+same system, they seem to work.  Unfortunately, they contain a major
+bug.
+</p><p data-coord="lab13.umt:334:0">By default, when a file is opened by the C library, it is assumed that
+it is a <strong data-coord="lab13.umt:334:79">text</strong> file containing a sequence of lines.  However, that depends
+on the definition of lines which is system-dependent:
+</p><ul data-coord="lab13.umt:338:0"><li data-coord="lab13.umt:338:0"><p data-coord="lab13.umt:338:4">The C libraries assume that a line is a maximum sequence of
+characters not containing a newline <samp data-coord="lab13.umt:338:104">'\n'</samp> character and
+terminated by a newline.
+</p></li><li data-coord="lab13.umt:342:0"><p data-coord="lab13.umt:342:4">Under Unix systems, a line is a maximum sequence of characters
+not containing a linefeed <samp data-coord="lab13.umt:342:97">'\n'</samp> character and terminated by a
+linefeed.
+</p></li><li data-coord="lab13.umt:346:0"><p data-coord="lab13.umt:346:4">Under Windows, a line is a maximum sequence of characters not
+containing the sequence carriage-return <samp data-coord="lab13.umt:346:110">'\r'</samp> line-feed <samp data-coord="lab13.umt:346:127">'\n'</samp> and
+terminated by the two character sequence carriage-return,
+line-feed.
+</p></li><li data-coord="lab13.umt:351:0"><p data-coord="lab13.umt:351:4">Under classic Mac-OS systems (not OS/X which is basically Unix), a
+line is a maximum sequence of characters not containing a
+carriage-return <samp data-coord="lab13.umt:351:153">'\r'</samp> character and terminated by a
+carriage-return.
+</p></li></ul><p data-coord="lab13.umt:356:0">When doing I/O on text files, the C library I/O routines translates
+between system line-endings and the C line-endings.  On Unix, this
+translation is the identity function but is non-trivial on other
+systems.  For example, the character sequence <samp data-coord="lab13.umt:356:246">'\r'</samp> <samp data-coord="lab13.umt:356:253">'\n'</samp> in
+a Windows file is read into a C program as a single character
+<samp data-coord="lab13.umt:356:325">'\n'</samp>.
+</p><p data-coord="lab13.umt:363:0">Hence doing I/O of binary data using text files is wrong.  It will
+work fine under Unix, but will be incorrect under Windows.  For
+example, the integer 10 (which is the Ascii code for <samp data-coord="lab13.umt:363:184">\n</samp> will be
+output as <samp data-coord="lab13.umt:363:207">'\r'</samp> followed by a <samp data-coord="lab13.umt:363:228">'\n'</samp>.
+</p><p data-coord="lab13.umt:368:0">The fix for this is to open the files for binary I/O; this can be done
+by adding a <samp data-coord="lab13.umt:368:83">b</samp> to the second mode string argument of <samp data-coord="lab13.umt:368:125">fopen()</samp>.
+</p><ol data-coord="lab13.umt:371:0"><li data-coord="lab13.umt:371:0"><p data-coord="lab13.umt:371:4">Fix the modes in the <samp data-coord="lab13.umt:371:25">gen-rand-points</samp> and <samp data-coord="lab13.umt:371:47">stat-points</samp>
+program.
+</p></li><li data-coord="lab13.umt:374:0"><p data-coord="lab13.umt:374:4">Add an optional second file-name argument to <samp data-coord="lab13.umt:374:49">stat-point</samp>.  If
+that argument is provided, the statistics should be appended to
+that file instead of being written on standard output.  Test and
+ensure that your modified program is <samp data-coord="lab13.umt:374:245">valgrind</samp>-clean.
+</p></li></ol></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>

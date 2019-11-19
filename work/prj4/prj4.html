@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Project 4</title>
+    <link href="prj4/hl-fine_blue.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="prj4.umt:1:0"><h1 data-coord="prj4.umt:1:0">Project 4</h1><p data-coord="prj4.umt:3:0"><strong data-coord="prj4.umt:3:0">Due</strong>: Nov 18, by 11:59p.
+</p><p data-coord="prj4.umt:5:0"><strong data-coord="prj4.umt:5:0">Important Reminder</strong>: As per the course
+<em data-coord="prj4.umt:6:14"><a href="../../misc/academic-honesty-statement/academic-honesty-policy.html" data-coord="prj4.umt:6:14">Academic Honesty Statement</a></em>, cheating of any kind will minimally
+result in receiving an F letter grade for the entire course.
+</p><p data-coord="prj4.umt:10:0">This document first provides the aims of this project. It then lists the
+requirements as explicitly as possible.  It then hints at how these
+requirements can be met.  Finally, it describes exactly what needs to be
+submitted.
+</p><section data-coord="prj4.umt:16:0"><h2 data-coord="prj4.umt:16:0">Aims</h2><p data-coord="prj4.umt:19:0">The aims of this project are as follows:
+</p><ul data-coord="prj4.umt:21:0"><li data-coord="prj4.umt:21:0"><p data-coord="prj4.umt:21:4">To make you manipulate code as data.
+</p></li><li data-coord="prj4.umt:23:0"><p data-coord="prj4.umt:23:4">To expose you to dynamic memory allocation and function pointers in C.
+</p></li><li data-coord="prj4.umt:25:0"><p data-coord="prj4.umt:25:4">To make you build <samp data-coord="prj4.umt:25:22">Makefile</samp>'s which make use of non-trivial
+linking concepts.
+</p></li></ul></section><section data-coord="prj4.umt:29:0"><h2 data-coord="prj4.umt:29:0">Requirements</h2><p data-coord="prj4.umt:32:0">Implement a module which implements the abstract data-type (ADT)
+specified by <a href="./prj4-sol/fn-trace.h" data-coord="prj4.umt:32:103">fn-trace.h</a> which provides
+information (address, code-length and # of ingoing and outgoing calls)
+for all functions called directly or indirectly by a specified
+function in a dynamically loaded module:
+</p><pre>
+<span class="hl com">/** Information associated with a function. */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">struct</span> <span class="hl opt">{</span>
+  <span class="hl kwb">void</span> <span class="hl opt">*</span>address<span class="hl opt">;</span>        <span class="hl com">/** start address of function */</span>
+  <span class="hl kwb">unsigned</span> length<span class="hl opt">;</span>      <span class="hl com">/** # of bytes taken by function code. */</span>
+  <span class="hl kwb">unsigned</span> nInCalls<span class="hl opt">;</span>    <span class="hl com">/** # of direct calls to this function */</span>
+  <span class="hl kwb">unsigned</span> nOutCalls<span class="hl opt">;</span>   <span class="hl com">/** # of direct function calls in function body */</span>
+<span class="hl opt">}</span> FnInfo<span class="hl opt">;</span>
+
+<span class="hl com">/** FnsData is an opaque struct FnsData which can be implemented as</span>
+<span class="hl com"> *  desired by an implementation. This struct will hold a collection</span>
+<span class="hl com"> *  of FnInfo&apos;s.</span>
+<span class="hl com"> */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">struct</span> FnsData FnsData<span class="hl opt">;</span>
+
+<span class="hl com">/** Return pointer to opaque data structure containing collection of</span>
+<span class="hl com"> *  FnInfo&apos;s for functions which are callable directly or indirectly</span>
+<span class="hl com"> *  from the function whose address is rootFn.</span>
+<span class="hl com"> */</span>
+<span class="hl kwb">const</span> FnsData <span class="hl opt">*</span><span class="hl kwd">new_fns_data</span><span class="hl opt">(</span><span class="hl kwb">void</span> <span class="hl opt">*</span>rootFn<span class="hl opt">);</span>
+
+<span class="hl com">/** Free all resources occupied by fnsData. fnsData must have been</span>
+<span class="hl com"> *  returned by new_fns_data().  It is not ok to use to fnsData after</span>
+<span class="hl com"> *  this call.</span>
+<span class="hl com"> */</span>
+<span class="hl kwb">void</span> <span class="hl kwd">free_fns_data</span><span class="hl opt">(</span>FnsData <span class="hl opt">*</span>fnsData<span class="hl opt">);</span>
+
+<span class="hl com">/** Iterate over all FnInfo&apos;s in fnsData.  Make initial call with NULL</span>
+<span class="hl com"> *  lastFnInfo.  Keep calling with return value as lastFnInfo, until</span>
+<span class="hl com"> *  next_fn_info() returns NULL.  Values must be returned sorted in</span>
+<span class="hl com"> *  increasing order by fnInfoP-&gt;address.</span>
+<span class="hl com"> *</span>
+<span class="hl com"> *  Sample iteration:</span>
+<span class="hl com"> *</span>
+<span class="hl com"> *  for (FnInfo *fnInfoP = next_fn_info(fnsData, NULL); fnInfoP != NULL;</span>
+<span class="hl com"> *       fnInfoP = next_fn_info(fnsData, fnInfoP)) {</span>
+<span class="hl com"> *    //body of iteration</span>
+<span class="hl com"> *  }</span>
+<span class="hl com"> *</span>
+<span class="hl com"> */</span>
+<span class="hl kwb">const</span> FnInfo <span class="hl opt">*</span><span class="hl kwd">next_fn_info</span><span class="hl opt">(</span><span class="hl kwb">const</span> FnsData <span class="hl opt">*</span>fnData<span class="hl opt">,</span> <span class="hl kwb">const</span> FnInfo <span class="hl opt">*</span>lastFnInfo<span class="hl opt">);</span>
+</pre><p data-coord="prj4.umt:40:0">You may assume the following about the code being traced:
+</p><ul data-coord="prj4.umt:42:0"><li data-coord="prj4.umt:42:0"><p data-coord="prj4.umt:42:4">A function makes function calls using the <samp data-coord="prj4.umt:42:46">CALL</samp> instruction
+(op-code byte <samp data-coord="prj4.umt:42:83">0xE8</samp>) followed by 4 bytes giving the offset to the
+called function (in little-endian order) relative to the start of
+the <strong data-coord="prj4.umt:42:214">next</strong> instruction.
+</p></li><li data-coord="prj4.umt:47:0"><p data-coord="prj4.umt:47:4">A function is terminated using a <samp data-coord="prj4.umt:47:37">RET</samp> instruction (op-code bytes
+<samp data-coord="prj4.umt:47:74">0xC3</samp>, <samp data-coord="prj4.umt:47:82">0xCB</samp>, <samp data-coord="prj4.umt:47:90">0xC2</samp> or <samp data-coord="prj4.umt:47:100">0xCA</samp>).
+</p></li></ul><p data-coord="prj4.umt:50:0">Submit a <samp data-coord="prj4.umt:50:9">submit/prj4-sol</samp> folder in your <samp data-coord="prj4.umt:50:42">i220</samp><em data-coord="prj4.umt:50:48">X</em> repository in
+github such that typing <samp data-coord="prj4.umt:50:90">make</samp> within that folder produces a
+<samp data-coord="prj4.umt:50:127">fn-trace</samp> executable within that directory.  When the executable is
+run, it must start execution at the main program provided (see below)
+which drives your implementation of the above API.
+</p><p data-coord="prj4.umt:56:0">Your program must meet the following additional requirements:
+</p><ul data-coord="prj4.umt:58:0"><li data-coord="prj4.umt:58:0"><p data-coord="prj4.umt:58:4">It should not have any hard-coded limit on the maximum number of
+functions which can be traced; the limit should only be set by the
+amount of available memory.
+</p></li><li data-coord="prj4.umt:62:0"><p data-coord="prj4.umt:62:4">The program should not treat as instructions bytes within
+immediate data which have the same encoding as the encodings for
+<samp data-coord="prj4.umt:62:135">CALL</samp> and <samp data-coord="prj4.umt:62:146">RET</samp> instructions.  (Given the reliable x86-64
+instruction-length decoding provided by the <samp data-coord="prj4.umt:62:242">x86-64_lde</samp> module
+(see below), this should not be a major issue).
+</p></li><li data-coord="prj4.umt:68:0"><p data-coord="prj4.umt:68:4">All code must be compiled for the <samp data-coord="prj4.umt:68:38">x86-64</samp> architecture.  This
+is the default with the compilers installed on remote.cs.
+</p></li></ul></section><section data-coord="prj4.umt:71:0"><h2 data-coord="prj4.umt:71:0">The main Program</h2><p data-coord="prj4.umt:74:0">You are being provided with a <a href="./prj4-sol/main.c" data-coord="prj4.umt:74:51">main</a> program to
+exercise your implementation of the above tracing API.  When this
+program is run, it expects an optional flag <samp data-coord="prj4.umt:74:177">-r</samp>, followed by
+the following 2 arguments:
+</p><dl data-coord="prj4.umt:79:0"><dt data-coord="prj4.umt:79:2"> <em data-coord="prj4.umt:79:1">MODULE</em></dt><dd data-coord="prj4.umt:80:0"><p data-coord="prj4.umt:80:4">The path to a dynamically-linked module.
+</p></dd><dt data-coord="prj4.umt:82:2"> <em data-coord="prj4.umt:82:1">FN_NAME</em></dt><dd data-coord="prj4.umt:83:0"><p data-coord="prj4.umt:83:4">The name of a <samp data-coord="prj4.umt:83:18">extern</samp> function in <em data-coord="prj4.umt:83:39">MODULE</em> which takes no arguments
+and returns an <samp data-coord="prj4.umt:83:92">int</samp>.
+</p></dd></dl><p data-coord="prj4.umt:87:0">The program initially loads the specified <em data-coord="prj4.umt:87:42">MODULE</em> using the
+<samp data-coord="prj4.umt:87:61">dlopen()</samp> API (not covered in this course, briefly discussed at the
+end of Ch. 7 of the text).
+</p><p data-coord="prj4.umt:91:0">It then prints out the result of calling <em data-coord="prj4.umt:91:41">FN_NAME</em> with no arguments.
+</p><p data-coord="prj4.umt:93:0">Finally, it uses your implementation of the ADT described above, to
+provide information for all the functions called directly or
+indirectly by <em data-coord="prj4.umt:93:143">FN_NAME</em>.  Specifically, for each such function, it
+prints out the address of the function (relative address if the <samp data-coord="prj4.umt:93:260">-r</samp>
+flag is specified), the number of direct calls made to/by that
+function and the number of bytes in the code for the function.
+</p><p data-coord="prj4.umt:100:0">The program <strong data-coord="prj4.umt:100:12">must</strong> be invoked with the <samp data-coord="prj4.umt:100:39">LD_LIBRARY_PATH</samp> environmental
+variable containing the <samp data-coord="prj4.umt:100:95">$HOME/cs220/lib</samp> directory.
+</p><p data-coord="prj4.umt:103:0">A log of the execution is available in <a href="aux-files/fn-trace.LOG" data-coord="prj4.umt:103:65">fn-trace.LOG.</a>
+</p></section><section data-coord="prj4.umt:108:0"><h2 data-coord="prj4.umt:108:0">x86-64 Instruction Length Decoder</h2><p data-coord="prj4.umt:111:0">This project requires you to scan a sequence of x86-64 instructions
+and identify selected instructions (with op-codes provided in the
+<strong data-coord="prj4.umt:111:134">Requirements</strong> section).  To perform the scan, you will need to step
+from one instruction to the next sequential instruction, which
+requires knowing the length (number of bytes) of the first
+instruction.  A <a href="https://github.com/BeaEngine/beaengine" data-coord="prj4.umt:111:383">BeaEngine</a>
+disassembler library has been installed in the course 
+<a href="../../lib/" data-coord="prj4.umt:111:462">lib</a> directory to assist in this task.  To make this even
+easier, you are being provided with an implementation of the following
+<a href="prj4-sol/x86-64_lde.h" data-coord="prj4.umt:111:615">x86-64_lde.h</a> specification file.
+</p><pre>
+<span class="hl com">/** Return length of x86-64 instruction pointed to by p.  Returns &lt; 0</span>
+<span class="hl com"> *  on error.</span>
+<span class="hl com"> */</span>
+<span class="hl kwb">int</span> <span class="hl kwd">get_op_length</span><span class="hl opt">(</span><span class="hl kwb">void</span> <span class="hl opt">*</span>p<span class="hl opt">);</span></pre></section><section data-coord="prj4.umt:124:0"><h2 data-coord="prj4.umt:124:0">The lib Directory</h2><p data-coord="prj4.umt:127:0">The course <a href="../../lib" data-coord="prj4.umt:127:24">lib</a> directory contains the following 64-bit
+libraries:
+</p><dl data-coord="prj4.umt:130:0"><dt data-coord="prj4.umt:130:2"> <samp data-coord="prj4.umt:130:1">libbeaengine</samp></dt><dd data-coord="prj4.umt:131:0"><p data-coord="prj4.umt:131:4">The library mentioned above for disassembling x86-64 instructions.
+</p></dd><dt data-coord="prj4.umt:133:2"> <samp data-coord="prj4.umt:133:1">libcs220</samp></dt><dd data-coord="prj4.umt:134:0"><p data-coord="prj4.umt:134:4">A trivial library which provides help with memory allocation and
+error reporting:
+</p><ul data-coord="prj4.umt:137:0"><li data-coord="prj4.umt:137:0"><p data-coord="prj4.umt:137:7">Provides checked versions <samp data-coord="prj4.umt:137:33">mallocChk()</samp>, <samp data-coord="prj4.umt:137:48">reallocChk()</samp>, and
+<samp data-coord="prj4.umt:137:75">callocChk()</samp> of the memory allocation routines which wrap the
+standard memory allocation routines with the program exiting on
+failure.  The specification file is in <a href="../../include/memalloc.h" data-coord="prj4.umt:137:290">memalloc.h.</a>
+</p></li><li data-coord="prj4.umt:143:0"><p data-coord="prj4.umt:143:7">Provides routines for reporting errors using <samp data-coord="prj4.umt:143:52">printf()</samp>-style
+format strings with one modification: if the format string ends
+with <samp data-coord="prj4.umt:143:152">:</samp>, then <samp data-coord="prj4.umt:143:162">strerror(errno)</samp> is appended to the
+error-message.  The specification file is in
+<a href="../../include/errors.h" data-coord="prj4.umt:143:284">errors.h.</a>
+</p></li></ul></dd></dl><p data-coord="prj4.umt:149:0">You may assume that the environment in which your program will be compiled
+and run will have these libraries available.
+</p></section><section data-coord="prj4.umt:152:0"><h2 data-coord="prj4.umt:152:0">Provided Files</h2><p data-coord="prj4.umt:155:0">The <a href="./prj4-sol" data-coord="prj4.umt:155:18">prj4-sol</a> directory contains the following files:
+</p><dl data-coord="prj4.umt:157:0"><dt data-coord="prj4.umt:157:2"> <a href="./prj4-sol/main.c" data-coord="prj4.umt:157:22">main.c</a> </dt><dd data-coord="prj4.umt:158:0"><p data-coord="prj4.umt:158:4">This provides the <samp data-coord="prj4.umt:158:22">main()</samp> function described above.  The file
+documents it's external dependencies which must be setup correctly
+in order to build and run the program.
+</p></dd><dt data-coord="prj4.umt:162:2"> <strong data-coord="prj4.umt:162:1">Instruction Length-Decoder for x86-64</strong></dt><dd data-coord="prj4.umt:164:0"><p data-coord="prj4.umt:164:4">This provides the simple wrapper function around the BeaEngine
+disassembler library which allows accessing the length of a x86-64
+instruction.  The specification file is in
+<a href="./prj4-sol/x86-64_lde.h" data-coord="prj4.umt:164:216">x86-64_lde.h</a> and and implementation in
+<a href="./prj4-sol/x86-64_lde.c" data-coord="prj4.umt:164:286">x86-64_lde.c.</a>
+</p><p data-coord="prj4.umt:170:4">The implementation <a href="./prj4-sol/x86-64_lde.c" data-coord="prj4.umt:170:50">x86-64_lde.c</a>
+documents it's external dependencies which must be setup correctly
+in order to build and run the program.
+</p></dd><dt data-coord="prj4.umt:174:2"> <strong data-coord="prj4.umt:174:1">Function Trace Files</strong></dt><dd data-coord="prj4.umt:175:0"><p data-coord="prj4.umt:175:4">The <a href="./prj4-sol/fn-trace.h" data-coord="prj4.umt:175:33">fn-trace.h</a> file contains the
+specification for the API you are required to implement.  The
+<a href="./prj4-sol/fn-trace.c" data-coord="prj4.umt:175:157">fn-trace.c</a> file contains a skeleton
+implementation; you should flesh out the function definitions
+given there (adding in any auxiliary declarations or definitions
+which may be needed).
+</p></dd><dt data-coord="prj4.umt:182:2"> <a href="./prj4-sol/do-fn-trace" data-coord="prj4.umt:182:27">do-fn-trace</a> </dt><dd data-coord="prj4.umt:183:0"><p data-coord="prj4.umt:183:4">A trivial wrapper shell script which invokes the <samp data-coord="prj4.umt:183:53">fn-trace</samp> program
+with the <samp data-coord="prj4.umt:183:85">LD_LIBRARY_PATH</samp> environment set up to point to the
+course <samp data-coord="prj4.umt:183:149">lib</samp> directory.
+</p></dd><dt data-coord="prj4.umt:187:2"> <a href="./prj4-sol/Makefile" data-coord="prj4.umt:187:24">Makefile</a></dt><dd data-coord="prj4.umt:188:0"><p data-coord="prj4.umt:188:4">A makefile for the project.
+</p></dd></dl><p data-coord="prj4.umt:190:0">The <a href="./aux-files" data-coord="prj4.umt:190:19">aux-files</a> directory provides the following files:
+</p><dl data-coord="prj4.umt:192:0"><dt data-coord="prj4.umt:192:2"> <strong data-coord="prj4.umt:192:1">Test Code Generator</strong></dt><dd data-coord="prj4.umt:193:0"><p data-coord="prj4.umt:193:4">A ruby script in <a href="./aux-files/gen-fns.rb" data-coord="prj4.umt:193:47">gen-fns.rb</a> which
+generates random functions which can be traced for test purposes.
+The script is invoked with 2 arguments:
+</p><dl data-coord="prj4.umt:197:0"><dt data-coord="prj4.umt:197:6"> <em data-coord="prj4.umt:197:1">NUM_FNS</em></dt><dd data-coord="prj4.umt:198:0"><p data-coord="prj4.umt:198:9">The number of mutually recursive functions to be generated.
+</p></dd><dt data-coord="prj4.umt:200:6"> <em data-coord="prj4.umt:200:1">FN_NAME</em></dt><dd data-coord="prj4.umt:201:0"><p data-coord="prj4.umt:201:9">The name of a top-level function to be generated which invokes the
+mutually recursive functions and returns an <samp data-coord="prj4.umt:201:129">int</samp>.  This is 
+the root function which will start the function trace.
+</p></dd></dl><p data-coord="prj4.umt:205:4">The script will write the generated code to standard output; usually,
+this would be redirected to a file.
+</p><p data-coord="prj4.umt:208:4">The script ensures that the immediate data generated as part of
+the generated code will contain random bytes with values equal to
+the op-codes for the <samp data-coord="prj4.umt:208:163">RET</samp> and <samp data-coord="prj4.umt:208:173">CALL</samp> instructions.  This ensures that 
+if the program succeeds tracing this test data, then the program does
+not get confused by such situations.
+</p></dd><dt data-coord="prj4.umt:214:2"> <a href="./aux-files/fns.c" data-coord="prj4.umt:214:22">fns.c</a></dt><dd data-coord="prj4.umt:215:0"><p data-coord="prj4.umt:215:4">Sample test data built by invoking the above script as:
+</p><pre data-coord="prj4.umt:218:0">      $./gen-fns.rb 20 testFn &gt;fns.c
+</pre></dd><dt data-coord="prj4.umt:221:2"> <a href="./aux-files/Makefile" data-coord="prj4.umt:221:25">Makefile</a></dt><dd data-coord="prj4.umt:222:0"><p data-coord="prj4.umt:222:4">Used to build the shared object module <samp data-coord="prj4.umt:222:43">fns</samp> which serves as input
+to the <samp data-coord="prj4.umt:222:82">fn-trace</samp> program, as well as a standalone program
+<samp data-coord="prj4.umt:222:138">fnsTest</samp> with a conditionally-included <samp data-coord="prj4.umt:222:178">main()</samp> function from
+<a href="./aux-files/fns.c" data-coord="prj4.umt:222:226">fns.c.</a>
+</p></dd><dt data-coord="prj4.umt:227:2"> <a href="./aux-files/fn-trace.LOG" data-coord="prj4.umt:227:29">fn-trace.LOG</a> </dt><dd data-coord="prj4.umt:228:0"><p data-coord="prj4.umt:228:5">A sample execution log.  Note that the printed function addresses
+can vary from run to run, but the relative addresses should be
+the same.
+</p></dd><dt data-coord="prj4.umt:232:2"> Executable <samp data-coord="prj4.umt:232:12">fn-trace</samp> </dt><dd data-coord="prj4.umt:233:0"><p data-coord="prj4.umt:233:4">An executable which implements the project requirements.
+</p></dd></dl></section><section data-coord="prj4.umt:235:0"><h2 data-coord="prj4.umt:235:0">Hints</h2><p data-coord="prj4.umt:238:0">The following steps are not prescriptive in that you may choose to ignore
+them as long as you meet all project requirements.
+</p><ol data-coord="prj4.umt:241:0"><li data-coord="prj4.umt:241:0"><p data-coord="prj4.umt:241:4">Review the examples covered in class dealing abstract data types
+and dynamic memory allocation.
+</p></li><li data-coord="prj4.umt:244:0"><p data-coord="prj4.umt:244:4">Make sure your local <samp data-coord="prj4.umt:244:25">cs220</samp> repository is up-to-date:
+</p><pre data-coord="prj4.umt:247:0">    # assumes you have set up your account as directed
+    $ cd ~/cs220
+    $ git pull
+</pre></li><li data-coord="prj4.umt:252:0"><p data-coord="prj4.umt:252:4">Copy over the provided files to your <samp data-coord="prj4.umt:252:41">work</samp> folder in your
+<samp data-coord="prj4.umt:252:67">i220X</samp> local repository:
+</p><pre data-coord="prj4.umt:256:0">    # also assumes you have set up your account as directed
+    $ cd ~/i220X/work  #X will be a or b
+    $ cp -pr ~/cs220/projects/prj4/prj4-sol .
+    $ cd prj4-sol
+</pre></li><li data-coord="prj4.umt:262:0"><p data-coord="prj4.umt:262:4">Fill in the <a href="prj4-sol/README" data-coord="prj4.umt:262:35">README</a> template.
+</p></li><li data-coord="prj4.umt:264:0"><p data-coord="prj4.umt:264:4">Using the <samp data-coord="prj4.umt:264:14">x86-64_lde</samp> module, have the <samp data-coord="prj4.umt:264:44">new_fns_data()</samp> function
+merely print out the length of each instruction in the root
+function being traced.  Your code should be setup to terminate
+when any <samp data-coord="prj4.umt:264:214">RET</samp> opcode is seen.
+</p></li><li data-coord="prj4.umt:269:0"><p data-coord="prj4.umt:269:4">Look at how you can implement the <samp data-coord="prj4.umt:269:38">FnsData</samp> structure which needs
+to contain a collection of <samp data-coord="prj4.umt:269:101">FnInfo</samp>'s.  There are many different
+methods of implementing collections, but since the specification
+requires that elements of the collection be returned sorted and C
+provides a <samp data-coord="prj4.umt:269:293">qsort()</samp> function which can sort arrays, the most
+convenient way of implementing the collection of <samp data-coord="prj4.umt:269:397">FnInfo</samp>'s is by
+using a dynamically grown array of <samp data-coord="prj4.umt:269:453">FnInfo</samp>'s.  The techniques
+discussed in class for building such arrays using <samp data-coord="prj4.umt:269:535">realloc()</samp> can
+be used:
+</p><ul data-coord="prj4.umt:279:0"><li data-coord="prj4.umt:279:0"><p data-coord="prj4.umt:279:10">Track the next index to be allocated in the dynamic array
+as well as the current size of the dynamic array.
+</p></li><li data-coord="prj4.umt:282:0"><p data-coord="prj4.umt:282:10">When adding a new element, if the index is
+greater-than-or-equal-to the size, <samp data-coord="prj4.umt:282:98">realloc()</samp> the array
+(possibly doubling the size).
+</p></li><li data-coord="prj4.umt:286:0"><p data-coord="prj4.umt:286:10">Start off with everything at 0 (the size and index at 0, the
+dynamic array base pointer pointing to <samp data-coord="prj4.umt:286:113">NULL</samp>).  That ensures that
+even inserting a single element causes a <samp data-coord="prj4.umt:286:185">realloc()</samp>.
+</p></li><li data-coord="prj4.umt:290:0"><p data-coord="prj4.umt:290:10">Instead of using naked <samp data-coord="prj4.umt:290:33">realloc()</samp>'s, use the <samp data-coord="prj4.umt:290:56">reallocChk()</samp>
+provided by <samp data-coord="prj4.umt:290:86">libcs220</samp>.
+</p></li></ul><p data-coord="prj4.umt:293:6">The functionality provided by your <samp data-coord="prj4.umt:293:41">FnsData</samp> structure should allow
+checking to see if there is a <samp data-coord="prj4.umt:293:110">FnInfo</samp> for a particular address as
+well as adding in a new <samp data-coord="prj4.umt:293:177">FnInfo</samp>.
+</p></li><li data-coord="prj4.umt:297:0"><p data-coord="prj4.umt:297:4">Set up <samp data-coord="prj4.umt:297:11">new_fns_data()</samp> and <samp data-coord="prj4.umt:297:32">free_fns_data()</samp> to allocate/free all memory
+needed for your implementation of <samp data-coord="prj4.umt:297:116">FnsData</samp>.  
+</p></li><li data-coord="prj4.umt:300:0"><p data-coord="prj4.umt:300:4">After your <samp data-coord="prj4.umt:300:15">FnsData</samp> has been initialized in <samp data-coord="prj4.umt:300:49">new_fns_data()</samp>,
+start tracing the root function.  You can start tracing a function
+as follows:
+</p><ul data-coord="prj4.umt:304:0"><li data-coord="prj4.umt:304:0"><p data-coord="prj4.umt:304:8">At the start of tracing a function, enter its address into
+the <samp data-coord="prj4.umt:304:79">FnsData</samp> structure.
+</p></li><li data-coord="prj4.umt:307:0"><p data-coord="prj4.umt:307:8">Process each instruction of the traced function accumulating
+the total length of the function.
+</p></li><li data-coord="prj4.umt:310:0"><p data-coord="prj4.umt:310:8">If a <samp data-coord="prj4.umt:310:13">CALL</samp> instruction is encountered, check to see if the
+absolute address of the called function has been entered into
+the <samp data-coord="prj4.umt:310:150">FnsData</samp> structure.  If yes, update the <samp data-coord="prj4.umt:310:191">nInCalls</samp>
+counter for the called function and keep accumulating the
+length of the current function being traced.  If not, then
+recursively trace the called function.  When that recursive
+trace returns continue accumulating the current function.
+</p></li></ul></li><li data-coord="prj4.umt:318:0"><p data-coord="prj4.umt:318:4">Implement the <samp data-coord="prj4.umt:318:18">nextFnInfo()</samp> iterator. At this point, the iterator
+results will not be ordered.  However, you can link with the
+provided main program and test.
+</p></li><li data-coord="prj4.umt:322:0"><p data-coord="prj4.umt:322:4">Review the <samp data-coord="prj4.umt:322:15">qsort()</samp> function.  Use it to sort the dynamic array of
+<samp data-coord="prj4.umt:322:76">FnInfo</samp>'s by function address.
+</p></li><li data-coord="prj4.umt:325:0"><p data-coord="prj4.umt:325:4">Iterate until you meet all requirements.
+</p></li></ol><p data-coord="prj4.umt:327:0">More details as to how you may proceed:
+</p><ul data-coord="prj4.umt:329:0"><li data-coord="prj4.umt:329:0"><p data-coord="prj4.umt:329:4"><samp data-coord="prj4.umt:329:4">FnsData</samp> represents a collection of <samp data-coord="prj4.umt:329:41">FnInfo</samp>'s:
+</p><ol data-coord="prj4.umt:331:0"><li data-coord="prj4.umt:331:0"><p data-coord="prj4.umt:331:8">The data-structure representing the collection must be
+initialized.
+</p></li><li data-coord="prj4.umt:334:0"><p data-coord="prj4.umt:334:8">It should be possible to add a <samp data-coord="prj4.umt:334:39">FnInfo</samp> to the collection.
+</p></li><li data-coord="prj4.umt:336:0"><p data-coord="prj4.umt:336:8">Given the address of a function, it should be possible
+to check whether that function is in the collection.
+</p></li></ol><p data-coord="prj4.umt:339:4">As pointed out above, a dynamic vector along the lines of what was
+covered in class seems best suited.
+</p></li><li data-coord="prj4.umt:342:0"><p data-coord="prj4.umt:342:4"><samp data-coord="prj4.umt:342:4">new_fns_data()</samp> should probably only be a simple wrapper function
+which merely initializes the data-structure chosen for <samp data-coord="prj4.umt:342:130">FnsData</samp>
+and then calls an auxiliary function (say <samp data-coord="prj4.umt:342:186">fn_trace()</samp>) passing it
+the incoming <samp data-coord="prj4.umt:342:228">rootFn</samp> argument as well as the initialized
+data-structure.
+</p></li><li data-coord="prj4.umt:348:0"><p data-coord="prj4.umt:348:4">The specification for the auxiliary function <samp data-coord="prj4.umt:348:49">fn_trace(void *addr,
+    FnsData fnsData)</samp> is that it will add information about the function
+represented by <samp data-coord="prj4.umt:348:163">addr</samp> as well as all functions called directly or
+indirectly by that function to the fnsData collection as long as those
+functions have not been seen earlier.
+</p></li><li data-coord="prj4.umt:354:0"><p data-coord="prj4.umt:354:4">If you ensure that <samp data-coord="prj4.umt:354:23">fn_trace()</samp> is only called for a new function,
+then <samp data-coord="prj4.umt:354:80">fn_trace()</samp> can start things off by adding the function to
+the <samp data-coord="prj4.umt:354:148">FnsData</samp> collection (with a known address but unknown length)
+at some index in the dynamic vector, saving the index in a local
+variable.  Since the entry to <samp data-coord="prj4.umt:354:314">fn_trace()</samp> represents a call to
+the new function, the <samp data-coord="prj4.umt:354:374">nInCalls</samp> counter for the new function
+should be initialized to 1.
+</p></li><li data-coord="prj4.umt:362:0"><p data-coord="prj4.umt:362:4">An <samp data-coord="prj4.umt:362:7">unsigned char *</samp> pointer can be initialized to the function's
+start address <samp data-coord="prj4.umt:362:88">addr</samp>.  This pointer can be used to scan the
+instructions for the function specified by <samp data-coord="prj4.umt:362:181">addr</samp>.
+</p></li><li data-coord="prj4.umt:366:0"><p data-coord="prj4.umt:366:4">The scan would loop through instructions, incrementing the pointer
+by the length of each encountered instruction, getting the length
+by using the provided <samp data-coord="prj4.umt:366:167">get_op_length()</samp> from the <samp data-coord="prj4.umt:366:194">x86-64_lde</samp>
+module. The loop could also accumulate the length of the function
+in a suitable variable.
+</p></li><li data-coord="prj4.umt:372:0"><p data-coord="prj4.umt:372:4">The loop would terminate when the pointer is pointing to a byte
+which is an op-code for one of the return instructions.
+</p></li><li data-coord="prj4.umt:375:0"><p data-coord="prj4.umt:375:4">If during the loop, the pointer is pointing to the op-code for a
+call instruction, then the code should get the offset operand for
+the call.  It can do so by setting an <samp data-coord="prj4.umt:375:181">int</samp> pointer to point to the
+<strong data-coord="prj4.umt:375:215">byte</strong> after the op-code and then dereferencing that pointer (this
+takes care of endian issues).  The address of the function being
+called will be this offset plus the address of the <strong data-coord="prj4.umt:375:406">next</strong>
+instruction after the call instruction.
+</p><p data-coord="prj4.umt:383:4">If the address being called is already in <samp data-coord="prj4.umt:383:46">fnsData</samp>, then nothing
+needs to be done except increment the <samp data-coord="prj4.umt:383:112">nInCalls</samp> counter for the
+previously seen function.  Otherwise, <samp data-coord="prj4.umt:383:181">fn_trace()</samp> should be
+called recursively to trace that function.  On return from the
+recursive call, the trace should automatically resume after the
+<samp data-coord="prj4.umt:383:343">call</samp> instruction.
+</p></li><li data-coord="prj4.umt:390:0"><p data-coord="prj4.umt:390:4">When the scan terminates, it should enter the accumulated length
+into the <samp data-coord="prj4.umt:390:82">FnInfo</samp> at the previously saved index in <samp data-coord="prj4.umt:390:124">fnsData</samp> as
+well as set <samp data-coord="prj4.umt:390:153">nOutCalls</samp> to the number of call instructions seen
+during the scan of the function body.
+</p></li></ul><p data-coord="prj4.umt:395:0">Since manipulating and understanding object and assembly language code
+is one of the aims of this course, it is perfectly ok to disassemble
+the provided <samp data-coord="prj4.umt:395:153">fn-trace</samp> executable to get some idea as to how to write
+your function tracing code.
+</p></section><section data-coord="prj4.umt:400:0"><h2 data-coord="prj4.umt:400:0">Submission</h2><p data-coord="prj4.umt:403:0">When you are happy with your project, move it over from your work
+directory to your submit directory:
+</p><pre data-coord="prj4.umt:407:0">$ cd ~/i220X #X is either a or b
+$ git mv work/prj4-sol submit
+$ git commit -a -m 'suitable comment'
+$ git push
+</pre><p data-coord="prj4.umt:413:0">This should submit your project as <samp data-coord="prj4.umt:413:35">submit/prj4-sol</samp> via github.  Your
+submission should not include any object files or executables; this
+will be prevented by the provided <em data-coord="prj4.umt:413:196"><a href="prj4-sol/.gitignore" data-coord="prj4.umt:413:196">.gitignore</a></em>
+file.
+</p><p data-coord="prj4.umt:418:0">If submitting late, please drop an email to the TA for
+your section:
+</p><dl data-coord="prj4.umt:421:0"><dt data-coord="prj4.umt:421:2"> <strong data-coord="prj4.umt:421:1">Section A</strong></dt><dd data-coord="prj4.umt:422:0"><p data-coord="prj4.umt:422:4"><a href="mailto:yli241@binghamton.edu" data-coord="prj4.umt:422:36">yli241@binghamton.edu</a>
+</p></dd><dt data-coord="prj4.umt:424:2"> <strong data-coord="prj4.umt:424:1">Section B</strong></dt><dd data-coord="prj4.umt:425:0"><p data-coord="prj4.umt:425:4"><a href="mailto:rrausha1@binghamton.edu" data-coord="prj4.umt:425:38">rrausha1@binghamton.edu</a>
+</p></dd></dl></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>

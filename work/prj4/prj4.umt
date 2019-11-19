@@ -1,0 +1,425 @@
+  		      P r o j e c t   4
+
+*Due*: Nov 18, by 11:59p.
+
+*Important Reminder*: As per the course
+.<../../misc/academic-honesty-statement/academic-honesty-policy.html>
+"Academic Honesty Statement", cheating of any kind will minimally
+result in receiving an F letter grade for the entire course.
+
+This document first provides the aims of this project. It then lists the
+requirements as explicitly as possible.  It then hints at how these
+requirements can be met.  Finally, it describes exactly what needs to be
+submitted.
+
+
+			Aims
+			====
+
+The aims of this project are as follows:
+
+  + To make you manipulate code as data.
+
+  + To expose you to dynamic memory allocation and function pointers in C.
+
+  + To make you build `Makefile`'s which make use of non-trivial
+    linking concepts.
+
+
+			Requirements
+			============
+
+Implement a module which implements the abstract data-type (ADT)
+specified by .<./prj4-sol/fn-trace.h> fn-trace.h which provides
+information (address, code-length and # of ingoing and outgoing calls)
+for all functions called directly or indirectly by a specified
+function in a dynamically loaded module:
+
+.include("prj4-sol/fn-trace.h", begin_label=".1", end_label=".2")
+
+You may assume the following about the code being traced:
+
+  + A function makes function calls using the `CALL` instruction
+    (op-code byte `0xE8`) followed by 4 bytes giving the offset to the
+    called function (in little-endian order) relative to the start of
+    the *next* instruction.
+
+  + A function is terminated using a `RET` instruction (op-code bytes
+    `0xC3`, `0xCB`, `0xC2` or `0xCA`).
+
+Submit a `submit/prj4-sol` folder in your `i220`"X" repository in
+github such that typing `make` within that folder produces a
+`fn-trace` executable within that directory.  When the executable is
+run, it must start execution at the main program provided (see below)
+which drives your implementation of the above API.
+
+Your program must meet the following additional requirements:
+
+  + It should not have any hard-coded limit on the maximum number of
+    functions which can be traced; the limit should only be set by the
+    amount of available memory.
+
+  + The program should not treat as instructions bytes within
+    immediate data which have the same encoding as the encodings for
+    `CALL` and `RET` instructions.  (Given the reliable x86-64
+    instruction-length decoding provided by the `x86-64_lde` module
+    (see below), this should not be a major issue).
+
+  + All code must be compiled for the `x86-64` architecture.  This
+    is the default with the compilers installed on remote.cs.
+
+	       	      The main Program
+		      ================
+
+You are being provided with a .<./prj4-sol/main.c> main program to
+exercise your implementation of the above tracing API.  When this
+program is run, it expects an optional flag `-r`, followed by
+the following 2 arguments:
+
+  : "MODULE":
+    The path to a dynamically-linked module.
+
+  : "FN_NAME":
+    The name of a `extern` function in "MODULE" which takes no arguments
+    and returns an `int`.
+
+
+The program initially loads the specified "MODULE" using the
+`dlopen()` API (not covered in this course, briefly discussed at the
+end of Ch. 7 of the text).
+
+It then prints out the result of calling "FN_NAME" with no arguments.
+
+Finally, it uses your implementation of the ADT described above, to
+provide information for all the functions called directly or
+indirectly by "FN_NAME".  Specifically, for each such function, it
+prints out the address of the function (relative address if the `-r`
+flag is specified), the number of direct calls made to/by that
+function and the number of bytes in the code for the function.
+
+The program *must* be invoked with the `LD_LIBRARY_PATH` environmental
+variable containing the `$HOME/cs220/lib` directory.
+
+A log of the execution is available in .<aux-files/fn-trace.LOG>
+fn-trace.LOG.
+
+
+
+		x86-64 Instruction Length Decoder
+		=================================
+
+This project requires you to scan a sequence of x86-64 instructions
+and identify selected instructions (with op-codes provided in the
+*Requirements* section).  To perform the scan, you will need to step
+from one instruction to the next sequential instruction, which
+requires knowing the length (number of bytes) of the first
+instruction.  A .<https://github.com/BeaEngine/beaengine> BeaEngine
+disassembler library has been installed in the course 
+.<../../lib/> lib directory to assist in this task.  To make this even
+easier, you are being provided with an implementation of the following
+.<prj4-sol/x86-64_lde.h> x86-64_lde.h specification file.
+
+.include("prj4-sol/x86-64_lde.h", begin_label=".1", end_label=".2")
+
+		The lib Directory
+		=================
+
+The course .<../../lib> lib directory contains the following 64-bit
+libraries:
+
+  : `libbeaengine`:
+    The library mentioned above for disassembling x86-64 instructions.
+
+  : `libcs220`:
+    A trivial library which provides help with memory allocation and
+    error reporting:
+
+     + Provides checked versions `mallocChk()`, `reallocChk()`, and
+       `callocChk()` of the memory allocation routines which wrap the
+       standard memory allocation routines with the program exiting on
+       failure.  The specification file is in .<../../include/memalloc.h>
+       memalloc.h.
+
+     + Provides routines for reporting errors using `printf()`-style
+       format strings with one modification: if the format string ends
+       with `:`, then `strerror(errno)` is appended to the
+       error-message.  The specification file is in
+       .<../../include/errors.h> errors.h.
+
+You may assume that the environment in which your program will be compiled
+and run will have these libraries available.
+
+    	     	    Provided Files
+		    ==============
+
+The .<./prj4-sol> prj4-sol directory contains the following files:
+
+  : .<./prj4-sol/main.c> main.c :
+    This provides the `main()` function described above.  The file
+    documents it's external dependencies which must be setup correctly
+    in order to build and run the program.
+    
+  : *Instruction Length-Decoder for x86-64*:
+
+    This provides the simple wrapper function around the BeaEngine
+    disassembler library which allows accessing the length of a x86-64
+    instruction.  The specification file is in
+    .<./prj4-sol/x86-64_lde.h> x86-64_lde.h and and implementation in
+    .<./prj4-sol/x86-64_lde.c> x86-64_lde.c.
+
+    The implementation .<./prj4-sol/x86-64_lde.c> x86-64_lde.c
+    documents it's external dependencies which must be setup correctly
+    in order to build and run the program.
+
+  : *Function Trace Files*:
+    The .<./prj4-sol/fn-trace.h> fn-trace.h file contains the
+    specification for the API you are required to implement.  The
+    .<./prj4-sol/fn-trace.c> fn-trace.c file contains a skeleton
+    implementation; you should flesh out the function definitions
+    given there (adding in any auxiliary declarations or definitions
+    which may be needed).
+
+  : .<./prj4-sol/do-fn-trace> do-fn-trace :
+    A trivial wrapper shell script which invokes the `fn-trace` program
+    with the `LD_LIBRARY_PATH` environment set up to point to the
+    course `lib` directory.
+
+  : .<./prj4-sol/Makefile> Makefile:
+    A makefile for the project.
+
+The .<./aux-files> aux-files directory provides the following files:
+
+  : *Test Code Generator*:
+    A ruby script in .<./aux-files/gen-fns.rb> gen-fns.rb which
+    generates random functions which can be traced for test purposes.
+    The script is invoked with 2 arguments:
+
+      : "NUM_FNS":
+         The number of mutually recursive functions to be generated.
+
+      : "FN_NAME":
+         The name of a top-level function to be generated which invokes the
+         mutually recursive functions and returns an `int`.  This is 
+	 the root function which will start the function trace.
+
+    The script will write the generated code to standard output; usually,
+    this would be redirected to a file.
+
+    The script ensures that the immediate data generated as part of
+    the generated code will contain random bytes with values equal to
+    the op-codes for the `RET` and `CALL` instructions.  This ensures that 
+    if the program succeeds tracing this test data, then the program does
+    not get confused by such situations.
+
+  : .<./aux-files/fns.c> fns.c:
+    Sample test data built by invoking the above script as:
+
+    ```
+      $./gen-fns.rb 20 testFn >fns.c
+    ```
+
+  : .<./aux-files/Makefile> Makefile:
+    Used to build the shared object module `fns` which serves as input
+    to the `fn-trace` program, as well as a standalone program
+    `fnsTest` with a conditionally-included `main()` function from
+    .<./aux-files/fns.c> fns.c.
+
+  : .<./aux-files/fn-trace.LOG> fn-trace.LOG :
+     A sample execution log.  Note that the printed function addresses
+     can vary from run to run, but the relative addresses should be
+     the same.
+
+  : Executable `fn-trace` :
+    An executable which implements the project requirements.
+
+				Hints 
+				=====
+
+The following steps are not prescriptive in that you may choose to ignore
+them as long as you meet all project requirements.
+
+  # Review the examples covered in class dealing abstract data types
+    and dynamic memory allocation.
+
+  # Make sure your local `cs220` repository is up-to-date:
+
+    ```
+    # assumes you have set up your account as directed
+    $ cd ~/cs220
+    $ git pull
+    ```
+
+  # Copy over the provided files to your `work` folder in your
+    `i220X` local repository:
+
+    ```
+    # also assumes you have set up your account as directed
+    $ cd ~/i220X/work  #X will be a or b
+    $ cp -pr ~/cs220/projects/prj4/prj4-sol .
+    $ cd prj4-sol
+    ```
+
+  # Fill in the .<prj4-sol/README> README template.
+
+  # Using the `x86-64_lde` module, have the `new_fns_data()` function
+    merely print out the length of each instruction in the root
+    function being traced.  Your code should be setup to terminate
+    when any `RET` opcode is seen.
+
+  # Look at how you can implement the `FnsData` structure which needs
+    to contain a collection of `FnInfo`'s.  There are many different
+    methods of implementing collections, but since the specification
+    requires that elements of the collection be returned sorted and C
+    provides a `qsort()` function which can sort arrays, the most
+    convenient way of implementing the collection of `FnInfo`'s is by
+    using a dynamically grown array of `FnInfo`'s.  The techniques
+    discussed in class for building such arrays using `realloc()` can
+    be used:
+
+        + Track the next index to be allocated in the dynamic array
+	  as well as the current size of the dynamic array.
+
+        + When adding a new element, if the index is
+          greater-than-or-equal-to the size, `realloc()` the array
+          (possibly doubling the size).
+
+        + Start off with everything at 0 (the size and index at 0, the
+	  dynamic array base pointer pointing to `NULL`).  That ensures that
+	  even inserting a single element causes a `realloc()`.
+
+        + Instead of using naked `realloc()`'s, use the `reallocChk()`
+	  provided by `libcs220`.
+
+      The functionality provided by your `FnsData` structure should allow
+      checking to see if there is a `FnInfo` for a particular address as
+      well as adding in a new `FnInfo`.
+
+  # Set up `new_fns_data()` and `free_fns_data()` to allocate/free all memory
+    needed for your implementation of `FnsData`.  
+
+  # After your `FnsData` has been initialized in `new_fns_data()`,
+    start tracing the root function.  You can start tracing a function
+    as follows:
+
+      + At the start of tracing a function, enter its address into
+        the `FnsData` structure.
+
+      + Process each instruction of the traced function accumulating
+        the total length of the function.
+
+      + If a `CALL` instruction is encountered, check to see if the
+        absolute address of the called function has been entered into
+        the `FnsData` structure.  If yes, update the `nInCalls`
+        counter for the called function and keep accumulating the
+        length of the current function being traced.  If not, then
+        recursively trace the called function.  When that recursive
+        trace returns continue accumulating the current function.
+
+  # Implement the `nextFnInfo()` iterator. At this point, the iterator
+    results will not be ordered.  However, you can link with the
+    provided main program and test.
+
+  # Review the `qsort()` function.  Use it to sort the dynamic array of
+    `FnInfo`'s by function address.
+
+  # Iterate until you meet all requirements.
+
+More details as to how you may proceed:
+
+  + `FnsData` represents a collection of `FnInfo`'s:
+
+      # The data-structure representing the collection must be
+        initialized.
+
+      # It should be possible to add a `FnInfo` to the collection.
+
+      # Given the address of a function, it should be possible
+        to check whether that function is in the collection.
+
+    As pointed out above, a dynamic vector along the lines of what was
+    covered in class seems best suited.
+
+  + `new_fns_data()` should probably only be a simple wrapper function
+    which merely initializes the data-structure chosen for `FnsData`
+    and then calls an auxiliary function (say `fn_trace()`) passing it
+    the incoming `rootFn` argument as well as the initialized
+    data-structure.
+
+  + The specification for the auxiliary function `fn_trace(void *addr,
+    FnsData fnsData)` is that it will add information about the function
+    represented by `addr` as well as all functions called directly or
+    indirectly by that function to the fnsData collection as long as those
+    functions have not been seen earlier.
+
+  + If you ensure that `fn_trace()` is only called for a new function,
+    then `fn_trace()` can start things off by adding the function to
+    the `FnsData` collection (with a known address but unknown length)
+    at some index in the dynamic vector, saving the index in a local
+    variable.  Since the entry to `fn_trace()` represents a call to
+    the new function, the `nInCalls` counter for the new function
+    should be initialized to 1.
+
+  + An `unsigned char *` pointer can be initialized to the function's
+    start address `addr`.  This pointer can be used to scan the
+    instructions for the function specified by `addr`.
+
+  + The scan would loop through instructions, incrementing the pointer
+    by the length of each encountered instruction, getting the length
+    by using the provided `get_op_length()` from the `x86-64_lde`
+    module. The loop could also accumulate the length of the function
+    in a suitable variable.
+
+  + The loop would terminate when the pointer is pointing to a byte
+    which is an op-code for one of the return instructions.
+
+  + If during the loop, the pointer is pointing to the op-code for a
+    call instruction, then the code should get the offset operand for
+    the call.  It can do so by setting an `int` pointer to point to the
+    *byte* after the op-code and then dereferencing that pointer (this
+    takes care of endian issues).  The address of the function being
+    called will be this offset plus the address of the *next*
+    instruction after the call instruction.
+
+    If the address being called is already in `fnsData`, then nothing
+    needs to be done except increment the `nInCalls` counter for the
+    previously seen function.  Otherwise, `fn_trace()` should be
+    called recursively to trace that function.  On return from the
+    recursive call, the trace should automatically resume after the
+    `call` instruction.
+
+  + When the scan terminates, it should enter the accumulated length
+    into the `FnInfo` at the previously saved index in `fnsData` as
+    well as set `nOutCalls` to the number of call instructions seen
+    during the scan of the function body.
+
+Since manipulating and understanding object and assembly language code
+is one of the aims of this course, it is perfectly ok to disassemble
+the provided `fn-trace` executable to get some idea as to how to write
+your function tracing code.
+
+			Submission
+			==========
+
+When you are happy with your project, move it over from your work
+directory to your submit directory:
+
+```
+$ cd ~/i220X #X is either a or b
+$ git mv work/prj4-sol submit
+$ git commit -a -m 'suitable comment'
+$ git push
+```
+
+This should submit your project as `submit/prj4-sol` via github.  Your
+submission should not include any object files or executables; this
+will be prevented by the provided .<prj4-sol/.gitignore> ".gitignore"
+file.
+
+If submitting late, please drop an email to the TA for
+your section:
+
+  : *Section A*:
+    .<mailto:yli241@binghamton.edu> yli241@binghamton.edu
+     
+  : *Section B*:
+    .<mailto:rrausha1@binghamton.edu> rrausha1@binghamton.edu
