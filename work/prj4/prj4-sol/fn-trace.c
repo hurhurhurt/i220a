@@ -1,3 +1,4 @@
+
 #include "fn-trace.h"
 #include "x86-64_lde.h"
 #include "memalloc.h"
@@ -30,29 +31,75 @@ static inline bool is_ret(unsigned op) {
  *  from the function whose address is rootFn.
  */
 
+int compare(const void *addr1, const void *addr2){
+  FnInfo *uno = *(FnInfo**) addr1;
+  FnInfo *dos = *(FnInfo**) addr2;
+  return uno->address - dos->address;
+}
+
 typedef struct FnsData{
   int size;
   int index;
   FnInfo ** info;
 }FnsData;
+
+void
+fn_trace(void *addr, FnsData *data){
+  FnInfo *fn = malloc(sizeof *fn);
+  fn->address = addr;
+  fn->length = 0;
+  fn->nInCalls = 1;
+  fn->nOutCalls = 0;
+  int length = 0;
+
+  if (data->size <= data->index){
+    data->size++;
+    data->info = reallocChk(data->info, sizeof(fn) * data->size);
+  }
   
+  data->info[data->index] = fn;
+  unsigned char op = *(unsigned char *) addr;
+  
+  while (!is_ret(op)){
+    if (is_call(op)){
+      bool inside = true;
+      fn->nOutCalls++;
+      int disp = *(int*) addr;
+      disp >>= 8;
+      disp += get_op_length(addr);
+
+      if (data->size != 0){
+	for (unsigned int i = 0; i < data->size; i++){
+	  if (data->info[i]->address == addr + disp){
+	    data->info[i]->nInCalls++;
+	    inside = false;
+	  }
+	}
+      }
+      if (inside){
+	data->index++;
+	fn_trace(addr + disp, data);
+      }
+    }
+    fn->length += get_op_length(addr);
+    addr += get_op_length(addr);
+    op = *(unsigned char *)addr;
+  }
+  fn->length += get_op_length(addr);
+}  
 const FnsData * new_fns_data (void *rootFn)
 {
   //verify assumption used when decoding call address
   assert(sizeof(int) == 4);
-  FnsData * data = mallocChk(sizeof(FnsData));
-  data->size = 0;
+  FnsData * data = malloc(sizeof(struct FnsData));
+  data->info = malloc(0);
   data->index = 0;
-  data->info = NULL;
+  data->size = 0;
   fn_trace(rootFn, data);
+  qsort(data->info, data->size, sizeof(FnInfo), compare);
   return data;
 }
 
-void
-fn_trace(void *addr, FnsData data){
-  data->info->address = addr;
-  
-}
 
 /** Free all resources occupied by fnsData. fnsData must have been
  *  returned by new_fns_data().  It is not ok to use to fnsData after
@@ -84,5 +131,12 @@ const FnInfo *
 next_fn_info(const FnsData *fnsData, const FnInfo *lastFnInfo)
 {
   //@TODO
-  return NULL;
-}
+  unsigned int index = 0;
+  if (lastFnInfo == NULL) return fnsData->info[0];
+  for (unsigned int i = 0; i < fnsData->size; i++){
+    if (fnsData->info[i]->address == lastFnInfo->address) index = i;
+  }
+  index++;
+  if (index > fnsData->index) return NULL;
+  return fnsData->info[index];
+} 
