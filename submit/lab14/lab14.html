@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Lab 14</title>
+    <link href="lab14/hl-fine_blue.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="lab14.umt:1:0"><h1 data-coord="lab14.umt:1:0">Lab 14</h1><p data-coord="lab14.umt:3:0"><strong data-coord="lab14.umt:3:0">Date</strong>: Nov 21, 2019
+</p><p data-coord="lab14.umt:5:0">This document first describes the aims of this lab.  It then provides
+necessary background.  It then describes the exercises which need to be
+performed.
+</p><section data-coord="lab14.umt:10:0"><h2 data-coord="lab14.umt:10:0">Aims</h2><p data-coord="lab14.umt:13:0">The aim of this lab is to introduce to you to different methods used
+for doing input/output (I/O) on computer systems.  After completing
+this lab, you should be familiar with the following topics:
+</p><ul data-coord="lab14.umt:17:0"><li data-coord="lab14.umt:17:0"><p data-coord="lab14.umt:17:4">The problems with <em data-coord="lab14.umt:17:22">blocking I/O</em>.
+</p></li><li data-coord="lab14.umt:19:0"><p data-coord="lab14.umt:19:4">Using <em data-coord="lab14.umt:19:10">polling</em> to check whether an I/O device is ready.
+</p></li><li data-coord="lab14.umt:21:0"><p data-coord="lab14.umt:21:4">The use of <em data-coord="lab14.umt:21:15">interrupts</em> so that programs can be interrupted
+only when an I/O device is ready.
+</p></li></ul><p data-coord="lab14.umt:24:0">You will also gain some experience using a primitive operating system
+where a program error may crash the entire system and require a
+reboot.
+</p></section><section data-coord="lab14.umt:29:0"><h2 data-coord="lab14.umt:29:0">Background</h2><p data-coord="lab14.umt:32:0">Assume that a program running on a computer needs to read input
+from the user via the keyboard.  An obvious strategy is to have
+the program wait until the user has typed a key.  However, a
+back-of-the-envelope analysis easily shows that such a
+strategy would be a waste of resources:
+</p><p data-coord="lab14.umt:38:0">Assume that the user is a fast typist capable of typing 4 characters
+per second and assume that a modern CPU can execute at 1000 MIPS
+("Million Instructions Per Second").  So in the time spent waiting for
+the user to type one character, the CPU could have executed 250
+million instructions.  Such a situation is obviously a tremendous
+waste of resources.
+</p><p data-coord="lab14.umt:45:0">There are two main solutions to this problem:
+</p><dl data-coord="lab14.umt:47:0"><dt data-coord="lab14.umt:47:2"><strong data-coord="lab14.umt:47:3">Polling</strong></dt><dd data-coord="lab14.umt:48:0"><p data-coord="lab14.umt:48:4">Instead of waiting for the user to type a key, the computer
+continues execution (executing the current program or another
+program).  But it periodically checks or <strong data-coord="lab14.umt:48:175">polls</strong> the keyboard
+to see whether the user has typed a key.  If that is the
+case, then it read the key and proceeds as per the original
+program.
+</p></dd><dt data-coord="lab14.umt:55:2"><strong data-coord="lab14.umt:55:3">Interrupts</strong></dt><dd data-coord="lab14.umt:56:0"><p data-coord="lab14.umt:56:4">The computer continues executing the current program or
+another program.  When the user has typed a key, the
+keyboard uses special hardware to <strong data-coord="lab14.umt:56:155">interrupt</strong> the program.
+The interrupt results in execution of an <em data-coord="lab14.umt:56:225">interrupt-service
+    routine</em> which will read the keyboard.  Things are setup
+so that the original program receives the value of the key
+so that it can continue execution.
+</p></dd></dl></section><section data-coord="lab14.umt:65:0"><h2 data-coord="lab14.umt:65:0">Needing Dosbox</h2><p data-coord="lab14.umt:68:0">A problem with experimenting with I/O on current computer systems is
+that all I/O in modern computer systems is under the control of
+the operating system and not directly accessible to a non-kernel
+programmer.  It may be possible to reboot a present day computer
+with a simple kernel which allows access to the I/O but such
+a kernel would probably also have an extremely primitive development
+environment.  A happy medium is to use a virtual machine emulator
+running within a modern development environment like Linux.
+</p><p data-coord="lab14.umt:77:0">There are many such emulators available for Linux: two which come
+to mind are <samp data-coord="lab14.umt:77:78">virtualbox</samp> and <samp data-coord="lab14.umt:77:95">dosbox</samp>.  For this lab, <samp data-coord="lab14.umt:77:120">dosbox</samp>
+was chosen because it already comes with a suitable primitive
+operating system (an emulation of MS-DOS) while making it easy
+to continue using the Linux development environment.
+</p><p data-coord="lab14.umt:83:0">To ensure that hardware from different PC manufacturers could be
+accessed in a uniform manner, early PC's came with a <em data-coord="lab14.umt:83:118">Basic
+Input/Output System</em> or BIOS.  The MSDOS operating accessed I/O
+devices using the hardware abstractions provided by this BIOS layer.
+In modern OS's, the BIOS is only used during initialization.
+</p></section><section data-coord="lab14.umt:90:0"><h2 data-coord="lab14.umt:90:0">Starting up</h2><p data-coord="lab14.umt:93:0">Use the startup directions from the earlier labs to create a <samp data-coord="lab14.umt:93:61">work/lab14</samp>
+directory.  Make sure that your <samp data-coord="lab14.umt:93:106">lab14</samp> directory contains a
+copy of the <a href="./files" data-coord="lab14.umt:93:158">files</a> directory.  Unlike other labs, instead of
+making a <samp data-coord="lab14.umt:93:215">script</samp> of your Linux session, show the TA the changes
+you make in the provided files. 
+</p><p data-coord="lab14.umt:99:0">Change directory into your <samp data-coord="lab14.umt:99:27">files</samp> directory and start <samp data-coord="lab14.umt:99:55">dosbox</samp>
+in the background:
+</p><pre data-coord="lab14.umt:103:0">$ cd files
+$ dosbox &amp;
+</pre><p data-coord="lab14.umt:107:0">You should see the <samp data-coord="lab14.umt:107:19">dosbox</samp> program start up in a separate window.
+Within a couple of seconds, you will see a msdos prompt <samp data-coord="lab14.umt:107:123">Z:\&gt;</samp>.
+</p><p data-coord="lab14.umt:110:0">[In the rest of this lab, commands typed to a Linux shell are shown
+prefixed with a <samp data-coord="lab14.umt:110:84">$</samp> prompt, whereas commands typed in to <samp data-coord="lab14.umt:110:125">dosbox</samp>
+are prefixed with either <samp data-coord="lab14.umt:110:159">C:\&gt;</samp> or <samp data-coord="lab14.umt:110:169">Z:\&gt;</samp>.]
+</p><p data-coord="lab14.umt:114:0">One advantage of <samp data-coord="lab14.umt:114:17">dosbox</samp> is that it is very easy to share files with
+the Linux host.  You can simply mount and access your current Linux
+directory as <em data-coord="lab14.umt:114:151">drive c</em> using the following commands:
+</p><pre data-coord="lab14.umt:119:0">Z:\&gt;mount c .
+Z:\&gt;c:
+C:\&gt;dir 
+</pre><p data-coord="lab14.umt:124:0">The first command mounts the current Linux directory as the <samp data-coord="lab14.umt:124:60">c:</samp> drive;
+the second command sets <samp data-coord="lab14.umt:124:96">c:</samp> as the current drive and the last <samp data-coord="lab14.umt:124:135">dir</samp>
+command produces a directory listing of the current directory.
+</p><p data-coord="lab14.umt:128:0">Note that any edits that you make in your Linux files are reflected
+immediately immediately on <samp data-coord="lab14.umt:128:95">dosbox</samp> but new files do not show up.
+To access new files simply unmount <samp data-coord="lab14.umt:128:169">c</samp> using <samp data-coord="lab14.umt:128:179">mount -u</samp> and remount:
+</p><pre data-coord="lab14.umt:133:0">C:\&gt;mount -u c
+Z:\&gt;mount c .
+Z:\&gt;c:
+</pre><p data-coord="lab14.umt:138:0">During the course of this lab, it is very likely that you will crash
+<samp data-coord="lab14.umt:138:69">dosbox</samp> (it will either become unresponsive or the window will close
+itself).  In that case, simply restart it and remount your Linux directory.
+</p><p data-coord="lab14.umt:142:0">In this lab we will be playing with a simple program which does the
+equivalent of the following pseudo-code (with minor variations in the
+different exercises):
+</p><pre>COUNT <span class="hl opt">=</span> <span class="hl num">100</span><span class="hl opt">;</span>
+<span class="hl kwa">while</span> <span class="hl opt">(</span><span class="hl kwa">true</span><span class="hl opt">) {</span>
+  <span class="hl kwb">char</span> c <span class="hl opt">=</span> <span class="hl kwd">getchar</span><span class="hl opt">();</span>
+  <span class="hl kwa">if</span> <span class="hl opt">(</span>c <span class="hl opt">==</span> <span class="hl str">&apos;q&apos;</span><span class="hl opt">)</span> <span class="hl kwa">break</span><span class="hl opt">;</span>
+  <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> i <span class="hl opt">&lt;</span> COUNT<span class="hl opt">;</span> i<span class="hl opt">++) {</span>
+    <span class="hl kwd">putchar</span><span class="hl opt">(</span>c<span class="hl opt">);</span> 
+    c <span class="hl opt">=</span> get<span class="hl opt">-</span><span class="hl kwb">char</span><span class="hl opt">-</span><span class="hl kwa">if</span><span class="hl opt">-</span><span class="hl kwb">char</span><span class="hl opt">-</span><span class="hl kwd">available</span><span class="hl opt">();</span>
+  <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+<span class="hl kwd">exit</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">);</span></pre><p data-coord="lab14.umt:159:0">The different exercises will explore ways of implementing 
+<samp data-coord="lab14.umt:159:59">get-char-if-char-available()</samp>.    
+</p></section><section data-coord="lab14.umt:162:0"><h2 data-coord="lab14.umt:162:0">Fully Blocking I/O</h2><p data-coord="lab14.umt:165:0">In this exercise, we do not make any attempt to implement 
+<samp data-coord="lab14.umt:165:59">get-char-if-char-available()</samp>.  Consequently, we read
+a character, output it <samp data-coord="lab14.umt:165:137">COUNT</samp> times and then repeat
+until a <samp data-coord="lab14.umt:165:175">'q'</samp> input character terminates the program.
+</p><p data-coord="lab14.umt:170:0">The program is implemented in assembly language in &lt;./files/block.s&gt;.
+Take a look at this file (&lt;./files/block.s&gt;).  The following points
+are worth noting:
+</p><ul data-coord="lab14.umt:174:0"><li data-coord="lab14.umt:174:0"><p data-coord="lab14.umt:174:4">The <samp data-coord="lab14.umt:174:8">.code16</samp> directive sets things up to use the 16-bit subset of
+the <samp data-coord="lab14.umt:174:79">x86</samp> instruction set similar to the original 8086 instruction
+set.  Specifically, all registers are 16-bits.  So both the the
+64-bit <samp data-coord="lab14.umt:174:221">rxx</samp> registers and the 32-bit <samp data-coord="lab14.umt:174:252">exx</samp> registers are
+unavailable.
+</p></li><li data-coord="lab14.umt:180:0"><p data-coord="lab14.umt:180:4">With a 16-bit architecture, addresses are retricted to 16-bits
+which would result in a address space of 64-KB.  However, the
+architecture uses segmented addressing to allow addressing of upto
+1 MB of memory.  Hence a full memory address consists of a
+<em data-coord="lab14.umt:180:271">segment</em><samp data-coord="lab14.umt:180:280">:</samp><em data-coord="lab14.umt:180:283">offset</em> pair.  Fortunately, we use a program
+executable format which is restricted to using a single 64 KB
+segment; hence we can ignore segmentation since all segment
+registers point to the start of the single segment (note this is
+similar to why we can ignore segment registers in x86-32 and
+x86-64 except that there they are pointing to a large multi-GB
+segment!).
+</p></li><li data-coord="lab14.umt:192:0"><p data-coord="lab14.umt:192:4">The program is written in a style typical of manual assembly
+language with ad-hoc use of registers.  The program makes heavy
+use of global variables like <samp data-coord="lab14.umt:192:166">inChar</samp> (which holds the character
+read by <samp data-coord="lab14.umt:192:214">getchar()</samp> and written by <samp data-coord="lab14.umt:192:241">putchar()</samp> for reasons which
+will become clearer in the following exercises).
+</p></li><li data-coord="lab14.umt:198:0"><p data-coord="lab14.umt:198:4">The program accesses DOS services using <samp data-coord="lab14.umt:198:44">int 0x21</samp> instructions.
+</p></li><li data-coord="lab14.umt:200:0"><p data-coord="lab14.umt:200:4">The program uses a software delay loop (the program simply
+delays a certain amount by spinning in a loop executing useless
+instructions).
+</p></li></ul><p data-coord="lab14.umt:204:0">You should be able to understand the program reasonably well.
+</p><p data-coord="lab14.umt:206:0">Now build the program under Linux:
+</p><pre data-coord="lab14.umt:209:0">$ make block.com
+</pre><p data-coord="lab14.umt:212:0">This runs the GNU assembler to assemble <samp data-coord="lab14.umt:212:40">block.s</samp> followed by a 
+couple of other programs to massage the executable into
+a <samp data-coord="lab14.umt:212:123">.com</samp> format.  Additionally, the assembler also creates
+an assembler listing in <samp data-coord="lab14.umt:212:204">block.lst</samp>.
+</p><p data-coord="lab14.umt:217:0">The <samp data-coord="lab14.umt:217:4">.com</samp> format is an extremely simple format which merely
+contains the binary instructions and data which will be loaded
+into memory without any headers, etc. 
+</p><p data-coord="lab14.umt:221:0">You can look at the bytes in <samp data-coord="lab14.umt:221:29">block.com</samp>:
+</p><pre data-coord="lab14.umt:224:0">$ od -x block.com
+</pre><p data-coord="lab14.umt:227:0">Compare the output with assembled code in <samp data-coord="lab14.umt:227:42">block.lst</samp>.  You
+should see that it is identical.
+</p><p data-coord="lab14.umt:230:0">Now run the program in <samp data-coord="lab14.umt:230:23">dosbox</samp>:
+</p><pre data-coord="lab14.umt:233:0">C:\&gt;block
+</pre><p data-coord="lab14.umt:236:0">When you type a character, it will be repeatedly echoed a fixed number
+of times; this continues until you type a <samp data-coord="lab14.umt:236:113">'q'</samp> character to quit.
+</p><p data-coord="lab14.umt:239:0">Notice that if you type a character while the last character is being
+repeated in the inner loop, the new character you typed is ignored
+until the start of the next iteration of the outer loop.
+</p><p data-coord="lab14.umt:243:0">To make sure you understand the program make the following minor
+modifications:
+</p><ol data-coord="lab14.umt:246:0"><li data-coord="lab14.umt:246:0"><p data-coord="lab14.umt:246:4">Reduce the count of characters echoed on each iteration of
+the inner loop by half.
+</p></li><li data-coord="lab14.umt:249:0"><p data-coord="lab14.umt:249:4">Reduce the delay between consecutive repeated characters
+by approximately half.
+</p></li></ol><p data-coord="lab14.umt:252:0">Reassemble and test as above.
+</p></section><section data-coord="lab14.umt:254:0"><h2 data-coord="lab14.umt:254:0">Polled I/O</h2><p data-coord="lab14.umt:257:0">Look at program <a href="./files/poll.s" data-coord="lab14.umt:257:34">poll.s.</a>  Notice that within the
+inner loop it calls a function <samp data-coord="lab14.umt:257:97">checkKey()</samp> which sets global variable
+<samp data-coord="lab14.umt:257:137">hasKey</samp> and then if <samp data-coord="lab14.umt:257:158">hasKey</samp> is set, the inner loops refreshes the
+current character using <samp data-coord="lab14.umt:257:229">getchar()</samp>.  This corresponds to the
+following pseudo-code:
+</p><pre>COUNT <span class="hl opt">=</span> <span class="hl num">100</span><span class="hl opt">;</span>
+<span class="hl kwb">char</span> inChar<span class="hl opt">;</span>
+<span class="hl kwa">while</span> <span class="hl opt">(</span><span class="hl kwa">true</span><span class="hl opt">) {</span>
+  <span class="hl kwb">char</span> inChar <span class="hl opt">=</span> <span class="hl kwd">getchar</span><span class="hl opt">();</span>
+  <span class="hl kwa">if</span> <span class="hl opt">(</span>inChar <span class="hl opt">==</span> <span class="hl str">&apos;q&apos;</span><span class="hl opt">)</span> <span class="hl kwa">break</span><span class="hl opt">;</span>
+  <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> i <span class="hl opt">&lt;</span> COUNT<span class="hl opt">;</span> i<span class="hl opt">++) {</span>
+    <span class="hl kwb">bool</span> hasKey <span class="hl opt">=</span> <span class="hl kwd">checkKey</span><span class="hl opt">();</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span>hasKey<span class="hl opt">) {</span>
+      inChar <span class="hl opt">=</span> <span class="hl kwd">getchar</span><span class="hl opt">();</span>
+      hasKey <span class="hl opt">=</span> <span class="hl kwa">false</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwd">putchar</span><span class="hl opt">(</span>inChar<span class="hl opt">);</span> 
+  <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+<span class="hl kwd">exit</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">);</span></pre><p data-coord="lab14.umt:281:0">So on each iteration of the inner loop, the program is polling the
+keyboard using <samp data-coord="lab14.umt:281:82">checkKey()</samp> and reading the keyboard only if <samp data-coord="lab14.umt:281:128">hasKey</samp>
+is true.
+</p><p data-coord="lab14.umt:285:0">Assemble and run this program as before:     
+</p><pre data-coord="lab14.umt:288:0">$ make poll.com
+C:\&gt;poll
+</pre><p data-coord="lab14.umt:292:0">Notice that it is much more responsive to the keyboard.  Specifically,
+if you type a key while it is in the inner loop the output of the
+inner loop reflects the newly entered key immediately.
+</p><p data-coord="lab14.umt:296:0">There is one deficiency in the program: the <samp data-coord="lab14.umt:296:44">'q'</samp> key works as a quit
+key only outside the inner loop; in fact, if you type a <samp data-coord="lab14.umt:296:126">q</samp> into the
+inner loop it merely echoes it and does not quit the program.
+</p><p data-coord="lab14.umt:300:0">Modify the program to fix this deficiency.  The simple fix will simply
+be a copy-and-paste job violating
+<a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" data-coord="lab14.umt:300:161">DRY.</a>  A better
+fix would refactor to avoid violating DRY.
+</p></section><section data-coord="lab14.umt:305:0"><h2 data-coord="lab14.umt:305:0">Interrupt Driven I/O</h2><p data-coord="lab14.umt:308:0">The program for this exercise in <a href="./files/key-int.s" data-coord="lab14.umt:308:54">key-int.s</a> has
+pseudo-code very similar to that of the last exercise:
+</p><pre>COUNT <span class="hl opt">=</span> <span class="hl num">100</span><span class="hl opt">;</span>
+<span class="hl kwb">char</span> inChar<span class="hl opt">;</span>
+<span class="hl kwb">bool</span> hasKey <span class="hl opt">=</span> <span class="hl kwa">false</span><span class="hl opt">;</span>
+<span class="hl kwa">while</span> <span class="hl opt">(</span><span class="hl kwa">true</span><span class="hl opt">) {</span>
+  <span class="hl kwb">char</span> inChar <span class="hl opt">=</span> <span class="hl kwd">getchar</span><span class="hl opt">();</span>
+  <span class="hl kwa">if</span> <span class="hl opt">(</span>inChar <span class="hl opt">==</span> <span class="hl str">&apos;q&apos;</span><span class="hl opt">)</span> <span class="hl kwa">break</span><span class="hl opt">;</span>
+  <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> i <span class="hl opt">&lt;</span> COUNT<span class="hl opt">;</span> i<span class="hl opt">++) {</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span>hasKey<span class="hl opt">) {</span>
+      inChar <span class="hl opt">=</span> <span class="hl kwd">getchar</span><span class="hl opt">();</span>
+        hasKey <span class="hl opt">=</span> <span class="hl kwa">false</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwd">putchar</span><span class="hl opt">(</span>inChar<span class="hl opt">);</span> 
+  <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+<span class="hl kwd">exit</span><span class="hl opt">(</span><span class="hl num">0</span><span class="hl opt">);</span></pre><p data-coord="lab14.umt:329:0">Note that the previous exercise assigned the results of <samp data-coord="lab14.umt:329:56">checkKey()</samp>
+to <samp data-coord="lab14.umt:329:72">hasKey</samp> but in the above code there is no assignment of <samp data-coord="lab14.umt:329:129">true</samp> to <samp data-coord="lab14.umt:329:139">hasKey</samp>
+(except for the initializer).  So how does <samp data-coord="lab14.umt:329:191">hasKey</samp> ever get assigned
+<samp data-coord="lab14.umt:329:218">true</samp>.
+</p><p data-coord="lab14.umt:334:0">The answer is that it is done <strong data-coord="lab14.umt:334:30">asynchronously</strong> in an <em data-coord="lab14.umt:334:53">interrupt
+service routine</em> which is run asynchronously when a key is input.
+Look at the code in <a href="./files/key-int.s" data-coord="lab14.umt:334:171">key-int.s:</a>
+</p><ul data-coord="lab14.umt:338:0"><li data-coord="lab14.umt:338:0"><p data-coord="lab14.umt:338:4">At the start of the <samp data-coord="lab14.umt:338:24">main</samp> program, there is a call to <samp data-coord="lab14.umt:338:59">setupHandler()</samp>.
+What that does is use DOS services to wrap the keyboard interrupt
+handler.  Specifically, it saves the current addresses of the handler
+for <samp data-coord="lab14.umt:338:229">KEY_INT</samp> (the keyboard interrupt) and <samp data-coord="lab14.umt:338:268">CHK_INT</samp> (a BIOS interrupt)
+in global variables <samp data-coord="lab14.umt:338:321">intAddr</samp> and <samp data-coord="lab14.umt:338:335">chkAddr</samp> respectively.  Then it
+replaces the address of the keyboard interrupt handler with the
+address of the wrapping routine <samp data-coord="lab14.umt:338:472">intHandler</samp>.
+</p></li><li data-coord="lab14.umt:346:0"><p data-coord="lab14.umt:346:4">After the above replacement, whenever a keyboard interrupt occurs
+our routine <samp data-coord="lab14.umt:346:86">intHandler()</samp> will be called.  It's code is somewhat
+unusual as it is called as an interrupt handler which will always
+be called with the flags and return address on the stack and
+must return using a special <samp data-coord="lab14.umt:346:307">iret</samp> instruction which takes care
+of popping of the additional flags word from the stack (in addition
+to taking care of the normal return).
+</p></li><li data-coord="lab14.umt:354:0"><p data-coord="lab14.umt:354:4">The code for <samp data-coord="lab14.umt:354:17">intHandler()</samp> wraps the original interrupt handler
+by calling it via the saved address.  Note that the call simulates
+an interrupt by pushing the flags on the stack before the call;
+since the wrapped routine is an interrupt handler it will pop
+those flags off the stack using the <samp data-coord="lab14.umt:354:314">iret</samp> instruction.
+</p><p data-coord="lab14.umt:360:4">It then uses the BIOS routine to check if a key has really been
+pressed and if one has, then it sets the <samp data-coord="lab14.umt:360:113">hasKey</samp> variable.  It
+does this with interrupts disabled (instruction <samp data-coord="lab14.umt:360:188">cli</samp>) and
+reenables when done (instruction <samp data-coord="lab14.umt:360:236">sti</samp>).
+</p></li><li data-coord="lab14.umt:365:0"><p data-coord="lab14.umt:365:4">Before the program exits, it restores the original interrupt
+handler using <samp data-coord="lab14.umt:365:83">resetHandler()</samp>.
+</p></li></ul><p data-coord="lab14.umt:368:0">[Note: this program is rather brittle and it took a lot of effort to
+make it work.  Even now, the program runs successfully the first 
+time you run it, but if you try to run it a second time it hangs
+<samp data-coord="lab14.umt:368:200">dosbox</samp>.  It can be run again only after restarting <samp data-coord="lab14.umt:368:253">dosbox</samp>. So
+obviously it is not doing a good job of cleaning up after itself.]
+</p><p data-coord="lab14.umt:374:0">Assemble and run the program in the usual way:
+</p><pre data-coord="lab14.umt:378:0">$ make key-int.com
+C:\&gt;key-int
+</pre><p data-coord="lab14.umt:382:0">Unlike the above pseudo-code and the assembly code for <a href="files/poll.s" data-coord="lab14.umt:382:71">poll.s,</a> the code to reset the <samp data-coord="lab14.umt:382:101">hasChar</samp> flag has been moved to the end
+of the <samp data-coord="lab14.umt:382:149">getchar()</samp> routine.  Why would it not work if the reset was
+within the inner loop of the main program as in &lt;./files/poll.s&gt;
+poll.s?
+</p></section><section data-coord="lab14.umt:389:0"><h2 data-coord="lab14.umt:389:0">References</h2><ul data-coord="lab14.umt:393:0"><li data-coord="lab14.umt:393:0"><p data-coord="lab14.umt:393:4">Lukan, Dejan, <em data-coord="lab14.umt:393:18">Logging Keystrokes with MSDOS</em>, <em data-coord="lab14.umt:393:131"><a href="https://resources.infosecinstitute.com/logging-keystrokes-with-msdos-part-1/" data-coord="lab14.umt:393:131">Part 1</a></em> and <em data-coord="lab14.umt:393:223"><a href="https://resources.infosecinstitute.com/logging-keystrokes-with-msdos-part-2" data-coord="lab14.umt:393:223">Part 2</a></em>.
+</p></li><li data-coord="lab14.umt:395:0"><p data-coord="lab14.umt:395:4"><em data-coord="lab14.umt:395:54"><a href="http://spike.scu.edu.au/~barry/interrupts.html" data-coord="lab14.umt:395:54">DOS INT 21h -
+    DOS Function Codes</a></em>.
+</p></li><li data-coord="lab14.umt:399:0"><p data-coord="lab14.umt:399:4"><a href="http://www.dosbox.com/" data-coord="lab14.umt:399:30">Dosbox</a> 
+</p></li></ul></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>
