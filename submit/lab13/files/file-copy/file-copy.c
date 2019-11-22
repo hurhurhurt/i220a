@@ -13,6 +13,10 @@ doCopy(const char *inName, FILE *in, const char *outName, FILE *out)
       exit(1);
     }
   }
+  if (ferror(in)){
+    clearerr(in);
+    exit(1);
+  }
 }
 
 /** Output number of chars in file specified by single command-line
