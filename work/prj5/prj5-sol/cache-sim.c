@@ -1,43 +1,50 @@
 #include "cache-sim.h"
 #include "math.h"
 #include "memalloc.h"
-
+#include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdbool.h>
 
 /** Create and return a new cache-simulation structure for a
  *  cache for main memory withe the specified cache parameters params.
  *  No guarantee that *params is valid after this call.
  */
 
-typedef struct CacheSimImpl{
-  int valid;
-  char * tag;
-  CacheParams * param;
-}CacheSim;
+
+typedef struct Block Block;
+struct Block{
+  MemAddr addr;
+  bool isValid;
+};
   
+typedef struct CacheSimImpl{
+  Block ** block;
+  CacheParams param;
+}CacheSim;
   
 CacheSim *
 new_cache_sim(const CacheParams *params)
 {
-  unsigned s = params->nSetBits;
-  unsigned E = params->nLinesPerSet;  //#cache lines per set 
-  unsigned b = params->nLineBits;   
-  unsigned m = params->nMemAddrBits;  //#of bits in primary mem address
-  int tagSize = m -(b + s);
-  int cacheSize = s>>1;
-  int blockSize = b>>1;
-  int sets = s>>=1;
-  CacheSim * returnSim = mallocChk(sets*sizeof(CacheSim));
-  returnSim->param = mallocChk(sizeof(params));
+  CacheParams param;
+  param.nSetBits = params->nSetBits;
+  param.nLinesPerSet = params->nLinesPerSet;
+  param.nLineBits = params->nLineBits;
+  param.nMemAddrBits = params->nMemAddrBits;
+  int sets = 1 << param.nSetBits;
+  CacheSim * sim = mallocChk(sets * sizeof(CacheSim));
+  sim->param = param;
+  sim->block = mallocChk(sets * sizeof(struct Block *));
   for (int i = 0; i < sets; i++){
-    returnSim[i].tag = malloc(sizeof(char)*(tagSize + 1));
-    for (int j = 0; j < tagSize; j++){
-      returnSim[i].tag[j] = '0';
+    sim->block[i] = mallocChk(param.nSetBits);
+  }
+  for (int i = 0; i < sets; i++){
+    for (int j = 0; j < params->nSetBits; j++){
+      sim->block[i][j].isValid = false;
     }
-    returnSim[i].valid= 0;
-    }
-  return returnSim;
+  }
+  return sim;
+  
 }
 
 /** Free all resources used by cache-simulation structure *cache */
@@ -53,7 +60,18 @@ free_cache_sim(CacheSim *cache)
 /** Return result for addr requested from cache */
 CacheResult
 cache_sim_result(CacheSim *cache, MemAddr addr)
-{
-  //@TODO
-  return (CacheResult) { .status = CACHE_N_STATUS, .replaceAddr = 0x0 };
+{/*
+  CacheStatus stat;
+  int block = addr/cache->param->nSetBits;
+  if (cache[block].valid) stat = 0;
+  else{
+    if (cache[block+1].valid && cache[block].tag == cache[addr].tag){
+      stat = 1;
+    }
+    else{
+      stat = 2;
+    }
+  }
+  return (CacheResult) { .status = stat, .replaceAddr = 0x0 };
+  }*/
 }
