@@ -24,7 +24,7 @@ OBJS = \
   main.o 
 
 $(TARGET):	$(OBJS)
-		$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -Wl,-rpath=$(LIBDIR) -o $@
+		$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -Wl,-rpath=$(LIBDIR) -lm -o $@
 clean:		
 		rm -f $(OBJS) $(TARGET) fns fns.o *~
 
