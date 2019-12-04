@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../assets/styles/article.css" rel="stylesheet" type="text/css" /> 
+    <title>CS 220: Project 5</title>
+    <link href="prj5/hl-fine_blue.css" rel="stylesheet"/><link href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
+       rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" async=""></script>    
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li><a href="../../index.html" class="material-icons">house</a></li>
+	<li><a href="../../docs/index.html">Docs</a></li>
+	<li><a href="../../exams-quizzes/index.html">Exams &amp; Quizzes</a></li>
+	<li><a href="../../exercises/index.html">Exercises</a></li>
+	<li><a href="../../hws/index.html">Homeworks</a></li>
+	<li><a href="../../labs/index.html">Labs</a></li>
+	<li><a href="../../misc/index.html">Misc</a></li>
+	<li><a href="../../projects/index.html">Projects</a></li>
+	<li><a href="../../slides/index.html">Slides</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <section data-coord="prj5.umt:1:0"><h1 data-coord="prj5.umt:1:0">Project 5</h1><p data-coord="prj5.umt:3:0"><strong data-coord="prj5.umt:3:0">Due</strong>: Dec 4, by 11:59p.  <strong data-coord="prj5.umt:3:26">No extensions or late submissions.</strong>
+</p><p data-coord="prj5.umt:5:0">This document first provides the aims of this project. It then lists the
+requirements as explicitly as possible.  It then hints at how these
+requirements can be met.  Finally, it describes exactly what needs to be
+submitted.
+</p><section data-coord="prj5.umt:11:0"><h2 data-coord="prj5.umt:11:0">Aims</h2><p data-coord="prj5.umt:14:0">The aims of this project are as follows:
+</p><ul data-coord="prj5.umt:16:0"><li data-coord="prj5.umt:16:0"><p data-coord="prj5.umt:16:4">To allow you to simulate a read-only cache.
+</p></li><li data-coord="prj5.umt:18:0"><p data-coord="prj5.umt:18:4">To expose you to typical random number generation.
+</p></li></ul></section><section data-coord="prj5.umt:21:0"><h2 data-coord="prj5.umt:21:0">Requirements</h2><p data-coord="prj5.umt:24:0">Implement a module which implements a simulator for a read-only cache.
+Specifically, implement the following <a href="./prj5-sol/cache-sim.h" data-coord="prj5.umt:24:135">ADT:</a>
+</p><pre>
+<span class="hl com">/** Opaque implementation */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">struct</span> CacheSimImpl CacheSim<span class="hl opt">;</span>
+
+<span class="hl com">/** Replacement strategy */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">enum</span> <span class="hl opt">{</span>
+  LRU_R<span class="hl opt">,</span>         <span class="hl com">/** Least Recently Used */</span>
+  MRU_R<span class="hl opt">,</span>         <span class="hl com">/** Most Recently Used */</span>
+  RANDOM_R       <span class="hl com">/** Random replacement */</span>
+<span class="hl opt">}</span> Replacement<span class="hl opt">;</span>
+
+<span class="hl com">/** A primary memory address */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">unsigned long</span> MemAddr<span class="hl opt">;</span>
+
+<span class="hl com">/** Parameters which specify a cache.</span>
+<span class="hl com"> *  Must have nMemAddrBits &gt; nLineBits &gt;= 2.</span>
+<span class="hl com"> */</span>
+<span class="hl kwc">typedef</span> <span class="hl kwb">struct</span> <span class="hl opt">{</span>
+  <span class="hl kwb">unsigned</span> nSetBits<span class="hl opt">;</span>       <span class="hl com">/** Text notation: s; # of sets is 2**this */</span>
+  <span class="hl kwb">unsigned</span> nLinesPerSet<span class="hl opt">;</span>   <span class="hl com">/** Text notation: E; # of cache lines/set */</span>
+  <span class="hl kwb">unsigned</span> nLineBits<span class="hl opt">;</span>      <span class="hl com">/** Text notation: b; # of bytes/line is 2**this */</span>
+  <span class="hl kwb">unsigned</span> nMemAddrBits<span class="hl opt">;</span>   <span class="hl com">/** Text notation: m; # of bits in primary mem addr;</span>
+<span class="hl com">                               total primary addr space is 2**this */</span>
+  Replacement replacement<span class="hl opt">;</span> <span class="hl com">/** replacement strategy */</span>
+<span class="hl opt">}</span> CacheParams<span class="hl opt">;</span>
+
+
+<span class="hl com">/** Create and return a new cache-simulation structure for a</span>
+<span class="hl com"> *  cache for main memory with the specified cache parameters params.</span>
+<span class="hl com"> *  No guarantee that *params is valid after this call.</span>
+<span class="hl com"> */</span>
+CacheSim <span class="hl opt">*</span><span class="hl kwd">new_cache_sim</span><span class="hl opt">(</span><span class="hl kwb">const</span> CacheParams <span class="hl opt">*</span>params<span class="hl opt">);</span>
+
+<span class="hl com">/** Free all resources used by cache-simulation structure *cache */</span>
+<span class="hl kwb">void</span> <span class="hl kwd">free_cache_sim</span><span class="hl opt">(</span>CacheSim <span class="hl opt">*</span>cache<span class="hl opt">);</span>
+
+<span class="hl kwc">typedef</span> <span class="hl kwb">enum</span> <span class="hl opt">{</span>
+  CACHE_HIT<span class="hl opt">,</span>                  <span class="hl com">/** address found in cache */</span>
+  CACHE_MISS_WITHOUT_REPLACE<span class="hl opt">,</span> <span class="hl com">/** address not found, no line replaced */</span>
+  CACHE_MISS_WITH_REPLACE<span class="hl opt">,</span>    <span class="hl com">/** address not found in cache, line replaced */</span>
+  CACHE_N_STATUS              <span class="hl com">/** # of status values possible */</span>
+<span class="hl opt">}</span> CacheStatus<span class="hl opt">;</span>
+
+<span class="hl kwc">typedef</span> <span class="hl kwb">struct</span> <span class="hl opt">{</span>
+  CacheStatus status<span class="hl opt">;</span>  <span class="hl com">/** status of requested address */</span>
+  MemAddr replaceAddr<span class="hl opt">;</span> <span class="hl com">/** address of replaced line if status is</span>
+<span class="hl com">                        *  CACHE_MISS_WITH_REPLACE */</span>
+<span class="hl opt">}</span> CacheResult<span class="hl opt">;</span>
+
+<span class="hl com">/** Return result for addr requested from cache */</span>
+CacheResult <span class="hl kwd">cache_sim_result</span><span class="hl opt">(</span>CacheSim <span class="hl opt">*</span>cache<span class="hl opt">,</span> MemAddr addr<span class="hl opt">);</span></pre><p data-coord="prj5.umt:29:0">Submit a <samp data-coord="prj5.umt:29:9">submit/prj5-sol</samp> directory in your github repository such
+that typing <samp data-coord="prj5.umt:29:80">make</samp> within that directory will build a <samp data-coord="prj5.umt:29:122">cache-sim</samp>
+executable program.  The program must start execution at the main
+program provided (see below) which drives your implementation of the
+above API.
+</p><p data-coord="prj5.umt:35:0">To further clarify what must be returned by the <samp data-coord="prj5.umt:35:48">cache_sim_result()</samp>
+function: The <samp data-coord="prj5.umt:35:83">status</samp> should be set to 
+</p><dl data-coord="prj5.umt:38:0"><dt data-coord="prj5.umt:38:2"> <samp data-coord="prj5.umt:38:1">CACHE_HIT</samp></dt><dd data-coord="prj5.umt:39:0"><p data-coord="prj5.umt:39:4">The data specified by the address is present in the cache
+</p></dd><dt data-coord="prj5.umt:41:2"> <samp data-coord="prj5.umt:41:1">CACHE_MISS_WITHOUT_REPLACE</samp></dt><dd data-coord="prj5.umt:42:0"><p data-coord="prj5.umt:42:5">The specified data is not present in the cache but when the data
+was read from main memory into the cache it was not necessary to
+replace any cache line because a free (invalid) cache line was
+available.
+</p></dd><dt data-coord="prj5.umt:47:2"> <samp data-coord="prj5.umt:47:1">CACHE_MISS_WITH_REPLACE</samp></dt><dd data-coord="prj5.umt:48:0"><p data-coord="prj5.umt:48:5">The specified data is not present in the cache and there was no
+free cache line so that when the data was read from main memory
+into the cache it was necessary to replace valid data stored in
+the cache.
+</p></dd></dl><p data-coord="prj5.umt:53:0">In the last case, the return value must include <samp data-coord="prj5.umt:53:48">replaceAddr</samp> which
+should be set to the address of the <strong data-coord="prj5.umt:53:104">block</strong> which was replaced; 
+i.e. <samp data-coord="prj5.umt:53:138">replaceAddr</samp> must include the tag and set bits of the replaced
+address with the block offset bits set to 0.
+</p></section><section data-coord="prj5.umt:59:0"><h2 data-coord="prj5.umt:59:0">The main Program</h2><p data-coord="prj5.umt:62:0">You are being provided with a <a href="./prj5-sol/main.c" data-coord="prj5.umt:62:51">main</a> program to
+exercise your implementation of the above simulation API.  When this
+program is run, it expects a required argument of the form
+<em data-coord="prj5.umt:62:195">s</em><samp data-coord="prj5.umt:62:202">-</samp><em data-coord="prj5.umt:62:209">E</em><samp data-coord="prj5.umt:62:212">-</samp><em data-coord="prj5.umt:62:219">b</em><samp data-coord="prj5.umt:62:226">-</samp><em data-coord="prj5.umt:62:233">m</em> where:
+</p><dl data-coord="prj5.umt:67:0"><dt data-coord="prj5.umt:67:2"> <em data-coord="prj5.umt:67:1">s</em></dt><dd data-coord="prj5.umt:68:0"><p data-coord="prj5.umt:68:5">The number of address bits used to specify a cache set; the cache
+will contain a total of \(2^s\) sets.
+</p></dd><dt data-coord="prj5.umt:71:2"> <em data-coord="prj5.umt:71:1">E</em></dt><dd data-coord="prj5.umt:72:0"><p data-coord="prj5.umt:72:5">The number of cache lines stored in each cache set;
+</p></dd><dt data-coord="prj5.umt:74:2"> <em data-coord="prj5.umt:74:1">b</em></dt><dd data-coord="prj5.umt:75:0"><p data-coord="prj5.umt:75:5">The number of address bits used to specify an offset within
+a cache line (block).  The size of a cache block will be
+\(2^b\) bytes.
+</p></dd><dt data-coord="prj5.umt:79:2"> <em data-coord="prj5.umt:79:1">m</em></dt><dd data-coord="prj5.umt:80:0"><p data-coord="prj5.umt:80:5">The total number of address bits used to specify a primary memory
+address.  The total size of the main memory will be \(2^m\) bytes.
+</p></dd></dl><p data-coord="prj5.umt:83:0">Optionally, the main program accepts one or more of the following
+options before the above required argument:
+</p><dl data-coord="prj5.umt:86:0"><dt data-coord="prj5.umt:86:2"> <samp data-coord="prj5.umt:86:1">-r</samp> <em data-coord="prj5.umt:86:6">REPLACEMENT</em></dt><dd data-coord="prj5.umt:87:0"><p data-coord="prj5.umt:87:5">The replacement strategy to be used by the cache simulator.  
+Possible values are <samp data-coord="prj5.umt:87:92">lru</samp> (for <strong data-coord="prj5.umt:87:103">least recently used</strong>),
+<samp data-coord="prj5.umt:87:132">mru</samp> (for <strong data-coord="prj5.umt:87:143">most recently used</strong>) or <samp data-coord="prj5.umt:87:168">rand</samp> (for <strong data-coord="prj5.umt:87:180">random replacement</strong>).
+The default is <samp data-coord="prj5.umt:87:223">lru</samp>.
+</p></dd><dt data-coord="prj5.umt:92:2"> <samp data-coord="prj5.umt:92:1">-s</samp> <em data-coord="prj5.umt:92:6">SEED</em></dt><dd data-coord="prj5.umt:93:0"><p data-coord="prj5.umt:93:5"><em data-coord="prj5.umt:93:5">SEED</em> must be non-negative integer specifying a seed for the
+random number generator.  The default value is <samp data-coord="prj5.umt:93:119">0</samp>.
+</p></dd><dt data-coord="prj5.umt:96:2"> <samp data-coord="prj5.umt:96:1">-v</samp></dt><dd data-coord="prj5.umt:97:0"><p data-coord="prj5.umt:97:5">If this option is specified, then the program produces additional
+verbose output.
+</p></dd></dl><p data-coord="prj5.umt:100:0">You should ensure that when the program is invoked, the
+<samp data-coord="prj5.umt:100:56">$HOME/cs220/lib</samp> directory will be searched for necessary libraries.
+</p><p data-coord="prj5.umt:103:0">When run, the main program is set up to read whitespace-separated
+hexadecimal addresses from standard input and repeatedly call your
+<samp data-coord="prj5.umt:103:133">cache_sim_result()</samp> function with those addresses.  If the <samp data-coord="prj5.umt:103:193">-v</samp>
+verbose option is specified, then it prints out the result of each
+call.  Otherwise, it will merely print out a summary of the cache
+statistics when end-of-file is encountered on standard input.
+</p></section><section data-coord="prj5.umt:111:0"><h2 data-coord="prj5.umt:111:0">Random Number Generation</h2><p data-coord="prj5.umt:114:0">Most programming environments provide a pseudo-random number generation 
+facility.  The facility is <em data-coord="prj5.umt:114:100">pseudo</em> in that it does not generate real
+random numbers but only <strong data-coord="prj5.umt:114:167">pseudo</strong> random numbers in that the generated
+sequence meets some statistical tests for randomness.  In fact, to
+facilitate testing, the random sequence is repeatable and is controlled
+by a <em data-coord="prj5.umt:114:357">seed</em> for the random number generation.
+</p><p data-coord="prj5.umt:121:0">In the C programming environment, the random number facilities are
+available using two library functions <samp data-coord="prj5.umt:121:105">rand()</samp> and <samp data-coord="prj5.umt:121:118">srand()</samp> which are
+specified in the <samp data-coord="prj5.umt:121:155">&lt;stdlib.h&gt;</samp> header file; successive calls to the
+former function return random non-negative integers; the seed of the
+random number generator can be specified by calling <samp data-coord="prj5.umt:121:326">srand()</samp>.  You will
+need to use the <samp data-coord="prj5.umt:121:363">rand()</samp> function to simulate the random cache replacement
+strategy specified by the <samp data-coord="prj5.umt:121:448">-r rand</samp> option.
+</p></section><section data-coord="prj5.umt:129:0"><h2 data-coord="prj5.umt:129:0">The lib Directory</h2><p data-coord="prj5.umt:132:0">You may continue to use the following library contained within the
+course <a href="../../lib" data-coord="prj5.umt:132:87">lib</a> directory:
+</p><p data-coord="prj5.umt:136:2"><samp data-coord="prj5.umt:136:2">libcs220</samp>::
+  A trivial library which provides help with memory allocation and
+  error reporting:
+</p><ul data-coord="prj5.umt:140:0"><li data-coord="prj5.umt:140:0"><p data-coord="prj5.umt:140:7">Provides checked versions <samp data-coord="prj5.umt:140:33">mallocChk()</samp>, <samp data-coord="prj5.umt:140:48">reallocChk()</samp>, and
+<samp data-coord="prj5.umt:140:75">callocChk()</samp> of the memory allocation routines which wrap the
+standard memory allocation routines with the program exiting on
+failure.  The specification file is in <a href="../../include/memalloc.h" data-coord="prj5.umt:140:290">memalloc.h.</a>
+</p></li><li data-coord="prj5.umt:146:0"><p data-coord="prj5.umt:146:7">Provides routines for reporting errors using <samp data-coord="prj5.umt:146:52">printf()</samp>-style
+format strings with one modification: if the format string ends
+with <samp data-coord="prj5.umt:146:152">:</samp>, then <samp data-coord="prj5.umt:146:162">strerror(errno)</samp> is appended to the error-message.
+The specification file is in <a href="../../include/errors.h" data-coord="prj5.umt:146:276">errors.h.</a>
+</p></li></ul><p data-coord="prj5.umt:151:0">You may assume that the environment in which your program will be compiled
+and run will have this library available.
+</p></section><section data-coord="prj5.umt:154:0"><h2 data-coord="prj5.umt:154:0">Provided Files</h2><p data-coord="prj5.umt:157:0">The <a href="./prj5-sol" data-coord="prj5.umt:157:18">prj5-sol</a> directory contains the following files:
+</p><dl data-coord="prj5.umt:159:0"><dt data-coord="prj5.umt:159:2"> <a href="./prj5-sol/main.c" data-coord="prj5.umt:159:22">main.c</a></dt><dd data-coord="prj5.umt:160:0"><p data-coord="prj5.umt:160:4">This provides the <samp data-coord="prj5.umt:160:22">main()</samp> program described above.  You should
+not modify this file.
+</p></dd><dt data-coord="prj5.umt:163:2"> <strong data-coord="prj5.umt:163:1">Cache Simulator Files</strong></dt><dd data-coord="prj5.umt:164:0"><p data-coord="prj5.umt:164:4">The <a href="./prj5-sol/cache-sim.h" data-coord="prj5.umt:164:34">cache-sim.h</a> file contains the
+specification for the API you are required to implement.
+You should not modify this file.
+</p><p data-coord="prj5.umt:168:4">The <a href="./prj5-sol/cache-sim.c" data-coord="prj5.umt:168:34">cache-sim.c</a> file will be the file
+where you do your work.  As provided, it contains a skeleton
+implementation sufficient to compile the program without errors.
+You should remove the placeholder return values and flesh out the
+function definitions given there (adding in any auxiliary
+declarations or definitions which may be needed).
+</p></dd><dt data-coord="prj5.umt:175:2"> <a href="./prj5-sol/Makefile" data-coord="prj5.umt:175:24">Makefile</a> </dt><dd data-coord="prj5.umt:176:0"><p data-coord="prj5.umt:176:4">A <samp data-coord="prj5.umt:176:6">Makefile</samp> for the project.  Note that this <samp data-coord="prj5.umt:176:50">Makefile</samp> is
+set up to include a reference to the <samp data-coord="prj5.umt:176:105">$HOME/cs220/lib</samp> directory
+in the executable so that it is possible to run the executable
+without needing to set up <samp data-coord="prj5.umt:176:230">LD_LIBRARY_PATH</samp>.   You should
+not need to modify this file.
+</p></dd><dt data-coord="prj5.umt:182:2"> <a href="./prj5-sol/README" data-coord="prj5.umt:182:22">README</a> </dt><dd data-coord="prj5.umt:183:0"><p data-coord="prj5.umt:183:4">A <samp data-coord="prj5.umt:183:6">README</samp> template.
+</p></dd></dl><p data-coord="prj5.umt:185:0">You must submit all the files in the above <a href="./prj5-sol" data-coord="prj5.umt:185:57">prj5-sol</a>
+directory whether you modify them or not.
+</p><p data-coord="prj5.umt:188:0">The <a href="./aux-files" data-coord="prj5.umt:188:19">aux-files</a> directory contains the following files:
+</p><dl data-coord="prj5.umt:190:0"><dt data-coord="prj5.umt:190:2"> Test files <a href="aux-files/lru_2-2-2-8.test" data-coord="prj5.umt:190:42">lru_2-2-2-8.test</a> and <a href="aux-files/mru_4-2-8-16.test" data-coord="prj5.umt:190:94">mru_4-2-8-16.test</a></dt><dd data-coord="prj5.umt:192:0"><p data-coord="prj5.umt:192:4">These files provides addresses which can be used for testing your
+program.  The files contain the expected output as comments
+following <samp data-coord="prj5.umt:192:148">#</samp> characters.  The options to your program should be
+those corresponding to the name of the test file.  You will need
+to strip out the <samp data-coord="prj5.umt:192:293">#</samp> comments before feeding the file to your
+program; this can be done simply using a Unix utility like <samp data-coord="prj5.umt:192:401">sed</samp>.
+For example, assuming that you are in the directory containing
+your executable:
+</p><pre data-coord="prj5.umt:202:0">    $ sed -e 's/#.*//' $HOME/cs220/projects/prj5/aux-files/lru_2-2-2-8.test \
+        | ./cache-sim -r lru -v 2-2-2-8
+</pre><p data-coord="prj5.umt:206:4">If your simulator is working correctly, your output should match
+that shown within the test file.
+</p></dd><dt data-coord="prj5.umt:210:2"> A ruby script <a href="./aux-files/address-trace.rb" data-coord="prj5.umt:210:47">address-trace.rb</a>  </dt><dd data-coord="prj5.umt:211:0"><p data-coord="prj5.umt:211:4">This script can be used to generate address traces which can
+be piped into your program.  It generates the following kind of
+traces:
+</p><dl data-coord="prj5.umt:215:0"><dt data-coord="prj5.umt:215:6"> <samp data-coord="prj5.umt:215:1">matrix</samp></dt><dd data-coord="prj5.umt:216:0"><p data-coord="prj5.umt:216:9">Addresses used to access a square matrix.  The size of each
+matrix element is hardwired to be 8, but you can specify the
+size of the matrix as well as the access pattern (by row or
+by column).
+</p></dd><dt data-coord="prj5.umt:221:6"> <samp data-coord="prj5.umt:221:1">program</samp></dt><dd data-coord="prj5.umt:222:0"><p data-coord="prj5.umt:222:9">A typical program address trace.  You can specify the probability
+of intra-procedure branches or inter-procedure calls/returns.
+</p></dd><dt data-coord="prj5.umt:225:6"> <samp data-coord="prj5.umt:225:1">random</samp></dt><dd data-coord="prj5.umt:226:0"><p data-coord="prj5.umt:226:8">A random address trace.
+</p></dd></dl><p data-coord="prj5.umt:228:5">You can run the script with a <samp data-coord="prj5.umt:228:35">--help</samp> option in general:
+</p><pre data-coord="prj5.umt:231:0">     $ ./address-trace.rb --help
+</pre><p data-coord="prj5.umt:234:5">to get general usage information or on a specified subcommand:     
+</p><pre data-coord="prj5.umt:237:0">     $ ./address-trace.rb matrix --help
+</pre><p data-coord="prj5.umt:240:5">For example, to run your program with an address trace corresponding
+to row-access for a 1024x1024 matrix:
+</p><pre data-coord="prj5.umt:244:0">     $ $HOME/cs220/projects/prj5/aux-files/address-trace.rb matrix \
+          --access=row \
+        | ./cache-sim -r lru -v 4-4-8-32 &gt;t.log
+</pre><p data-coord="prj5.umt:249:5">To repeat, for column-access:
+</p><pre data-coord="prj5.umt:252:0">     $ $HOME/cs220/projects/prj5/aux-files/address-trace.rb matrix \
+          --access=col \
+        | ./cache-sim -r lru -v 4-4-8-32 &gt;t.log
+</pre></dd></dl><p data-coord="prj5.umt:257:0">You should not submit files from the <samp data-coord="prj5.umt:257:37">aux-files</samp> directory.
+</p></section><section data-coord="prj5.umt:260:0"><h2 data-coord="prj5.umt:260:0">Hints</h2><p data-coord="prj5.umt:263:0">Review the material covered in class and from the text pertaining to
+memory caches.  Also, review online or other material to understand how
+to use the <samp data-coord="prj5.umt:263:152">rand()</samp> function.
+</p><p data-coord="prj5.umt:267:0">The following steps are merely suggestions:
+</p><ol data-coord="prj5.umt:269:0"><li data-coord="prj5.umt:269:0"><p data-coord="prj5.umt:269:4">Look at how you can implement the <samp data-coord="prj5.umt:269:38">CacheSimImpl</samp> structure for
+your cache simulator.  Note that your cache simulator is not
+required to track the cached data, merely to simulate the hit/miss
+behavior of a real cache.  Hence it seems sufficient to merely:
+</p><ul data-coord="prj5.umt:274:0"><li data-coord="prj5.umt:274:0"><p data-coord="prj5.umt:274:8">For each cached line, merely track the address of the block it
+contains.
+</p></li><li data-coord="prj5.umt:277:0"><p data-coord="prj5.umt:277:8">When the cache is empty, the contents of all cached lines will
+be invalid.  As the cache fills up, these contents will become
+valid.  Hence tracking the valid/invalid status of a cached
+line will be necessary.
+</p></li><li data-coord="prj5.umt:282:0"><p data-coord="prj5.umt:282:8">For implementing the different replacement strategies, you
+will need to figure out how you will track the age of a cached
+line and/or organize them in a manner which facilitates the
+replacement strategy.
+</p></li><li data-coord="prj5.umt:287:0"><p data-coord="prj5.umt:287:8">Since the cache parameters are only provided to the
+<samp data-coord="prj5.umt:287:61">new_cache_sim()</samp> function and you will need those parameters
+to simulate the cache in <samp data-coord="prj5.umt:287:149">cache_sim_result()</samp>, the
+<samp data-coord="prj5.umt:287:176">CacheSimImpl</samp> structure will also need to track the cache
+parameters provided to <samp data-coord="prj5.umt:287:259">new_cache_sim()</samp>.
+</p></li></ul></li><li data-coord="prj5.umt:293:0"><p data-coord="prj5.umt:293:4">Since the cache parameters are available only at runtime (via the
+<samp data-coord="prj5.umt:293:74">CacheParams</samp> argument), you will need to use dynamic memory
+allocation for the cache simulation.
+</p><p data-coord="prj5.umt:297:4">Abstractly, a cache consists of a collection of cache sets with
+each cache set consisting of a collection of cache lines; i.e.  a
+cache is a collection of collections.  Alternatives for
+representing collections in C include arrays, linked lists, etc.
+</p><p data-coord="prj5.umt:302:4">If you go with using arrays for representing collections, you
+might wish to use multi-dimensional arrays.  OTOH, if you set up
+ragged arrays (as described in the transparencies), you can still
+use multi-dimensional array notation with dynamic memory (at the
+cost of extra memory for pointers).
+</p><p data-coord="prj5.umt:308:4">Specifically, you can always use dynamic allocation to get a
+pointer to a vector of elements and then use array indexing
+notation with the return'd pointer.  For example, to emulate <samp data-coord="prj5.umt:308:194">int
+    a[m][n]</samp> using dynamically allocated ragged arrays, one can do:
+</p><pre>        <span class="hl kwb">int</span> <span class="hl opt">**</span>a <span class="hl opt">=</span> <span class="hl kwd">malloc</span><span class="hl opt">(</span>m <span class="hl opt">*</span> <span class="hl kwa">sizeof</span><span class="hl opt">(</span><span class="hl kwb">int</span> <span class="hl opt">*));</span>
+        <span class="hl kwa">for</span> <span class="hl opt">(</span><span class="hl kwb">int</span> i <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> i <span class="hl opt">&lt;</span> n<span class="hl opt">;</span> i<span class="hl opt">++) {</span>
+          a<span class="hl opt">[</span>i<span class="hl opt">] =</span> <span class="hl kwd">malloc</span><span class="hl opt">(</span>n <span class="hl opt">*</span> <span class="hl kwa">sizeof</span><span class="hl opt">(</span><span class="hl kwb">int</span><span class="hl opt">));</span>
+        <span class="hl opt">}</span>
+        <span class="hl slc">//can now use array notation like a[i][j].</span> </pre></li><li data-coord="prj5.umt:322:0"><p data-coord="prj5.umt:322:4">Start out your implementation without bothering about the
+replacement strategy; i.e. simply use any ad-hoc replacement
+strategy which is convenient for your code.
+</p></li><li data-coord="prj5.umt:326:0"><p data-coord="prj5.umt:326:4">Once you have verified that your code works for accessing the
+correct set and cache line, implement the different replacement
+strategies.  For each cache line you could track when it was last
+accessed (where time can be tracked using a simulation clock which
+is advanced for each step of the simulation).  Alternately, you
+could track relative access age using ordering within the tracked
+information.
+</p></li></ol><p data-coord="prj5.umt:334:0">Iterate until you meet all requirements.
+</p></section><section data-coord="prj5.umt:336:0"><h2 data-coord="prj5.umt:336:0">Submission</h2><p data-coord="prj5.umt:339:0">When you are happy with your project, move it over from your <samp data-coord="prj5.umt:339:61">work</samp>
+directory to your <samp data-coord="prj5.umt:339:86">submit</samp> directory:
+</p><pre data-coord="prj5.umt:343:0">$ cd ~/i220X #X is either a or b
+$ git mv work/prj5-sol submit
+$ git commit -a -m 'suitable comment'
+$ git push
+</pre><p data-coord="prj5.umt:349:0">This should submit your project as <samp data-coord="prj5.umt:349:35">submit/prj5-sol</samp> via github.  Your
+submission should not include any object files or executables; this
+will be prevented by the provided <em data-coord="prj5.umt:349:196"><a href="prj5-sol/.gitignore" data-coord="prj5.umt:349:196">.gitignore</a></em>
+file.
+</p><p data-coord="prj5.umt:354:0">If submitting late, please drop an email to the TA for
+your section:
+</p><dl data-coord="prj5.umt:357:0"><dt data-coord="prj5.umt:357:2"> <strong data-coord="prj5.umt:357:1">Section A</strong></dt><dd data-coord="prj5.umt:358:0"><p data-coord="prj5.umt:358:4"><a href="mailto:yli241@binghamton.edu" data-coord="prj5.umt:358:36">yli241@binghamton.edu</a>
+</p></dd><dt data-coord="prj5.umt:360:2"> <strong data-coord="prj5.umt:360:1">Section B</strong></dt><dd data-coord="prj5.umt:361:0"><p data-coord="prj5.umt:361:4"><a href="mailto:rrausha1@binghamton.edu" data-coord="prj5.umt:361:38">rrausha1@binghamton.edu</a>
+</p></dd></dl></section></section>
+    </div> <!-- #content -->
+  </body>
+</html>
